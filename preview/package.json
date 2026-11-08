@@ -5,7 +5,7 @@
     "react-dom": "19.3.1"
   },
   "name": "gambit-board-preview",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "private": true,
   "scripts": {
     "build": "esbuild entry.js --bundle --format=esm --minify --outfile=bundle.js"
