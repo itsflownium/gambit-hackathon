@@ -1,35 +1,22 @@
-# Local demonstration and review cut
+# Live demonstration and review cut
 
-The repository includes the finished [86-second demo](../demo/Gambit-Demo-Review.mp4), [poster](../demo/poster.png), captions and chapter player. Catalog submission, social posting and the organizer entry form remain separate from this repository review.
+The repository includes the revised [89-second demo](../demo/Gambit-Demo-Review.mp4), [poster](../demo/poster.png), captions and a chapter player. The film now uses fresh GPT OAuth play, hints and coaching. Catalog submission, social posting and the organizer form remain separate from this repository PR.
 
-## The 86-second film
-
-The review cut uses dark cyan motion design, original synthesized music, calm synthetic narration, captions and actual product captures. It is a product walkthrough, edited for length. The [demo README](../demo/README.md) describes the included files and source labels.
-
-| Time | What the viewer sees |
+| Time | Evidence in the film |
 | --- | --- |
-| 0–7 s | Opening: a game ends, but learning continues. |
-| 7–13 s | Gambit branding and the actual native Hermes board. |
-| 13–25 s | A human move and one legal reply, with Normal, Coach and requested-hint choices explained. |
-| 25–35 s | The actual Chess.com username picker and selection of completed match `186751169392`. Lichess is also supported and was separately verified. |
-| 35–49 s | A real saved Hermes explanation of Black's recorded `1...c5`, with its native board and response excerpt. The scene identifies this as an earlier verified run. |
-| 49–61 s | Recorded `...c5` → original `Nf3`; alternative `...e6` → calculated `d4`, in separate saved practice branches. |
-| 61–68 s | Actual resignation confirmation, GG/fireworks, and automatic fresh board. |
-| 68–74 s | Local verification evidence: 82 behavioral tests and 16 local Hermes checks. |
-| 74–86 s | Possible recurring-mistake analysis and targeted practice, explicitly labelled future ideas that are not implemented. |
+| 0–6.5 s | Gambit and its focused board/chat concept. |
+| 6.5–19.5 s | A real human `f3` followed by a GPT-selected `...e5`; the actual pending-move indicator is visible. |
+| 19.5–32.5 s | Fresh requested level-one and level-two hints from the actual Hermes chat. |
+| 32.5–47.5 s | The same short game ends with `g4 → Qh4#`; fresh feedback explains why the move exposed the king and gives a safer alternative. |
+| 47.5–56.5 s | A real Normal-mode opening turn with a model reply and no automatic coaching event. |
+| 56.5–66.5 s | The public Chess.com username picker identifies the exact match by opponent, date, result and side. Lichess is also supported and was separately checked. |
+| 66.5–79.5 s | Recorded `...c5 → Nf3` and alternative `...e6 → Nc3`, with actual retrospective chat feedback. The imported original retains its 15 half-moves. |
+| 79.5–89 s | Recurring-mistake analysis and targeted practice, explicitly labelled future ideas that are not implemented. |
 
-Browser footage runs the unchanged shared board against the real plugin API and local Stockfish; these replies are labelled engine-assisted. It does not simulate a live Hermes model response or recreate chat. The coaching scene uses an authentic saved native response. New conversational coaching requires working access to the configured Hermes provider.
+Both opponent moves in the short teaching game were stored as `origin=hermes`, using GPT-6 Sol through the existing Hermes OAuth connection at xhigh reasoning. Stockfish calculates legal candidate moves and provides the evidence for hints and reviews. The visible activity indicator is progress feedback, not private model reasoning.
 
-The film does not claim rating improvement, a measured accuracy score, calibrated playing strength, catalog acceptance or future features already implemented. Original captures and editable production files remain local.
+The recording mounts the unchanged release board through a public Hermes SDK workspace beside the real chat. A local capture adapter binds them to the actual game API and submits real chat turns. This is a live shared-board recording, not a fresh native toolbar-launch test. Crops, stills, timing cuts and accelerated waits make the responses readable within 89 seconds. Chat responses are not recreated. The film is not a latency or reliability benchmark.
 
-## Optional new live take
+The first high-rate capture overloaded the Mac and two hint attempts timed out. They succeeded after closing the disposable app and reducing capture to 10 fps. The edited film uses those verified results; the 30 fps export repeats source frames as needed. Full production notes, voice provenance, captions and integrity checks are in [the demo folder](../demo/README.md).
 
-1. Open a fresh Hermes conversation and type `/chess`.
-2. Point out the single knight button beside the existing desktop controls. Show its board-only panel.
-3. Ask to play as White in Coach mode, make a move on the board, and show Hermes's legal response and chat feedback.
-4. Switch to Normal mode. Show that the next move produces no automatic commentary, then ask for a hint in chat.
-5. Give Hermes a Chess.com username, choose a completed public match, and replay a move. Show the explanation anchored to that position.
-6. Give Hermes a Lichess username and open a match from its returned list.
-7. Show forward/back controls, a requested stronger hint, saved matches, and PGN export.
-
-Keep any replacement cut under 90 seconds. Use genuine imported games and retain their source links. Disclose earlier imports and timing cuts. A new live coaching take needs working access to the configured Hermes provider.
+For a live presentation, open the knight button in Hermes, choose Coach mode, play one move, ask for a hint, and allow the actual chat turn to finish. Then search a public username, choose a specific match, and try a move in replay. Keep working Stockfish and Hermes-provider access configured. Normal mode is available for a quiet game with hints on request.

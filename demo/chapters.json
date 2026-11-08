@@ -1,38 +1,34 @@
 [
   {
-    "seconds": 0,
-    "title": "Opening"
+    "start": 0,
+    "title": "Gambit"
   },
   {
-    "seconds": 7,
-    "title": "Inside Hermes"
+    "start": 6.5,
+    "title": "Play Hermes"
   },
   {
-    "seconds": 13,
-    "title": "Play"
+    "start": 19.5,
+    "title": "Hints on request"
   },
   {
-    "seconds": 25,
-    "title": "Import your games"
+    "start": 32.5,
+    "title": "Coach mode: a real mistake"
   },
   {
-    "seconds": 35,
-    "title": "Coaching in chat"
+    "start": 47.5,
+    "title": "Normal mode"
   },
   {
-    "seconds": 49,
-    "title": "Practice alternatives"
+    "start": 56.5,
+    "title": "Import the exact match"
   },
   {
-    "seconds": 61,
-    "title": "GG and reset"
+    "start": 66.5,
+    "title": "Play from replay"
   },
   {
-    "seconds": 68,
-    "title": "Local checks"
-  },
-  {
-    "seconds": 74,
-    "title": "Future ideas"
+    "start": 79.5,
+    "title": "Future potential"
   }
 ]

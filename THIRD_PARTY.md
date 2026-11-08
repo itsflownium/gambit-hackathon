@@ -7,3 +7,9 @@
 - **React and React DOM**: supplied by Hermes Desktop at runtime. The optional browser preview bundles React for local visual QA. MIT. https://github.com/facebook/react .
 
 Gambit's knight logo and board design were created for this plugin. Gambit source is GPL-3.0-or-later; see `LICENSE`.
+
+## Demo audio
+
+- **Kokoro v1.0**: the revised demo uses locally generated synthetic narration with the `af_heart` voice. The model and voice bank are Apache-2.0; model weights are not included. Official model: https://huggingface.co/hexgrad/Kokoro-82M .
+- **kokoro-onnx 0.6.1**: local narration runtime, MIT. https://github.com/thewh1teagle/kokoro-onnx . Used for production only; it is not a plugin dependency.
+- **Quiet Continuation**: original local additive-synthesis score, without samples or external tracks.

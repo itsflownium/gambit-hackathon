@@ -31,7 +31,7 @@ Before opening that PR, rerun `hermes plugins validate /path/to/gambit --install
 ## Completed local evidence
 
 - **Version 0.2.2** matches `plugin.yaml` and `pyproject.toml`.
-- **82 Python behavioral tests passed**, plus desktop contracts, syntax and compilation checks.
+- **83 Python behavioral tests passed**, plus desktop contracts, syntax and compilation checks.
 - **All 16 local catalog-validation checks passed without warnings**; Plugin Doctor reported eight tools and one hook. This is local validation, not catalog approval.
 - Native play, Coach/Normal behavior, exact imported-match selection, immutable replay/practice, draft protection and the one-minute fallback are recorded in [verification.md](verification.md). The real stalled-model check committed one legal backup at **59.607 seconds**.
 - Screenshots, disclosures and a [local demo outline](demo.md) exist. These evidence statements come from the current [verification record](verification.md); this research pass did not rerun the test suite.
