@@ -1,19 +1,50 @@
 {
-  "duration_seconds": 86.0,
+  "verified_date": "2026-11-08",
+  "duration_seconds": 89.0,
   "width": 1920,
   "height": 1080,
-  "fps": "30/1",
-  "video_codec": "H.264",
-  "audio_codec": "AAC",
+  "frame_rate": "30/1",
+  "video_codec": "h264",
+  "video_frames": 2670,
+  "audio_codec": "aac",
+  "audio_sample_rate": 48000,
   "audio_channels": 2,
-  "audio_sample_rate": "48000",
-  "decoded_without_errors": true,
-  "synchronization_preroll_removed_seconds": 0,
-  "capture_method": "Direct canvas VP9",
-  "sha256": "beb35efcbe553f6f25b5fbe569da05dbcc11c49793c8848886dd1263b3710a33",
-  "source_labels_verified": true,
-  "future_features_marked_unimplemented": true,
-  "catalog_submitted": false,
-  "hackathon_form_submitted": false,
-  "media_content_unchanged": true
+  "full_decode": "passed; no errors or warnings",
+  "player": {
+    "chapters": 8,
+    "english_caption_cues": 14,
+    "replay_seek_seconds": 66.523758,
+    "media_error": null,
+    "byte_range_playback_verified": true
+  },
+  "sha256": "6a18e397be6435925fdb8caa3812230fcf81fea2ea946bf94fd9974f1b9f7584",
+  "capture": {
+    "model": "gpt-6-sol",
+    "reasoning": "xhigh",
+    "auth": "Hermes GPT OAuth",
+    "genuine_game_replies": true,
+    "genuine_hint_and_review_turns": true,
+    "shared_board_public_sdk_adapter": true,
+    "fresh_native_toolbar_launch_in_this_take": false,
+    "timing_cuts_and_still_crops": true,
+    "source_frame_rates": [
+      30,
+      10
+    ],
+    "export_frame_rate": 30,
+    "future_ideas_implemented": false
+  },
+  "privacy": {
+    "repository_text_and_video_metadata": "passed",
+    "visible_scene_and_source_crop_review": "passed"
+  },
+  "implementation": {
+    "behavioral_tests": 83,
+    "desktop_contract": "passed",
+    "official_validation_checks": 16,
+    "validator_warnings": 0,
+    "final_api_first_model_reply_seconds": 9.379
+  },
+  "audio_loudness_lufs": -18.1,
+  "audio_true_peak_dbfs": -4.7
 }

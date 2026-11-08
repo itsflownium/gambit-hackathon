@@ -1,0 +1,24 @@
+{
+  "complete": [
+    "89-second film",
+    "fresh live GPT game",
+    "requested hint levels 1 and 2",
+    "fresh move feedback",
+    "Normal mode without automatic coaching",
+    "exact public match selection",
+    "recorded and alternative practice with coaching",
+    "14 English caption cues",
+    "eight chapter controls",
+    "full decode",
+    "real browser seek",
+    "public text and metadata scan"
+  ],
+  "not_performed": [
+    "second physical computer",
+    "fresh native toolbar launch in this take",
+    "catalog submission",
+    "social posting",
+    "organizer form submission"
+  ],
+  "review_notes": "The film is an edited demonstration, not a latency or reliability benchmark. Capture method and initial load-related hint timeouts are disclosed in README.md."
+}

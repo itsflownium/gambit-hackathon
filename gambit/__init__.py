@@ -31,10 +31,15 @@ def service():
         ctx = _contexts.get(home)
         current = _services.get(home)
         if current is None or current.stopped.is_set():
+            if ctx is None:
+                # A secondary profile's dashboard host can precede chat loading.
+                # Keep settings and host-owned model routing in that profile.
+                from .host import DashboardContext
+                ctx = DashboardContext()
             current = Service(Store(plugin_data_dir("gambit")), ctx=ctx)
             _services[home] = current
-        elif current.ctx is None and ctx is not None:
-            current.ctx = ctx
+        elif current.ctx is not ctx and home in _contexts:
+            current.bind_context(ctx)
         return current
 
 

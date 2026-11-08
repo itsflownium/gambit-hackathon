@@ -8,7 +8,7 @@ Gambit adds one knight button to Hermes Desktop's top bar. It opens a chess boar
 
 [![Watch the Gambit demo](demo/poster.png)](demo/Gambit-Demo-Review.mp4)
 
-[Watch the 86-second demo](demo/Gambit-Demo-Review.mp4). The [demo folder](demo/README.md) includes English captions, a poster, chapter timings and a local review player. Actual engine-assisted board footage and the recorded native Hermes review are labelled. The ending clearly identifies future ideas that are not implemented.
+[Watch the 89-second demo](demo/Gambit-Demo-Review.mp4). The [demo folder](demo/README.md) includes English captions, a poster, chapter timings and a local review player. The revised film shows a real GPT OAuth game, requested hints and fresh feedback in chat. Its shared-board SDK capture and timing edits are disclosed. The ending clearly identifies future ideas that are not implemented.
 
 ## Start
 
@@ -167,4 +167,4 @@ The committed preview bundle can be rebuilt after board changes with `npm ci && 
 
 ## Release status
 
-Version 0.2.2 includes the plugin source, bundled desktop entry, browser preview, tests, documentation and demo video. The implementation is proposed through this repository's pull request. Local verification records 82 passing behavioral tests and all 16 Hermes validation checks passing; macOS was the tested platform. Catalog submission, social posting and the hackathon entry form are separate steps. See the [release checklist](docs/release-checklist.md) and [verification report](docs/verification.md).
+Version 0.2.2 includes the plugin source, bundled desktop entry, browser preview, tests, documentation and demo video. The initial implementation is merged in this repository. The fresh live demo and API-first profile fix are proposed in a new pull request. Local verification records 83 passing behavioral tests and all 16 Hermes validation checks passing; macOS was the tested platform. Catalog submission, social posting and the hackathon entry form are separate steps. See the [release checklist](docs/release-checklist.md) and [verification report](docs/verification.md).

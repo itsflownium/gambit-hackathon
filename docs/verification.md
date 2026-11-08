@@ -26,7 +26,7 @@ All requested local features are implemented and installed in Hermes Desktop. Us
 | Draft protection | Automatic feedback waits while the target chat is busy or its composer contains an unfinished draft. It uses the session-addressed SDK composer. |
 | Browser interaction | Shared board UI passed click, drag, keyboard movement, all four promotion choices, knight underpromotion with legal draw, every replay half-move, rewind, autoplay, speed control and narrow-layout checks. |
 | Public source behavior | Real requests to both documented public APIs succeeded; tests cover missing users, source failures, malformed imports, variants and rate limiting. No passwords or cookies are required. |
-| Automated checks | **82 Python behavioral tests passed**. Desktop contract checks passed, including a takeback or mode change while the composer draft is being checked. Node syntax and Python compilation passed. |
+| Automated checks | **83 Python behavioral tests passed**. Desktop contract checks passed, including a takeback or mode change while the composer draft is being checked. Node syntax and Python compilation passed. |
 | Hermes checks | Plugin Doctor passed: 8 tools, 1 hook. Catalog validation passed **all 16 checks**, no warnings, including security scan, no core override and SDK-only desktop surface. Validation was local; no catalog submission occurred. |
 | Installed build | Python and desktop halves enabled locally. Desktop file hash matched source. Stockfish 19 installed locally from the official archive with its license and verified archive SHA-256. |
 
@@ -57,13 +57,23 @@ All requested local features are implemented and installed in Hermes Desktop. Us
 - Rechecked playable replay: following e4 received exactly the recorded e5; an alternative Nf3 received exactly one calculated Nf6. Returning to the recorded match preserved all seven source half-moves and its original cursor.
 - Repeated live picker searches after the repair: Chess.com returned EmboldenedNeighbor's first match `186751169392` with the correct Black perspective and 15 half-moves; the second Lichess result for public test account `thibault` opened source `h7BRAh6C`, with 23 half-moves and the matching official link.
 
-## Local demo preparation
+## Earlier demo preparation
 
 - Fresh footage of the unchanged shared board and real plugin API verified `...c5` → recorded `Nf3`, and alternative `...e6` → engine-calculated `d4`, each as one opponent reply. The imported original retained its 15 half-moves. Actual resignation footage shows GG/fireworks and a fresh board.
 - The native viewer was reopened normally against the ready local gateway. The original saved Chess.com replay and its genuine Hermes explanation of `1...c5` loaded successfully. The film identifies that response as an earlier verified run.
 - The film labels engine-assisted browser play and a genuine saved native review, and explicitly marks proposed future training features as unimplemented. New conversational coaching depends on working access to the configured Hermes provider.
 - Entry copy, source-linked event requirements and a draft catalog entry are included for review. A catalog PR, social post and organizer form submission are separate actions.
 - The final direct-canvas export is 86 seconds at 1920×1080 and 30 fps, with H.264 video and stereo 48 kHz AAC. It decoded fully without errors. The local review player loaded all 16 English caption cues and nine chapter controls; an actual seek to the practice chapter reached 49.00038 seconds. Original music and synthetic narration accompany the film; its checksum is supplied with the separate demo artifacts.
+
+## Revised live GPT demo
+
+The revised film shows a fresh, deliberately short teaching game: `1. f3 e5 2. g4 Qh4#`. Both opponent moves were selected by GPT-6 Sol through the existing Hermes OAuth connection at xhigh reasoning. The game recorded `origin=hermes` for both replies, at 5.501 and 7.467 seconds. Fresh chat turns called `chess_hint` and `chess_review`; they returned a level-one clue, a level-two knight hint, and feedback explaining why `2.g4` allowed immediate mate and how `2.Nc3` would have avoided it.
+
+The recording uses the unchanged release board in a public Hermes SDK workspace beside the actual Hermes conversation, bound through the actual plugin API. A local recording adapter connects the board and chat. This is a live shared-board capture, not evidence of a fresh native toolbar-launch test. Waits, cuts, and framing are disclosed in the film and demo notes. No chat responses are recreated.
+
+The first 30 fps capture overloaded the development Mac and caused two engine-backed hint attempts to time out. After closing the disposable demo app and reducing capture to 10 fps, the hints succeeded. The final 30 fps export repeats source frames where appropriate; the demonstration is not a latency or reliability benchmark.
+
+This session also uncovered and repaired an API-first profile issue: a separate dashboard host could construct the service without its engine settings or model facade. The dashboard now uses the documented profile-scoped configuration and host LLM facades before chat registration, and adopts the registered context when it arrives. A regression test verifies the configured engine, one model-selected reply, and later registration settings. All 83 behavioral tests and all 16 official validation checks pass, with no validator warnings. After reloading the final fix, a fresh API-first game used the configured engine and returned GPT’s `...e5` with `origin=hermes` in 9.379 seconds.
 
 ## Repository portability
 

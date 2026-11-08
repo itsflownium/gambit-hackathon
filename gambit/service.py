@@ -35,6 +35,14 @@ class Service:
         self.stopped = threading.Event()
         self.summaries = {}
 
+    def bind_context(self, ctx):
+        """Honor settings when chat registration follows the dashboard's first request."""
+        with self.lock:
+            self.ctx = ctx
+            self.engine.configured_path = ctx.get_config("engine_path", "")
+            self.engine.seconds = max(0.05, min(float(ctx.get_config("analysis_seconds", 0.4)), 3.0))
+            self.move_seconds = max(1.0, min(60.0, float(ctx.get_config("move_timeout_seconds", 60))))
+
     def stop(self):
         self.stopped.set()
         with self.lock:

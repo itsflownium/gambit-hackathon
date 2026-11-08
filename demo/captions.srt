@@ -1,63 +1,65 @@
 1
-00:00:00,800 --> 00:00:03,185
-A game ends. The learning should not.
+00:00:00,600 --> 00:00:03,684
+Your next move can teach you something. Meet
+Gambit.
 
 2
-00:00:07,300 --> 00:00:11,364
-Meet Gambit: a chess opponent and coach, inside Hermes.
+00:00:07,000 --> 00:00:12,090
+Play a real game against Hermes. Make one
+move, and Hermes calculates one reply.
 
 3
-00:00:14,000 --> 00:00:18,637
-You move. One reply. Choose Normal for a quiet game, or Coach for
+00:00:12,090 --> 00:00:15,362
+You can see it working before the move
+lands.
 
 4
-00:00:18,637 --> 00:00:21,846
-explanations. Ask for a hint when you need one.
+00:00:20,000 --> 00:00:25,284
+Stuck? Ask for a hint. Hermes starts with a
+clue, then reveals more only when you
 
 5
-00:00:26,000 --> 00:00:30,319
-Bring your own history. Search Chess dot com or Lichess, then choose
+00:00:25,284 --> 00:00:27,596
+ask. The answer stays in your chat.
 
 6
-00:00:30,319 --> 00:00:31,398
-the exact match.
+00:00:33,000 --> 00:00:37,774
+In Coach mode, Hermes explains the move you
+just played, using Stockfish analysis.
 
 7
-00:00:36,200 --> 00:00:40,792
-Replay each decision with coaching in chat. Here, Hermes explains a
+00:00:37,774 --> 00:00:42,548
+Here is the mistake, why it matters, and a
+clear way to improve.
 
 8
-00:00:40,792 --> 00:00:44,966
-recorded move using Stockfish analysis. The board and the conversation
+00:00:48,500 --> 00:00:54,035
+Normal mode keeps commentary quiet. Hints
+and explanations are there when you ask.
 
 9
-00:00:44,966 --> 00:00:45,801
-stay connected.
+00:00:57,000 --> 00:01:02,276
+Bring your own games. Search Chess dot com
+or Lichess, choose the exact match, and
 
 10
-00:00:50,000 --> 00:00:54,402
-Now try another idea. Follow the original for its recorded reply.
+00:01:02,276 --> 00:01:04,035
+replay it with your coach.
 
 11
-00:00:54,402 --> 00:00:58,805
-Change your move for a calculated response. Your original game stays
+00:01:07,000 --> 00:01:12,778
+Follow the original line, or try another
+idea. Hermes responds to your move, while
 
 12
-00:00:58,805 --> 00:00:59,205
-saved.
+00:01:12,778 --> 00:01:14,841
+the original match stays intact.
 
 13
-00:01:02,000 --> 00:01:06,512
-Resign. GG. Fireworks. And you are ready for the next game.
+00:01:20,000 --> 00:01:25,116
+Today: play, replay, and understand. Next:
+turn recurring mistakes into targeted
 
 14
-00:01:08,300 --> 00:01:12,871
-Eighty two tests. Sixteen Hermes checks. Built to keep playing.
-
-15
-00:01:15,000 --> 00:01:20,261
-Next: recurring mistakes and targeted practice. Future ideas, built
-
-16
-00:01:20,261 --> 00:01:24,937
-around your own games. Today: play, replay, understand.
+00:01:25,116 --> 00:01:28,372
+practice. That is where Gambit can go.

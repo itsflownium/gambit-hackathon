@@ -1,25 +1,23 @@
-# Gambit demo
+# Gambit live demo
 
 [![Watch Gambit](poster.png)](Gambit-Demo-Review.mp4)
 
-[Watch the 86-second demo](Gambit-Demo-Review.mp4). It includes original cyan motion graphics, an original ambient score, calm synthetic narration and actual product captures. Download this folder and open `Review.html` locally for chapter buttons and optional English subtitles, or play the MP4 directly.
+[Watch the revised 89-second demo](Gambit-Demo-Review.mp4). Open `Review.html` for eight chapter controls and optional English captions. The MP4 is 1920×1080 at 30 fps, H.264/AAC with stereo 48 kHz audio.
 
-## Included files
+## Fresh evidence
 
-- `Gambit-Demo-Review.mp4`: 1920×1080, 30 fps, H.264 video and stereo 48 kHz AAC.
-- `poster.png`: branded demo poster.
-- `captions.srt` and `captions.vtt`: 16 English narration cues.
-- `chapters.json`: nine chapter start times.
-- `Review.html`: local video player with captions and chapter navigation.
-- `audio-timings.json`: narration timing and original-score provenance.
-- `video-verification.json` and the SHA-256 file: export checks and file integrity.
+The deliberately short real game is `1. f3 e5 2. g4 Qh4#`. GPT-6 Sol, using the existing Hermes OAuth connection and xhigh reasoning, selected both replies from Stockfish-calculated legal candidates. They were stored as `origin=hermes`, taking 5.501 and 7.467 seconds. The film shows the actual pending-move indicator rather than private model reasoning.
 
-## What the film shows
+Fresh chat turns called `chess_hint` and `chess_review`: a level-one clue, a level-two knight hint, and feedback explaining why `2.g4` permitted immediate mate and how `2.Nc3` would have avoided it. Normal mode completed `e4 → e5` with a model reply and no automatic coaching event.
 
-The unchanged shared board runs against the real plugin API and local Stockfish. The film shows a public Chess.com username search and exact match selection, one human move followed by one reply, recorded `...c5` → `Nf3`, alternative `...e6` → calculated `d4`, and actual GG/fireworks/reset. Browser replies are identified as engine-assisted. A native Hermes capture provides a genuine saved explanation of Black's `1...c5`, labelled as an earlier verified run.
+The picker found completed public Chess.com match `186751169392` for `EmboldenedNeighbor`, showing opponent, date, result and Black perspective. Practice `...c5` received exactly the original `Nf3`; alternative `...e6` received a fresh model-selected `Nc3`. Both received real retrospective coaching. The imported original retained all 15 half-moves. Lichess is supported and was separately checked; this film's search uses Chess.com.
 
-The film is edited for length. It does not claim instantaneous inference, measured rating improvement or catalog acceptance. Its ending explicitly labels recurring-mistake analysis and targeted practice as future ideas, not implemented features.
+## Capture and editing
 
-The original score, *Quiet Continuation*, uses local additive synthesis without samples or external tracks. Narration uses the installed macOS Daniel voice. Chess piece artwork is by Colin M. L. Burnett via python-chess, using the GPL option documented in [THIRD_PARTY.md](../THIRD_PARTY.md). Gambit's knight logo and board design were created for this plugin. Stockfish is separately installed and is not bundled in this repository.
+The unchanged release board runs in a public Hermes SDK workspace beside the real Hermes chat, bound to the actual plugin API. A local recording adapter handles that binding and coaching delivery. This is a live shared-board capture, not a fresh native toolbar-launch test. Chat replies are not recreated. Crops, stills, timing cuts and accelerated waiting periods make the results readable within 89 seconds.
 
-Raw desktop captures, runtime databases, installed engines and private production files are excluded. [Entry copy](../docs/hackathon-entry.md), [event requirements](../docs/hackathon-preparation.md) and the [release checklist](../docs/release-checklist.md) accompany the source. Catalog submission, social posting and the organizer form are separate from this repository PR.
+The first 30 fps source capture overloaded the development Mac and two hint attempts timed out. After closing the disposable demo app and reducing capture to 10 fps, the requested hints succeeded. The final 30 fps film repeats source frames where needed. It is an edited demonstration, not a performance or reliability benchmark. The failed takes are excluded from the edited success sequence; the failure and correction are disclosed here.
+
+Narration uses Kokoro v1.0's `af_heart` synthetic voice, through kokoro-onnx 0.6.1, with the original score *Quiet Continuation*. Music uses local additive synthesis without samples or external tracks. The closing recurring-mistake and targeted-practice ideas are explicitly unimplemented. See `audio-timings.json` for timing and provenance, and the repository's third-party notices for licensing.
+
+Raw captures, credentials, runtime databases, model weights, engines and production helpers are excluded. Catalog submission, social posting and the organizer form remain separate actions.
