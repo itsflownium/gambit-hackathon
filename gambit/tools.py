@@ -191,7 +191,33 @@ def register_tools(ctx, get_service):
     def command(raw_args="", *, session_id="", session_key="", **kwargs):
         try:
             service = get_service()
-            sid = bound_session(service, session_candidates({"session_id":session_id,"session_key":session_key}), initialize=True)
+            candidates = session_candidates({"session_id":session_id,"session_key":session_key})
+            if raw_args.startswith("__board__ "):
+                # The public gateway command transport supplies the chat's own
+                # session context. Never accept a caller-selected session id.
+                from .actions import Action, board_action
+                if len(raw_args) > 16384:
+                    raise GambitError("The board request is too large.")
+                request = json.loads(raw_args[len("__board__ "):])
+                if not isinstance(request, dict):
+                    raise GambitError("Use a valid chessboard request.")
+                sid = bound_session(service, candidates)
+                if not sid:
+                    raise GambitError("Open a Hermes chat to use the chessboard.")
+                path = str(request.get("path", "")).split("?", 1)[0]
+                options = request.get("options") or {}
+                if not isinstance(options, dict):
+                    raise GambitError("Use valid chessboard options.")
+                method = str(options.get("method", "GET")).upper()
+                if path == "/state" and method == "GET":
+                    result = service.state(sid)
+                elif path == "/action" and method == "POST":
+                    body = Action.model_validate({**(options.get("body") or {}), "session_id": sid})
+                    result = board_action(service, body)
+                else:
+                    raise GambitError("Unknown chessboard request.")
+                return json.dumps(result, ensure_ascii=False)
+            sid = bound_session(service, candidates, initialize=True)
             service.emit("initialized", {"session_id":sid})
             parts = raw_args.strip().split()
             if parts and parts[0].lower() == "play":
@@ -208,7 +234,9 @@ def register_tools(ctx, get_service):
             if parts:
                 return "Usage: /chess [play white|black normal|coach learning|balanced|strong | chess.com USERNAME | lichess USERNAME | status]. After /chess, ordinary chat works for all chess requests."
             return service.initialize(sid)["message"]
-        except GambitError as exc:
+        except (GambitError, ValueError, TypeError) as exc:
+            if raw_args.startswith("__board__ "):
+                return json.dumps({"ok": False, "error": getattr(exc, "code", "invalid_action"), "message": str(exc)})
             return str(exc)
 
     ctx.register_command("chess", command, description="Initialize Gambit chess coaching in this chat; then play or review a username",

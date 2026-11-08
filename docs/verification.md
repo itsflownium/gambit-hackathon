@@ -1,4 +1,4 @@
-# Local verification — Gambit 0.2.2
+# Local verification — Gambit 0.2.3
 
 Verified 2026-11-08 (AEDT). This report records local implementation and media checks. Repository review is separate from catalog acceptance and hackathon submission.
 
@@ -7,6 +7,20 @@ Verified 2026-11-08 (AEDT). This report records local implementation and media c
 All requested local features are implemented and installed in Hermes Desktop. Use the knight button in the top bar, then **Play Hermes** or **Import game**. Play, choose Normal or Coach mode, request hints, or choose a specific Chess.com or Lichess match by username. Chat also supports `/chess` and ordinary username requests.
 
 ## Checks completed
+
+### Ordinary-chat routing repair
+
+Gambit no longer requires selecting a dedicated chess profile. Board reads, moves, imports and coaching acknowledgements use the public SDK route for the focused chat's owner. The gateway binds the operation to that chat; a client-provided session ID cannot redirect it. Starting a game or searching games from an empty board creates a regular chat directly. Navigation invalidates pending startup and coaching work.
+
+The full suite passes **86 behavioral tests**, and the desktop contract passes its new ordinary-chat, different-owner, fresh-import and navigation-during-creation cases. All **16 official validator checks** pass, with no warnings in the validation report, when the official validator is invoked in the prepared test environment. The regenerated desktop bundle passes the public-SDK boundary check.
+
+A live public-SDK check reached the previously blocked game while the app's ambient selection remained `default`: `1. e4 c6`, with exactly one opponent reply, `origin=hermes`, in **5.87 seconds**. Normal mode queued no automatic coaching. The test turn was then undone through Gambit's service, restoring the opening position.
+
+The installed Hermes environment changed during an ongoing source update. A final CLI dependency preparation attempt failed on an unrelated upstream KittenTTS wheel download (HTTP 504), and the active environment's capability probe could not import chess. The validator was therefore run directly from its unmodified official module in the isolated test environment with Gambit's dependencies installed. A fresh native-window startup and a new default-backend chat could not be verified in this run: the native refresh stalled, and the default backend's session-creation request timed out. These environment checks remain open; the live evidence above is a routed game test, not a fresh native launch claim.
+
+The repair also keys the shared Python runtime by its own source revision. Supported plugin reloads now adopt changed handlers while the agent and dashboard still share one runtime for unchanged source. A regression test verifies both entry points adopt a changed module.
+
+### Earlier feature checks
 
 | Area | Evidence |
 | --- | --- |

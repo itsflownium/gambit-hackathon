@@ -18,6 +18,8 @@ Open the knight button and choose **Play Hermes** or **Import game**. You can al
 /chess
 ```
 
+Use any regular Hermes chat; no dedicated chess profile is required. A fresh **Play Hermes** opens a normal chat automatically. Gambit follows the chat on screen, including when **All profiles** is selected, and keeps each chat's game separate.
+
 Then use ordinary conversation:
 
 ```text
@@ -98,15 +100,13 @@ Undo restores your turn, including after a final checkmating move. Coaching and 
 
 Requires Hermes Agent **0.23.0 or later** with Hermes Desktop and a local Stockfish executable. Python dependencies are declared with bounded versions in `pyproject.toml` and prepared by Hermes's package manager.
 
-While the implementation PR is under review, clone its branch and install the committed checkout through the supported Hermes installer:
+Install the repository through Hermes's supported installer:
 
 ```sh
-gambit_checkout="$(pwd)/gambit"
-git clone --branch feat/gambit-plugin-and-demo --single-branch https://github.com/itsflownium/gambit-hackathon.git "$gambit_checkout"
-hermes plugins install "file://$gambit_checkout" --yes-deps --enable
+hermes plugins install https://github.com/itsflownium/gambit-hackathon --yes-deps --enable
 ```
 
-After the implementation is merged into the default branch, the repository URL can be used directly with the supported installer. An unpacked source ZIP can use the linked-folder installation below; the Git-URL installer expects a committed Git checkout.
+An unpacked source ZIP can use the linked-folder installation below; the Git-URL installer expects a committed Git checkout.
 
 For linked local development, place a link to the checkout in the active Hermes home's `plugins/gambit` directory and run `hermes plugins enable gambit`. Enable **Gambit Chess** in Desktop's Capabilities → Plugins page and rescan if needed. If dependencies were installed after the gateway started, restart the gateway through Hermes's normal restart command.
 

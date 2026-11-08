@@ -68,7 +68,7 @@ export function createBoard(React) {
   @media(prefers-reduced-motion:no-preference){.gambit-board-root .gb-piece{animation:gb-appear .12s ease-out}@keyframes gb-appear{from{opacity:.6;transform:scale(.95)}to{opacity:1;transform:scale(1)}}}
   `;
 
-  return function Board({ api, sessionId, onPrompt, subscribe, chatBusy=false }) {
+  return function Board({ api, sessionId, onPrompt, onStart, subscribe, chatBusy=false }) {
     const [state, setState] = useState(null), [error, setError] = useState('');
     const [selected, setSelected] = useState(null), [promotion, setPromotion] = useState(null);
     const [flipped, setFlipped] = useState(false), [menu, setMenu] = useState(false);
@@ -161,9 +161,26 @@ export function createBoard(React) {
       if(!importUsername&&search?.username&&Array.isArray(search.games)){setImportPlatform(search.platform);setImportUsername(search.username);setImportResults({ok:true,...search});}
       setMenu(false);setAutoplay(false);setError('');setImportOpen(true);
     };
+    useEffect(()=>{
+      const search=state?.session?.last_search;
+      if(!board&&!importUsername&&search?.username&&Array.isArray(search.games)){
+        setImportPlatform(search.platform);setImportUsername(search.username);
+        setImportResults({ok:true,...search});setImportOpen(true);
+      }
+    },[state?.session?.last_search,board,importUsername]);
     useEffect(()=>{if(importOpen&&requesting)importClose.current?.focus();},[importOpen,requesting]);
     const findImported=async before=>{
-      if(!sid){if(sendPrompt('/chess '+importPlatform+' '+importUsername.trim()))closeImport();return;}
+      if(!sid){
+        if(onStart){
+          if(active.current)return;
+          active.current=true;
+          setRequesting('find_games');setError('');
+          try{await onStart({action:'find_games',platform:importPlatform,username:importUsername.trim(),limit:10,refresh:true});}
+          catch(error){if(mounted.current)setError(error.message||'Could not find games. Try again.');}
+          finally{active.current=false;if(mounted.current)setRequesting('');}
+        }else if(sendPrompt('/chess '+importPlatform+' '+importUsername.trim()))closeImport();
+        return;
+      }
       setImportResults(null);
       const result=await act('find_games',{platform:importPlatform,username:importUsername.trim(),limit:10,refresh:true,...(before?{before}:{})});
       if(result&&mounted.current)setImportResults(result);
@@ -177,10 +194,20 @@ export function createBoard(React) {
     const startGame = useCallback(async () => {
       setAutoplay(false);setMenu(false);setConfirm(false);
       const mode=finish?.mode||(board?.mode==='play'?board.play_mode:'normal')||'normal';
-      if(!sid){sendPrompt('/chess play white '+mode);return;}
+      if(!sid){
+        if(onStart){
+          if(active.current)return;
+          active.current=true;
+          setRequesting('start');setError('');
+          try{await onStart({colour:'white',mode});}
+          catch(error){if(mounted.current)setError(error.message||'Could not start the game. Try again.');}
+          finally{active.current=false;if(mounted.current)setRequesting('');}
+        }else sendPrompt('/chess play white '+mode);
+        return;
+      }
       const next=await act('start',{colour:'white',mode});
       if(next){setFinish(null);setFlipped(false);setCoachPending(false);}
-    },[act,sid,sendPrompt,board?.mode,board?.play_mode,finish?.mode]);
+    },[act,sid,sendPrompt,onStart,board?.mode,board?.play_mode,finish?.mode]);
     useEffect(()=>{
       if(!finish)return;
       const timer=setTimeout(async()=>{

@@ -12,8 +12,8 @@ function desktop(overrides={}) {
   const env={focused:'chat-a',runtime:'runtime-a',profile:'default',activeProfile:'default',connection:'local',ownerConnection:'local',
     epoch:1,now:100000,busy:{},draft:'',state:coachingState(),fetchWait:null,draftWait:null,ackWait:null,fetchError:null,submitAccepted:true,
     stateCalls:0,...overrides};
-  const contributions=[],intervals=[],submissions=[],acks=[],listeners={},disposers=[],stored=new Map(overrides.stored||[]);
-  const started={fetchWait:deferred(),draftWait:deferred(),ackWait:deferred()};
+  const contributions=[],intervals=[],submissions=[],acks=[],listeners={},disposers=[],rpcRoutes=[],opened=[],stored=new Map(overrides.stored||[]);
+  const started={fetchWait:deferred(),draftWait:deferred(),ackWait:deferred(),createWait:deferred()};
   const hooks=[],effects=[];
   let hookIndex=0,requestRender=()=>{},renderedBoard=null,rendering=false,renderPending=false;
   const sameDeps=(first,second)=>first&&second&&first.length===second.length&&first.every((value,index)=>Object.is(value,second[index]));
@@ -41,22 +41,36 @@ function desktop(overrides={}) {
   };
   const routeListeners=new Set(),atom=get=>({get,listen:callback=>{routeListeners.add(callback);return ()=>routeListeners.delete(callback);}});
   const host={state:{focusedStoredSessionId:atom(()=>env.focused),focusedSessionId:atom(()=>env.runtime),
+    activeSessionId:atom(()=>env.primaryRuntime),cwd:value('/workspace'),
     focusedSessionProfile:atom(()=>env.profile),profile:atom(()=>env.activeProfile),connectionId:atom(()=>env.connection),
     focusedSessionOwner:{get:()=>env.ownerConnection?({connectionId:env.ownerConnection,profile:env.profile}):null},gateway:value('open'),busyBySession:{get:()=>env.busy}},
     composer:{getDraft:async()=>{started.draftWait.resolve();if(env.draftWait)await env.draftWait;return env.draft;},submit:(sid,text)=>{
       if(!env.submitAccepted)return false;
       submissions.push({sid,text});env.onSubmit?.();return true;
-    }},revealPane:()=>{},undismissPane:()=>{},paneVisibility:()=>value(true)};
+    }},revealPane:()=>{},undismissPane:()=>{},paneVisibility:()=>value(true),
+    profileRoutes:async()=>[{connectionId:env.ownerConnection||env.connection,mode:'local',profile:env.profile,targetProfile:env.profile}],
+    requestProfile:async(route,method,params)=>{
+      rpcRoutes.push({route,method,params});
+      if(method==='session.info')return {profile_name:route.profile};
+      if(method==='session.create'){started.createWait.resolve();if(env.createWait)await env.createWait;return {session_id:'created-runtime',stored_session_id:'created-stored'};}
+      if(method==='session.title')return {};
+      assert.equal(method,'command.dispatch');assert.equal(params.name,'chess');
+      const {path,options}=JSON.parse(params.arg.slice('__board__ '.length));
+      return {type:'exec',output:JSON.stringify(await boardRest(path,options))};
+    },openSession:async(id,options)=>opened.push({id,options})};
   const context={host,React,
     useValue:store=>store.get(),gatewayActivationEpoch:()=>env.epoch,createBoard:()=>function Board(){},
     window:{location:{hash:env.hash||'#/'}},Date:{now:()=>env.now},console:{warn:()=>{}}};
   const plugin=vm.runInNewContext(source+'\nplugin;',context);
-  const ctx={rest:async(path,options)=>{
+  const boardRest=async(path,options)=>{
     if(path==='/diagnostic')return {ok:true};
     if(path.startsWith('/state?')){env.stateCalls++;started.fetchWait.resolve();if(env.fetchWait)await env.fetchWait;if(env.fetchError)throw env.fetchError;return structuredClone(env.state);}
     if(options?.body?.action==='coach_ack'){acks.push(options.body);started.ackWait.resolve();if(env.ackWait)await env.ackWait;return {ok:true};}
+    if(options?.body?.action==='start')return {ok:true,session:{initialized:true},board:{id:'started-game'}};
+    if(options?.body?.action==='find_games')return {ok:true,games:[]};
     throw Error(path);
-  },storage:{get:(key,fallback)=>stored.has(key)?stored.get(key):fallback,set:(key,v)=>stored.set(key,v)},
+  };
+  const ctx={rest:boardRest,storage:{get:(key,fallback)=>stored.has(key)?stored.get(key):fallback,set:(key,v)=>stored.set(key,v)},
     register:contribution=>{contributions.push(contribution);return ()=>{const index=contributions.indexOf(contribution);if(index>=0)contributions.splice(index,1);};},
     onEvent:(name,callback)=>{listeners[name]=callback;return ()=>{};},setInterval:callback=>intervals.push(callback),
     setTimeout:callback=>callback(),addEventListener:()=>{},onDispose:callback=>disposers.push(callback)};
@@ -74,7 +88,7 @@ function desktop(overrides={}) {
     }finally{rendering=false;}
   };
   requestRender=()=>{if(renderedBoard)renderBoard();};
-  return {env,contributions,submissions,acks,listeners,stored,started,renderBoard,deliver:intervals[0],
+  return {env,contributions,submissions,acks,listeners,stored,started,rpcRoutes,opened,renderBoard,deliver:intervals[0],
     currentBoard:()=>renderedBoard,
     notifyRoute:()=>routeListeners.forEach(callback=>callback()),dispose:()=>disposers.forEach(callback=>callback())};
 }
@@ -152,9 +166,21 @@ for(const change of [env=>{env.profile='other';env.activeProfile='other';},env=>
   change(x.env);x.env.state=coachingState();await x.deliver();
   assert.equal(x.submissions.length,1,'An uninitialized old backend cannot suppress discovery after a profile/restart change.');
 }
-for(const overrides of [{profile:'other'},{ownerConnection:'remote'},{ownerConnection:null}]) {
+for(const overrides of [{profile:'other'},{ownerConnection:'remote'}]) {
   const x=desktop(overrides);await x.deliver();
-  assert.equal(x.env.stateCalls,0,'Do not use the active backend for another profile/source owner.');
+  assert.equal(x.env.stateCalls,2,'The board follows the visible chat without switching the ambient profile.');
+  assert.equal(x.rpcRoutes[0].route.profile,x.env.profile);
+  assert.equal(x.rpcRoutes[0].route.connectionId,x.env.ownerConnection);
+  assert.equal(x.env.activeProfile,'default');assert.equal(x.env.connection,'local');
+}
+{
+  const x=desktop({ownerConnection:null});await x.deliver();
+  assert.equal(x.env.stateCalls,0,'An unknown tile must not fall through to the ambient backend.');
+}
+{
+  const x=desktop({ownerConnection:null,primaryRuntime:'runtime-a'});await x.deliver();
+  assert.equal(x.submissions.length,1,'An ordinary primary chat can resolve its owner through the gateway.');
+  assert.equal(x.rpcRoutes[0].method,'session.info');
 }
 {
   const x=desktop({state:{session:{initialized:false},board:null}});
@@ -189,7 +215,7 @@ for(const overrides of [{profile:'other'},{ownerConnection:'remote'},{ownerConne
   assert.equal(first.props.onPrompt('other-chat','Wrong chat'),false);
   assert.equal(first.props.onPrompt('chat-a','Explain this move.'),true);
   x.env.epoch++;assert.equal(first.props.onPrompt('chat-a','Old gateway'),false);
-  await assert.rejects(first.props.api('/action',{method:'POST',body:{action:'resign'}}),/active Hermes profile/);
+  await assert.rejects(first.props.api('/action',{method:'POST',body:{action:'resign'}}),/still connecting/);
   const fresh=x.renderBoard();assert.notEqual(fresh.props.key,first.props.key);assert.equal(fresh.props.onPrompt('chat-a','New gateway'),true);
   x.env.runtime='new-runtime';assert.equal(fresh.props.onPrompt('chat-a','Old runtime'),false);
 }
@@ -201,7 +227,7 @@ for(const overrides of [{profile:'other'},{ownerConnection:'remote'},{ownerConne
   x.notifyRoute();const settled=x.currentBoard();
   assert.notEqual(settled.props.key,early.props.key,'A late navigation-token update must refresh the mounted board.');
   assert.notEqual(settled.props.api,early.props.api,'Memoized callbacks must capture the refreshed navigation token.');
-  await assert.rejects(early.props.api('/state?session_id=chat-b'),/active Hermes profile/);
+  await assert.rejects(early.props.api('/state?session_id=chat-b'),/still connecting/);
   assert.equal((await settled.props.api('/state?session_id=chat-b')).session.game_id,'game-a');
   assert.equal(settled.props.onPrompt('chat-b','Current route works.'),true);
 }
@@ -210,6 +236,33 @@ for(const overrides of [{profile:'other'},{ownerConnection:'remote'},{ownerConne
   assert.equal(board.props.onPrompt(null,'/chess play white normal'),true);
   assert.equal(x.submissions[0].sid,'new','Fresh-draft startup must address the exact new composer.');
   x.env.focused='created-chat';assert.equal(board.props.onPrompt(null,'Old draft'),false);
+}
+{
+  const x=desktop({focused:null,runtime:null,stored:[['open',true]]}),board=x.renderBoard();
+  await board.props.onStart({colour:'white',mode:'normal'});
+  assert.equal(x.submissions.length,0,'Starting directly must not depend on slash-command submission.');
+  assert.equal(x.rpcRoutes[0].method,'session.create');
+  assert.equal(x.opened[0].id,'created-stored');
+  const start=x.rpcRoutes.find(call=>call.method==='command.dispatch');
+  assert.equal(start.params.session_id,'created-runtime');
+  assert.equal(JSON.parse(start.params.arg.slice('__board__ '.length)).options.body.action,'start');
+}
+{
+  const x=desktop({focused:null,runtime:null,stored:[['open',true]]}),board=x.renderBoard();
+  await board.props.onStart({action:'find_games',platform:'chess.com',username:'Alice',refresh:true});
+  const request=x.rpcRoutes.find(call=>call.method==='command.dispatch');
+  assert.deepEqual(JSON.parse(request.params.arg.slice('__board__ '.length)).options.body,
+    {action:'find_games',platform:'chess.com',username:'Alice',refresh:true});
+  assert.equal(x.opened[0].id,'created-stored');assert.equal(x.submissions.length,0);
+}
+{
+  const wait=deferred(),x=desktop({focused:null,runtime:null,stored:[['open',true]],createWait:wait.promise}),board=x.renderBoard();
+  const starting=board.props.onStart({colour:'white',mode:'normal'});
+  await x.started.createWait.promise;
+  x.env.focused='another-chat';x.env.runtime='another-runtime';x.notifyRoute();
+  wait.resolve();await assert.rejects(starting,/still connecting/);
+  assert.equal(x.rpcRoutes.length,1,'Navigating away during chat creation must stop game startup.');
+  assert.equal(x.opened.length,0,'Late chat creation must not steal focus from the new chat.');
 }
 {
   const x=desktop();x.listeners['plugin.gambit.initialized']({payload:{session_id:'route-a',session_aliases:['chat-a']}});
