@@ -280,7 +280,7 @@ export function createBoard(React) {
           h('circle',{cx:x1,cy:y1,r:5.7,fill:'none',stroke:'#1758d9',strokeWidth:1.5}));
     }
     const status = !board ? 'Ready to play' : replay ? (coachingWait?'Hermes is responding in chat':board.position_result!=='*'?'End of match':board.turn===board.human?'Your move · replay':'Play from here') : board.result!=='*' ? (board.result==='1/2-1/2'?'Draw':'Game over') :
-      board.pending ? `Hermes is thinking · ${Math.max(0,Math.ceil(board.pending.deadline-now/1000))}s` : 'Your move';
+      board.pending ? `Hermes is thinking · ${Math.min(60,Math.max(0,Math.ceil(board.pending.deadline-now/1000)))}s` : 'Your move';
     const topName = board ? (reversed?board.white:board.black) : 'Hermes';
     const bottomName = board ? (reversed?board.black:board.white) : 'You';
     const match=board?.match;

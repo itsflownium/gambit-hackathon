@@ -1,5 +1,5 @@
 name: gambit
-version: "0.2.3"
+version: "0.2.4"
 manifest_version: 2
 api_version: 1
 description: Play chess against Hermes and replay Chess.com or Lichess games by username. A board-only desktop panel, with coaching and requested hints in your Hermes chat. Moves have a hard 60-second response deadline.

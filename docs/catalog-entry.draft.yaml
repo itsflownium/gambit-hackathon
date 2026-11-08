@@ -15,7 +15,7 @@ maintainer: itsflownium
 tier: community
 category: desktop
 requires_hermes: ">=0.23.0"
-version: "0.2.3"
+version: "0.2.4"
 readme: true
 # Conservative proposed scope: verified on this Mac, including a fresh Hermes profile.
 # No separate-machine, Linux or Windows compatibility claim has been established.
