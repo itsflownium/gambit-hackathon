@@ -140,7 +140,7 @@ function createBoard(React) {
   @media(prefers-reduced-motion:no-preference){.gambit-board-root .gb-piece{animation:gb-appear .12s ease-out}@keyframes gb-appear{from{opacity:.6;transform:scale(.95)}to{opacity:1;transform:scale(1)}}}
   `;
 
-  return function Board({ api, sessionId, onPrompt, subscribe, chatBusy=false }) {
+  return function Board({ api, sessionId, onPrompt, onStart, subscribe, chatBusy=false }) {
     const [state, setState] = useState(null), [error, setError] = useState('');
     const [selected, setSelected] = useState(null), [promotion, setPromotion] = useState(null);
     const [flipped, setFlipped] = useState(false), [menu, setMenu] = useState(false);
@@ -233,9 +233,26 @@ function createBoard(React) {
       if(!importUsername&&search?.username&&Array.isArray(search.games)){setImportPlatform(search.platform);setImportUsername(search.username);setImportResults({ok:true,...search});}
       setMenu(false);setAutoplay(false);setError('');setImportOpen(true);
     };
+    useEffect(()=>{
+      const search=state?.session?.last_search;
+      if(!board&&!importUsername&&search?.username&&Array.isArray(search.games)){
+        setImportPlatform(search.platform);setImportUsername(search.username);
+        setImportResults({ok:true,...search});setImportOpen(true);
+      }
+    },[state?.session?.last_search,board,importUsername]);
     useEffect(()=>{if(importOpen&&requesting)importClose.current?.focus();},[importOpen,requesting]);
     const findImported=async before=>{
-      if(!sid){if(sendPrompt('/chess '+importPlatform+' '+importUsername.trim()))closeImport();return;}
+      if(!sid){
+        if(onStart){
+          if(active.current)return;
+          active.current=true;
+          setRequesting('find_games');setError('');
+          try{await onStart({action:'find_games',platform:importPlatform,username:importUsername.trim(),limit:10,refresh:true});}
+          catch(error){if(mounted.current)setError(error.message||'Could not find games. Try again.');}
+          finally{active.current=false;if(mounted.current)setRequesting('');}
+        }else if(sendPrompt('/chess '+importPlatform+' '+importUsername.trim()))closeImport();
+        return;
+      }
       setImportResults(null);
       const result=await act('find_games',{platform:importPlatform,username:importUsername.trim(),limit:10,refresh:true,...(before?{before}:{})});
       if(result&&mounted.current)setImportResults(result);
@@ -249,10 +266,20 @@ function createBoard(React) {
     const startGame = useCallback(async () => {
       setAutoplay(false);setMenu(false);setConfirm(false);
       const mode=finish?.mode||(board?.mode==='play'?board.play_mode:'normal')||'normal';
-      if(!sid){sendPrompt('/chess play white '+mode);return;}
+      if(!sid){
+        if(onStart){
+          if(active.current)return;
+          active.current=true;
+          setRequesting('start');setError('');
+          try{await onStart({colour:'white',mode});}
+          catch(error){if(mounted.current)setError(error.message||'Could not start the game. Try again.');}
+          finally{active.current=false;if(mounted.current)setRequesting('');}
+        }else sendPrompt('/chess play white '+mode);
+        return;
+      }
       const next=await act('start',{colour:'white',mode});
       if(next){setFinish(null);setFlipped(false);setCoachPending(false);}
-    },[act,sid,sendPrompt,board?.mode,board?.play_mode,finish?.mode]);
+    },[act,sid,sendPrompt,onStart,board?.mode,board?.play_mode,finish?.mode]);
     useEffect(()=>{
       if(!finish)return;
       const timer=setTimeout(async()=>{
@@ -459,26 +486,55 @@ function Knight({size=17}) {
 export default {
   id:'gambit',name:'Gambit Chess',defaultEnabled:false,
   register(ctx) {
-    const api = (path,options) => ctx.rest(path,options);
-    const diagnostic=event=>api('/diagnostic',{method:'POST',body:{event}}).catch(error=>console.warn('[gambit]',String(error)));
+    const diagnostic=event=>ctx.rest('/diagnostic',{method:'POST',body:{event}}).catch(error=>console.warn('[gambit]',String(error)));
     diagnostic('desktop_registered');
     let visit=0;
     const routeRenderers=new Set();
     const routeChanged=()=>{visit++;routeRenderers.forEach(refresh=>refresh());};
-    const routeStops=[host.state.focusedStoredSessionId,host.state.focusedSessionId,host.state.focusedSessionProfile,host.state.connectionId]
+    const routeStops=[host.state.focusedStoredSessionId,host.state.focusedSessionId,host.state.focusedSessionProfile,
+      host.state.focusedSessionOwner,host.state.activeSessionId,host.state.profile,host.state.connectionId]
       .map(atom=>atom?.listen?.(routeChanged)).filter(Boolean);
     const route=()=>{
-      const runtime=host.state.focusedSessionId.get(),profile=host.state.focusedSessionProfile.get();
-      const connection=host.state.focusedSessionOwner?.get()?.connectionId||host.state.connectionId?.get()||'';
-      return {sid:host.state.focusedStoredSessionId.get()||runtime,runtime,profile,connection,epoch:gatewayActivationEpoch(),visit};
+      const runtime=host.state.focusedSessionId.get(),owner=host.state.focusedSessionOwner?.get();
+      const profile=owner?.profile||host.state.focusedSessionProfile.get()||host.state.profile?.get()||'default';
+      const connection=owner?.connectionId||host.state.connectionId?.get()||'local';
+      const sid=host.state.focusedStoredSessionId.get()||runtime;
+      const primary=(!sid&&!runtime)||!!(runtime&&runtime===host.state.activeSessionId?.get());
+      return {sid,runtime,profile,connection,owned:!host.state.focusedSessionOwner||!!owner,primary,epoch:gatewayActivationEpoch(),visit};
     };
-    const routeKey=value=>JSON.stringify([value.connection,value.profile,value.sid,value.runtime,value.epoch,value.visit]);
+    const routeKey=value=>JSON.stringify([value.connection,value.profile,value.sid,value.runtime,value.owned,value.primary,value.epoch,value.visit]);
     const sessionKey=(value,sid=value.sid)=>JSON.stringify([value.connection,value.profile,sid]);
     let disposed=false;
-    const current=value=>!disposed&&routeKey(value)===routeKey(route())&&
-      (!host.state.focusedSessionOwner||!!host.state.focusedSessionOwner.get())&&
-      (!host.state.profile||value.profile===host.state.profile.get())&&
-      (!host.state.connectionId||!value.connection||value.connection===host.state.connectionId.get());
+    const current=value=>!disposed&&routeKey(value)===routeKey(route())&&(value.owned||value.primary);
+    const routingError=()=>new Error('This chat is still connecting. Keep it open and try again.');
+    const gatewayRoute=async target=>{
+      const routes=typeof host.profileRoutes==='function'?await host.profileRoutes():[];
+      if(!current(target))throw routingError();
+      const found=routes.find(item=>item.connectionId===target.connection&&
+        (item.profile===target.profile||item.targetProfile===target.profile));
+      if(found)return found;
+      if(target.connection==='local')return {connectionId:'local',mode:'local',profile:target.profile,targetProfile:target.profile};
+      throw routingError();
+    };
+    const requestAt=async(target,method,params,timeout=30000)=>{
+      if(!current(target))throw routingError();
+      if(typeof host.requestProfile==='function'){
+        const destination=await gatewayRoute(target);
+        return host.requestProfile(destination,method,params,timeout,{spawnPriority:'foreground'});
+      }
+      if(target.profile!==host.state.profile?.get()||target.connection!==(host.state.connectionId?.get()||'local'))throw routingError();
+      return host.request(method,params,timeout);
+    };
+    const boardRequest=async(target,path,options={},address=target.runtime||target.sid)=>{
+      if(!address)throw routingError();
+      if(!target.owned)await requestAt(target,'session.info',{session_id:address});
+      if(!current(target))throw routingError();
+      const response=await requestAt(target,'command.dispatch',{
+        name:'chess',session_id:address,arg:'__board__ '+JSON.stringify({path,options})
+      },options.timeoutMs||60000);
+      if(!current(target))throw routingError();
+      try{return JSON.parse(response.output);}catch{throw new Error('Gambit is updating. Reload the chessboard and try again.');}
+    };
     const idle=value=>current(value)&&!host.state.busyBySession.get()[value.runtime];
     const coachingMatches=(event,state)=>{
       if(event.game_id!==state.session.game_id)return false;
@@ -496,7 +552,7 @@ export default {
       if(!sid||delivering.has(key)||!idle(target)||(!force&&key===lastCheckedRoute&&!knownSessions.has(sessionKey(target))&&Date.now()-lastCheckedAt<10000))return;
       delivering.add(key);
       try{
-        const state=await api('/state?session_id='+encodeURIComponent(sid));
+        const state=await boardRequest(target,'/state?session_id='+encodeURIComponent(sid));
         if(!idle(target))return;
         lastCheckedRoute=key;lastCheckedAt=Date.now();
         if(state.session.initialized){knownSessions.add(sessionKey(target));ctx.storage.set('chessSessions',[...knownSessions].slice(-200));}
@@ -504,16 +560,16 @@ export default {
           if(!idle(target))return;
           if(event.game_id!==state.session.game_id)continue;
           if(!coachingMatches(event,state)){
-            await api('/action',{method:'POST',body:{session_id:sid,action:'coach_ack',event_id:event.id}});continue;
+            await boardRequest(target,'/action',{method:'POST',body:{session_id:sid,action:'coach_ack',event_id:event.id}});continue;
           }
           if(state.board?.mode==='play'&&state.board?.play_mode==='normal'&&event.kind==='auto'){
-            await api('/action',{method:'POST',body:{session_id:sid,action:'coach_ack',event_id:event.id}});continue;
+            await boardRequest(target,'/action',{method:'POST',body:{session_id:sid,action:'coach_ack',event_id:event.id}});continue;
           }
           const deliveryKey=JSON.stringify([target.connection,target.profile,state.session.id||sid,event.game_id,event.id]);
           if(!delivered.has(deliveryKey)&&!delivered.has(event.id)){
             const draft=await host.composer.getDraft(sid);
             if(draft?.trim()||!idle(target))return;
-            const latest=await api('/state?session_id='+encodeURIComponent(sid));
+            const latest=await boardRequest(target,'/state?session_id='+encodeURIComponent(sid));
             if(!idle(target))return;
             if(!latest.session.coaching_queue?.some(queued=>queued.id===event.id)||!coachingMatches(event,latest)||
               (latest.board?.mode==='play'&&latest.board?.play_mode==='normal'&&event.kind==='auto'))continue;
@@ -523,7 +579,7 @@ export default {
           // A composer callback can navigate synchronously. Never acknowledge
           // the old event through a newly selected backend.
           if(!current(target))return;
-          await api('/action',{method:'POST',body:{session_id:sid,action:'coach_ack',event_id:event.id}});
+          await boardRequest(target,'/action',{method:'POST',body:{session_id:sid,action:'coach_ack',event_id:event.id}});
           break;
         }
       }catch(error){console.warn('[gambit] Coaching waits for its visible chat:',String(error));}
@@ -553,16 +609,30 @@ export default {
       // Rebind the board even when reconnecting the same stored conversation.
       useValue(host.state.gateway||host.state.focusedSessionProfile);
       useValue(host.state.profile||host.state.focusedSessionProfile);
+      useValue(host.state.activeSessionId||host.state.focusedSessionId);
       useValue(host.state.connectionId||host.state.focusedSessionProfile);
       useValue(host.state.focusedSessionOwner||host.state.focusedSessionProfile);
       const target=route();
       const boardApi=React.useCallback((path,options)=>{
-        if(!current(target))return Promise.reject(new Error('Open the chess chat in its active Hermes profile, then try again.'));
-        return api(path,options);
+        if(!current(target))return Promise.reject(routingError());
+        return boardRequest(target,path,options);
       },[sid,runtime,profile,target.connection,target.epoch,target.visit]);
       const prompt=React.useCallback((sessionId,text)=>current(target)&&sessionId===target.sid&&host.composer.submit(sessionId||'new',text),
         [sid,runtime,profile,target.connection,target.epoch,target.visit]);
-      return h(Board,{key:routeKey(target),api:boardApi,sessionId:sid||runtime,onPrompt:prompt,subscribe,chatBusy:!!busy[runtime]});
+      const start=React.useCallback(async options=>{
+        if(!current(target)||target.sid)throw routingError();
+        const created=await requestAt(target,'session.create',{source:'gui',cwd:host.state.cwd?.get()||undefined},60000);
+        if(!current(target))throw routingError();
+        const address=created.session_id,stored=created.stored_session_id||address;
+        if(!address||!stored)throw new Error('Hermes could not create a chess chat. Try again.');
+        await requestAt(target,'session.title',{session_id:address,title:options.action==='find_games'?'Chess review':'Chess with Hermes'});
+        const result=await boardRequest(target,'/action',{method:'POST',body:{action:'start',...options}},address);
+        if(!result.ok)throw new Error(result.message||'Could not start the chess game.');
+        if(!current(target))throw routingError();
+        const destination=await gatewayRoute(target);
+        await host.openSession(stored,{route:destination,awaitHydration:true});
+      },[sid,runtime,profile,target.connection,target.epoch,target.visit]);
+      return h(Board,{key:routeKey(target),api:boardApi,sessionId:sid||runtime,onPrompt:prompt,onStart:start,subscribe,chatBusy:!!busy[runtime]});
     }
     const contribution={id:'board',area:'panes',title:'Gambit',
       data:{placement:'right',dock:{pane:'workspace',pos:'right'},width:'440px'},render:()=>h(NativeBoard)};

@@ -12,8 +12,9 @@ The implementation and demo are proposed for review in `itsflownium/gambit-hacka
 - [x] Replay every half-move, practice recorded or alternative lines, and preserve the original match.
 - [x] Position-anchored coaching, draft protection and separate conversation/profile state.
 - [x] GG/fireworks after resignation, followed by a fresh playable board.
-- [x] 83 Python behavioral tests and desktop contracts passed; all 16 local Hermes validation checks passed.
+- [x] 86 Python behavioral tests and desktop contracts passed; all 16 official validator checks passed in the prepared test environment. See the verification report for the installed-environment limitation.
 - [x] Fresh Hermes-profile installation passed on the development Mac.
+- [x] Board operations follow the visible chat without requiring a dedicated profile; fresh-chat play/import and stale-navigation guards have regression coverage.
 
 ## Demo and documentation
 
@@ -27,9 +28,11 @@ The implementation and demo are proposed for review in `itsflownium/gambit-hacka
 ## Remaining review and submission steps
 
 - [x] Initial implementation PR merged into this repository.
-- [ ] Review the new live-demo and profile-fix PR; it remains open.
+- [x] Revised live-demo and earlier profile-context fix merged; final demo approved.
+- [ ] Review the new ordinary-chat routing and startup PR.
+- [ ] Repeat fresh native-window startup and default-backend chat creation after the ongoing Hermes update and dependency preparation finish.
 - [ ] Optional verification on another physical computer; other operating systems have not been verified.
-- [ ] Choose the final merged release commit and validate that exact pin before any catalog submission. The initial merged implementation pin was verified; the new PR still needs review.
+- [ ] Choose the final merged release commit and validate that exact pin before any catalog submission. The ordinary-chat routing PR still needs review.
 - [ ] Separately authorize an upstream catalog PR, social post and organizer form submission.
 
 New conversational coaching requires working access to the configured Hermes provider. Local board fallback and source-match replay are separate from that provider's availability. This repository PR does not submit a marketplace or hackathon entry.

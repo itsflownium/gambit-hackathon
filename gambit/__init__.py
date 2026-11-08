@@ -4,6 +4,7 @@ from __future__ import annotations
 import threading
 from pathlib import Path
 
+from .actions import Action, board_action
 from .service import Service
 from .storage import Store
 
