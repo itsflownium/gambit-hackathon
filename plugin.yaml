@@ -1,0 +1,36 @@
+name: gambit
+version: "0.2.2"
+manifest_version: 2
+api_version: 1
+description: Play chess against Hermes and replay Chess.com or Lichess games by username. A board-only desktop panel, with coaching and requested hints in your Hermes chat. Moves have a hard 60-second response deadline.
+author: itsflownium
+license: GPL-3.0-or-later
+tags: [chess, coaching, games, desktop, learning]
+requires_hermes: ">=0.23.0"
+provides_tools:
+  - chess_state
+  - chess_start
+  - chess_move
+  - chess_games
+  - chess_replay
+  - chess_review
+  - chess_hint
+  - chess_action
+provides_hooks:
+  - pre_llm_call
+config_schema:
+  engine_path:
+    type: str
+    default: ""
+    label: Stockfish executable
+    description: Optional absolute path to a local Stockfish binary. Gambit also checks its engine data directory and the system PATH.
+  move_timeout_seconds:
+    type: int
+    default: 60
+    label: Maximum move time
+    description: Hard wall-clock response budget, capped at 60 seconds. A precomputed legal engine move is used if Hermes reaches the deadline.
+  analysis_seconds:
+    type: float
+    default: 0.4
+    label: Analysis time per position
+    description: Local engine analysis budget. Important positions receive a deeper check.

@@ -1,0 +1,6 @@
+{
+  "name": "gambit",
+  "label": "Gambit Chess",
+  "version": "0.2.2",
+  "api": "plugin_api.py"
+}
