@@ -1,0 +1,305 @@
+{
+  "duration_seconds": 86.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "voice": "Daniel (English (UK))",
+  "source": "Installed macOS say, locally synthesized",
+  "score": {
+    "title": "Quiet Continuation",
+    "composition": "Original additive synthesis; no samples or external tracks",
+    "tempo_bpm": 72,
+    "harmony": [
+      "Dm9",
+      "Bbmaj9",
+      "Fmaj9",
+      "Cmaj9",
+      "Gm9",
+      "Dm9"
+    ],
+    "layers": [
+      "slow stereo pad",
+      "soft sine sub pulses",
+      "sparse glass arpeggio with stereo echoes"
+    ],
+    "ducking": "Score normalized to -28 LUFS; mix rides -6dB during voice and -2dB in gaps"
+  },
+  "clips": [
+    {
+      "clip": 1,
+      "filename": "voice01.wav",
+      "text": "A game ends. The learning should not.",
+      "spoken_text": "A game ends. The learning should not.",
+      "scheduled_start": 0.8,
+      "scheduled_end": 6.4,
+      "actual_start": 0.8,
+      "actual_end": 3.185083,
+      "duration_seconds": 2.385083,
+      "window_seconds": 5.6,
+      "remaining_window_seconds": 3.214917,
+      "voice": "Daniel (English (UK))",
+      "say_rate": 166,
+      "render_attempts": [
+        {
+          "say_rate": 166,
+          "duration_seconds": 2.385083
+        }
+      ],
+      "loudness": {
+        "integrated_lufs": -18.02,
+        "true_peak_dbtp": -5.1,
+        "loudness_range_lu": 0.0,
+        "threshold_lufs": -28.67
+      }
+    },
+    {
+      "clip": 2,
+      "filename": "voice02.wav",
+      "text": "Meet Gambit: a chess opponent and coach, inside Hermes.",
+      "spoken_text": "Meet Gambit: a chess opponent and coach, inside Hermes.",
+      "scheduled_start": 7.3,
+      "scheduled_end": 12.5,
+      "actual_start": 7.3,
+      "actual_end": 11.364,
+      "duration_seconds": 4.064,
+      "window_seconds": 5.2,
+      "remaining_window_seconds": 1.136,
+      "voice": "Daniel (English (UK))",
+      "say_rate": 166,
+      "render_attempts": [
+        {
+          "say_rate": 166,
+          "duration_seconds": 4.064
+        }
+      ],
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.21,
+        "loudness_range_lu": 0.3,
+        "threshold_lufs": -28.0
+      }
+    },
+    {
+      "clip": 3,
+      "filename": "voice03.wav",
+      "text": "You move. One reply. Choose Normal for a quiet game, or Coach for explanations. Ask for a hint when you need one.",
+      "spoken_text": "You move. One reply. Choose Normal for a quiet game, or Coach for explanations. Ask for a hint when you need one.",
+      "scheduled_start": 14.0,
+      "scheduled_end": 23.4,
+      "actual_start": 14.0,
+      "actual_end": 21.846458,
+      "duration_seconds": 7.846458,
+      "window_seconds": 9.4,
+      "remaining_window_seconds": 1.553542,
+      "voice": "Daniel (English (UK))",
+      "say_rate": 166,
+      "render_attempts": [
+        {
+          "say_rate": 166,
+          "duration_seconds": 7.846458
+        }
+      ],
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.68,
+        "loudness_range_lu": 0.5,
+        "threshold_lufs": -28.12
+      }
+    },
+    {
+      "clip": 4,
+      "filename": "voice04.wav",
+      "text": "Bring your own history. Search Chess dot com or Lichess, then choose the exact match.",
+      "spoken_text": "Bring your own history. Search Chess dot com or Lichess, then choose the exact match.",
+      "scheduled_start": 26.0,
+      "scheduled_end": 34.2,
+      "actual_start": 26.0,
+      "actual_end": 31.398146,
+      "duration_seconds": 5.398146,
+      "window_seconds": 8.2,
+      "remaining_window_seconds": 2.801854,
+      "voice": "Daniel (English (UK))",
+      "say_rate": 166,
+      "render_attempts": [
+        {
+          "say_rate": 166,
+          "duration_seconds": 5.398146
+        }
+      ],
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.37,
+        "loudness_range_lu": 1.0,
+        "threshold_lufs": -28.05
+      }
+    },
+    {
+      "clip": 5,
+      "filename": "voice05.wav",
+      "text": "Replay each decision with coaching in chat. Here, Hermes explains a recorded move using Stockfish analysis. The board and the conversation stay connected.",
+      "spoken_text": "Replay each decision with coaching in chat. Here, Hermes explains a recorded move using Stockfish analysis. The board and the conversation stay connected.",
+      "scheduled_start": 36.2,
+      "scheduled_end": 48.2,
+      "actual_start": 36.2,
+      "actual_end": 45.800917,
+      "duration_seconds": 9.600917,
+      "window_seconds": 12.0,
+      "remaining_window_seconds": 2.399083,
+      "voice": "Daniel (English (UK))",
+      "say_rate": 166,
+      "render_attempts": [
+        {
+          "say_rate": 166,
+          "duration_seconds": 9.600917
+        }
+      ],
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.82,
+        "loudness_range_lu": 1.0,
+        "threshold_lufs": -28.13
+      }
+    },
+    {
+      "clip": 6,
+      "filename": "voice06.wav",
+      "text": "Now try another idea. Follow the original for its recorded reply. Change your move for a calculated response. Your original game stays saved.",
+      "spoken_text": "Now try another idea. Follow the original for its recorded reply. Change your move for a calculated response. Your original game stays saved.",
+      "scheduled_start": 50.0,
+      "scheduled_end": 60.3,
+      "actual_start": 50.0,
+      "actual_end": 59.205083,
+      "duration_seconds": 9.205083,
+      "window_seconds": 10.3,
+      "remaining_window_seconds": 1.094917,
+      "voice": "Daniel (English (UK))",
+      "say_rate": 166,
+      "render_attempts": [
+        {
+          "say_rate": 166,
+          "duration_seconds": 9.205083
+        }
+      ],
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -5.0,
+        "loudness_range_lu": 1.5,
+        "threshold_lufs": -28.28
+      }
+    },
+    {
+      "clip": 7,
+      "filename": "voice07.wav",
+      "text": "Resign. GG. Fireworks. And you are ready for the next game.",
+      "spoken_text": "Resign. G G. Fireworks. And you are ready for the next game.",
+      "scheduled_start": 62.0,
+      "scheduled_end": 66.8,
+      "actual_start": 62.0,
+      "actual_end": 66.512354,
+      "duration_seconds": 4.512354,
+      "window_seconds": 4.8,
+      "remaining_window_seconds": 0.287646,
+      "voice": "Daniel (English (UK))",
+      "say_rate": 166,
+      "render_attempts": [
+        {
+          "say_rate": 166,
+          "duration_seconds": 4.512354
+        }
+      ],
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -3.76,
+        "loudness_range_lu": 0.8,
+        "threshold_lufs": -28.24
+      }
+    },
+    {
+      "clip": 8,
+      "filename": "voice08.wav",
+      "text": "Eighty two tests. Sixteen Hermes checks. Built to keep playing.",
+      "spoken_text": "Eighty two tests. Sixteen Hermes checks. Built to keep playing.",
+      "scheduled_start": 68.3,
+      "scheduled_end": 73.6,
+      "actual_start": 68.3,
+      "actual_end": 72.870542,
+      "duration_seconds": 4.570542,
+      "window_seconds": 5.3,
+      "remaining_window_seconds": 0.729458,
+      "voice": "Daniel (English (UK))",
+      "say_rate": 166,
+      "render_attempts": [
+        {
+          "say_rate": 166,
+          "duration_seconds": 4.570542,
+          "text": "Eighty two tests. Sixteen Hermes checks. Built to keep playing."
+        }
+      ],
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.61,
+        "loudness_range_lu": 0.4,
+        "threshold_lufs": -28.0
+      }
+    },
+    {
+      "clip": 9,
+      "filename": "voice09.wav",
+      "text": "Next: recurring mistakes and targeted practice. Future ideas, built around your own games. Today: play, replay, understand.",
+      "spoken_text": "Next: recurring mistakes and targeted practice. Future ideas, built around your own games. Today: play, replay, understand.",
+      "scheduled_start": 75.0,
+      "scheduled_end": 85.0,
+      "actual_start": 75.0,
+      "actual_end": 84.936917,
+      "duration_seconds": 9.936917,
+      "window_seconds": 10.0,
+      "remaining_window_seconds": 0.063083,
+      "voice": "Daniel (English (UK))",
+      "say_rate": 166,
+      "render_attempts": [
+        {
+          "say_rate": 166,
+          "duration_seconds": 9.936917,
+          "text": "Next: recurring mistakes and targeted practice. Future ideas, built around your own games. Today: play, replay, understand."
+        }
+      ],
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -3.04,
+        "loudness_range_lu": 3.4,
+        "threshold_lufs": -28.1
+      }
+    }
+  ],
+  "qa": {
+    "narration.wav": {
+      "duration_seconds": 86.0,
+      "sample_rate": 48000,
+      "channels": 2,
+      "codec": "pcm_s24le",
+      "integrated_lufs": -18.03,
+      "true_peak_dbtp": -3.04,
+      "loudness_range_lu": 6.3,
+      "threshold_lufs": -28.32
+    },
+    "music.wav": {
+      "duration_seconds": 86.0,
+      "sample_rate": 48000,
+      "channels": 2,
+      "codec": "pcm_s24le",
+      "integrated_lufs": -28.0,
+      "true_peak_dbtp": -15.48,
+      "loudness_range_lu": 3.2,
+      "threshold_lufs": -38.18
+    },
+    "mix.wav": {
+      "duration_seconds": 86.0,
+      "sample_rate": 48000,
+      "channels": 2,
+      "codec": "pcm_s24le",
+      "integrated_lufs": -18.7,
+      "true_peak_dbtp": -2.94,
+      "loudness_range_lu": 12.0,
+      "threshold_lufs": -29.64
+    }
+  }
+}

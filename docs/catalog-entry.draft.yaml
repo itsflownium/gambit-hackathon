@@ -1,0 +1,49 @@
+# CATALOG DRAFT ONLY — NOT SUBMIT-READY. The final release pin is pending.
+# Checked 2026-11-08 against:
+# https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/README.md#entry-schema
+# https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/catalog-submission
+#
+# Set sha to the final merged release commit before a separate upstream submission.
+# Eventual catalog location: plugin-catalog/gambit.yaml in the Hermes repository.
+# Full behavior disclosures and local evidence: hackathon-entry.md and verification.md.
+name: gambit
+title: Gambit for Hermes
+repo: "https://github.com/itsflownium/gambit-hackathon"
+sha: "TODO_FULL_40_HEX_MERGED_RELEASE_COMMIT_SHA"
+description: Play chess with Hermes, understand mistakes, and replay or practice alternatives from public Chess.com and Lichess matches.
+maintainer: itsflownium
+tier: community
+category: desktop
+requires_hermes: ">=0.23.0"
+version: "0.2.2"
+readme: true
+# Conservative proposed scope: verified on this Mac, including a fresh Hermes profile.
+# No separate-machine, Linux or Windows compatibility claim has been established.
+platforms: [macos]
+# Public repo layout is not yet decided; add subdir only if needed.
+# docs_url and image are omitted until reviewed public URLs exist.
+# Replace [] with up to six commit-pinned HTTPS GitHub-hosted screenshot URLs.
+# Existing local choices: docs/board-preview.png, docs/import-preview.png,
+# docs/replay-context-preview.png, docs/menu-preview.png, docs/gg-preview.png.
+screenshots: []
+known_issues:
+  - Requires Hermes Desktop and a separately installed local Stockfish executable.
+  - Imports completed public standard-chess games only; source publication delays and rate limits may apply.
+  - Chess.com Bot and Coach games are unavailable through public username lookup.
+  - Uses the configured Hermes provider for moves and coaching; normal provider usage and charges apply.
+  - The 60-second deadline applies to board replies; conversational coaching has the host provider's response time.
+  - Verified on this Mac and in a fresh local Hermes profile; other operating systems have not been verified.
+capabilities:
+  provides_tools:
+    - chess_state
+    - chess_start
+    - chess_move
+    - chess_games
+    - chess_replay
+    - chess_review
+    - chess_hint
+    - chess_action
+  provides_hooks:
+    - pre_llm_call
+  provides_middleware: []
+  requires_env: []

@@ -1,0 +1,19 @@
+{
+  "duration_seconds": 86.0,
+  "width": 1920,
+  "height": 1080,
+  "fps": "30/1",
+  "video_codec": "H.264",
+  "audio_codec": "AAC",
+  "audio_channels": 2,
+  "audio_sample_rate": "48000",
+  "decoded_without_errors": true,
+  "synchronization_preroll_removed_seconds": 0,
+  "capture_method": "Direct canvas VP9",
+  "sha256": "beb35efcbe553f6f25b5fbe569da05dbcc11c49793c8848886dd1263b3710a33",
+  "source_labels_verified": true,
+  "future_features_marked_unimplemented": true,
+  "catalog_submitted": false,
+  "hackathon_form_submitted": false,
+  "media_content_unchanged": true
+}
