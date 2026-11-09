@@ -2,7 +2,7 @@
   "date": "2026-11-09",
   "version": "0.2.4",
   "tested_implementation_commit": "76e06e98274bb5eeae86e5491486ec38caf51048",
-  "submission_status": "local only; not pushed or submitted",
+  "submission_status": "Repository release only; catalog and hackathon submissions remain separate",
   "platform": "macOS arm64; Hermes Desktop and Agent 0.23.0",
   "python_behavioral_tests": 86,
   "desktop_contracts": "passed, including new startup regressions",

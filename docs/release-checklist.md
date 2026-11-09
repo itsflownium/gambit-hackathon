@@ -1,6 +1,6 @@
 # Release checklist
 
-Updated 9 November 2026. The earlier implementation and approved demo are merged in `itsflownium/gambit-hackathon`. The 0.2.4 acceptance fixes remain local and unpublished. The [verification report](verification.md) records local evidence and its limits.
+Updated 9 November 2026. The earlier implementation and approved demo are merged in `itsflownium/gambit-hackathon`. Version 0.2.4 includes the reviewed native startup fixes and completed acceptance evidence. The [verification report](verification.md) records local evidence and its limits.
 
 ## Implementation
 
@@ -36,7 +36,8 @@ Updated 9 November 2026. The earlier implementation and approved demo are merged
 - [x] Native fresh-chat Chess.com picker preserved its username/results, opened the exact selected match and returned position-specific OAuth coaching.
 - [x] Cold native launch restored the match, cursor and coaching transcript; live controls worked without recovery steps after installer work finished.
 - [ ] Optional verification on another physical computer; other operating systems have not been verified.
-- [ ] Review and merge the local 0.2.4 acceptance fixes when authorized; choose that final merged pin before any catalog submission.
+- [x] Review the 0.2.4 startup fixes and verify that generated bundles match their source.
+- [ ] Choose and validate the final merged release pin before any catalog submission.
 - [ ] Separately authorize an upstream catalog PR, social post and organizer form submission.
 
 New conversational coaching requires working access to the configured Hermes provider. Local board fallback and source-match replay are separate from that provider's availability. This repository PR does not submit a marketplace or hackathon entry.

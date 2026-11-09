@@ -10,7 +10,7 @@ All requested local features are implemented and installed in Hermes Desktop. Us
 
 ### Native startup and clean default-home acceptance — 9 November
 
-The local 0.2.4 candidate fixes the startup failures found after the ordinary-chat routing merge. Its implementation commit is `76e06e98274bb5eeae86e5491486ec38caf51048`; it has not been pushed or submitted. The approved demo is unchanged.
+Version 0.2.4 fixes the startup failures found after the ordinary-chat routing merge. Its tested implementation commit is `76e06e98274bb5eeae86e5491486ec38caf51048`. Repository publication is separate from catalog and hackathon submission. The approved demo is unchanged.
 
 - A session-list refresh can publish an equivalent owner object. The board now compares destination identity, preserving startup and pending coaching when the visible chat has not changed.
 - A local board route no longer waits for unrelated remote gateway discovery. A public SDK connection hold spans chat creation, initialization and opening, and is released after success or failure.
