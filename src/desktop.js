@@ -19,10 +19,6 @@ export default {
     diagnostic('desktop_registered');
     let visit=0;
     const routeRenderers=new Set();
-    const routeChanged=()=>{visit++;routeRenderers.forEach(refresh=>refresh());};
-    const routeStops=[host.state.focusedStoredSessionId,host.state.focusedSessionId,host.state.focusedSessionProfile,
-      host.state.focusedSessionOwner,host.state.activeSessionId,host.state.profile,host.state.connectionId]
-      .map(atom=>atom?.listen?.(routeChanged)).filter(Boolean);
     const route=()=>{
       const runtime=host.state.focusedSessionId.get(),owner=host.state.focusedSessionOwner?.get();
       const profile=owner?.profile||host.state.focusedSessionProfile.get()||host.state.profile?.get()||'default';
@@ -31,18 +27,33 @@ export default {
       const primary=(!sid&&!runtime)||!!(runtime&&runtime===host.state.activeSessionId?.get());
       return {sid,runtime,profile,connection,owned:!host.state.focusedSessionOwner||!!owner,primary,epoch:gatewayActivationEpoch(),visit};
     };
-    const routeKey=value=>JSON.stringify([value.connection,value.profile,value.sid,value.runtime,value.owned,value.primary,value.epoch,value.visit]);
+    const routeIdentity=value=>[value.connection,value.profile,value.sid,value.runtime,value.owned,value.primary,value.epoch];
+    const routeKey=value=>JSON.stringify([...routeIdentity(value),value.visit]);
+    let lastRouteIdentity=JSON.stringify(routeIdentity(route()));
+    const routeChanged=()=>{
+      // The host recomputes owner objects when any session-list row changes.
+      // Only a different destination invalidates work in the visible chat.
+      const identity=JSON.stringify(routeIdentity(route()));
+      if(identity===lastRouteIdentity)return;
+      lastRouteIdentity=identity;visit++;routeRenderers.forEach(refresh=>refresh());
+    };
+    const routeStops=[host.state.focusedStoredSessionId,host.state.focusedSessionId,host.state.focusedSessionProfile,
+      host.state.focusedSessionOwner,host.state.activeSessionId,host.state.profile,host.state.connectionId]
+      .map(atom=>atom?.listen?.(routeChanged)).filter(Boolean);
     const sessionKey=(value,sid=value.sid)=>JSON.stringify([value.connection,value.profile,sid]);
     let disposed=false;
     const current=value=>!disposed&&routeKey(value)===routeKey(route())&&(value.owned||value.primary);
     const routingError=()=>new Error('This chat is still connecting. Keep it open and try again.');
     const gatewayRoute=async target=>{
+      if(!current(target))throw routingError();
+      // A focused local owner is already a complete public SDK route. Do not
+      // make its board wait for unrelated remote gateway discovery.
+      if(target.connection==='local')return {connectionId:'local',mode:'local',profile:target.profile,targetProfile:target.profile};
       const routes=typeof host.profileRoutes==='function'?await host.profileRoutes():[];
       if(!current(target))throw routingError();
       const found=routes.find(item=>item.connectionId===target.connection&&
         (item.profile===target.profile||item.targetProfile===target.profile));
       if(found)return found;
-      if(target.connection==='local')return {connectionId:'local',mode:'local',profile:target.profile,targetProfile:target.profile};
       throw routingError();
     };
     const requestAt=async(target,method,params,timeout=30000)=>{
@@ -150,16 +161,21 @@ export default {
         [sid,runtime,profile,target.connection,target.epoch,target.visit]);
       const start=React.useCallback(async options=>{
         if(!current(target)||target.sid)throw routingError();
-        const created=await requestAt(target,'session.create',{source:'gui',cwd:host.state.cwd?.get()||undefined},60000);
-        if(!current(target))throw routingError();
-        const address=created.session_id,stored=created.stored_session_id||address;
-        if(!address||!stored)throw new Error('Hermes could not create a chess chat. Try again.');
-        await requestAt(target,'session.title',{session_id:address,title:options.action==='find_games'?'Chess review':'Chess with Hermes'});
-        const result=await boardRequest(target,'/action',{method:'POST',body:{action:'start',...options}},address);
-        if(!result.ok)throw new Error(result.message||'Could not start the chess game.');
-        if(!current(target))throw routingError();
         const destination=await gatewayRoute(target);
-        await host.openSession(stored,{route:destination,awaitHydration:true});
+        const release=typeof host.retainProfile==='function'?await host.retainProfile(destination,{spawnPriority:'foreground'}):()=>{};
+        try{
+          const created=await requestAt(target,'session.create',{source:'gui',cwd:host.state.cwd?.get()||undefined},60000);
+          if(!current(target))throw routingError();
+          const address=created.session_id,stored=created.stored_session_id||address;
+          if(!address||!stored)throw new Error('Hermes could not create a chess chat. Try again.');
+          const title=(options.action==='find_games'?'Chess review':'Chess with Hermes')+' · '+stored.slice(-10);
+          try{await requestAt(target,'session.title',{session_id:address,title});}
+          catch(error){console.warn('[gambit] Chat title could not be set:',String(error));}
+          const result=await boardRequest(target,'/action',{method:'POST',body:{action:'start',...options}},address);
+          if(!result.ok)throw new Error(result.message||'Could not start the chess game.');
+          if(!current(target))throw routingError();
+          await host.openSession(stored,{route:destination,awaitHydration:true});
+        }finally{release();}
       },[sid,runtime,profile,target.connection,target.epoch,target.visit]);
       return h(Board,{key:routeKey(target),api:boardApi,sessionId:sid||runtime,onPrompt:prompt,onStart:start,subscribe,chatBusy:!!busy[runtime]});
     }

@@ -1,6 +1,6 @@
 # Optional second computer verification
 
-The release passed a fresh Hermes-profile installation on the development Mac. A different physical computer has not been tested. This checklist is prepared for that optional check; it is not evidence that it already passed.
+The local candidate passed two fresh default-home installations and native regular-chat checks on the development Mac. A different physical computer has not been tested. This checklist is prepared for that optional check; it is not evidence that it already passed.
 
 Use another Mac with Hermes Agent 0.23.0 or later, Hermes Desktop and a separately installed local Stockfish executable. Follow the release README's supported installation method. A Git-URL installation needs a committed checkout; an unpacked source ZIP uses the documented linked-folder method. Configure that computer's engine path and its own Hermes provider access.
 

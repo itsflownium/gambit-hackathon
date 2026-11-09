@@ -1,6 +1,6 @@
-# Local verification — Gambit 0.2.3
+# Local verification — Gambit 0.2.4
 
-Verified 2026-11-08 (AEDT). This report records local implementation and media checks. Repository review is separate from catalog acceptance and hackathon submission.
+Updated 2026-11-09 (AEDT). This report records local implementation and media checks. Repository review is separate from catalog acceptance and hackathon submission.
 
 ## Result
 
@@ -8,7 +8,27 @@ All requested local features are implemented and installed in Hermes Desktop. Us
 
 ## Checks completed
 
-### Ordinary-chat routing repair
+### Native startup and clean default-home acceptance — 9 November
+
+Version 0.2.4 fixes the startup failures found after the ordinary-chat routing merge. Its tested implementation commit is `76e06e98274bb5eeae86e5491486ec38caf51048`. Repository publication is separate from catalog and hackathon submission. The approved demo is unchanged.
+
+- A session-list refresh can publish an equivalent owner object. The board now compares destination identity, preserving startup and pending coaching when the visible chat has not changed.
+- A local board route no longer waits for unrelated remote gateway discovery. A public SDK connection hold spans chat creation, initialization and opening, and is released after success or failure.
+- Reusing a chat title raised an internal gateway error. New chess titles include a short session suffix; a title failure cannot block the game.
+- The initial thinking countdown is capped at 60 seconds, including between clock refreshes.
+- Added desktop regression cases for each startup failure, connection cleanup, same-owner refreshes and optional title failure. The desktop contracts, generated-bundle syntax and whitespace checks pass. All **86 Python behavioral tests** pass.
+
+The normal Hermes environment initially lacked `chess` after an update. The supported plugin-enable/dependency preparation flow repaired it. The official validator then passed **16/16 checks with no warnings** in that normal environment; the gateway registered Gambit's command, hook and eight tools.
+
+In the installed macOS Hermes Desktop 0.23.0 app, **All profiles** remained selected. Clicking **Play Hermes** in a new draft created a regular chat and a playable Normal board. `1.e4 c5` completed with exactly one opponent reply and no automatic Normal commentary. A requested board hint called `chess_hint` and appeared in that existing chat using GPT-6.1 Sol through ChatGPT OAuth. After switching to Coach mode, `2.Nf3 d6` produced a position-anchored `chess_review` response in the same chat. These two opponent replies used the labelled engine fallback; this check does not claim they were model-selected. Chat model selection and the gateway's configured plugin-model route are separate host settings.
+
+Two new default Hermes homes were provisioned on this Mac, with no named profile or copied account credentials. The supported Git installer fetched the existing merge `c072df663a03d67ee5468257f70196d5c609db96` from GitHub. A second install cloned the fixed local implementation commit from a `file://` Git URL. Plugin Doctor found **8 tools and 1 hook**, and the official validator passed **16/16, no warnings**, in both homes. The desktop bundle is checked against its installed source after the host's standard desktop-half reconciliation; native-window behavior is checked separately in the normal installation.
+
+Both clean installations passed real Stockfish 19 play, exactly one reply, Normal silence, state recovery after service restart, turn Undo, and live public Chess.com `erik` / Lichess `thibault` search, exact match opening and half-move navigation. These are public test accounts. The clean homes have no model credentials, so their replies are explicitly engine-origin; provider-backed coaching is evidenced by the separate native check above. The fixed candidate returned `e4 e5`, preserved exactly two half-moves across service restart, restored the player turn on Undo, and opened public source matches `1054412404` and `0IdR4QNI`. The [acceptance summary](acceptance-2026-11-09.json) records the test boundaries and bundle fingerprint.
+
+The installed native play chat recovered its exact `1.e4 c5 2.Nf3 d6` position and previous coaching after a normal quit, gateway recovery and relaunch. The first relaunch coincided with Hermes updater/dependency work and needed the host's normal Retry action after restarting its idle gateway. No Hermes core files were changed. A fresh native **Import game** search then created a separate regular review chat, retained the Chess.com username and results, opened specifically row 2 (`1051690676`, 43 half-moves), and returned real OAuth-backed feedback for recorded `1.e4`. After all installer work finished, a second normal quit and cold launch restored the exact selected match, cursor `1/43`, OAuth model selection and coaching transcript without recovery steps. Live navigation then advanced to `2/43`; the backend was ready and guided coaching was restored.
+
+### Earlier ordinary-chat routing verification — 8 November
 
 Gambit no longer requires selecting a dedicated chess profile. Board reads, moves, imports and coaching acknowledgements use the public SDK route for the focused chat's owner. The gateway binds the operation to that chat; a client-provided session ID cannot redirect it. Starting a game or searching games from an empty board creates a regular chat directly. Navigation invalidates pending startup and coaching work.
 
@@ -16,7 +36,7 @@ The full suite passes **86 behavioral tests**, and the desktop contract passes i
 
 A live public-SDK check reached the previously blocked game while the app's ambient selection remained `default`: `1. e4 c6`, with exactly one opponent reply, `origin=hermes`, in **5.87 seconds**. Normal mode queued no automatic coaching. The test turn was then undone through Gambit's service, restoring the opening position.
 
-The installed Hermes environment changed during an ongoing source update. A final CLI dependency preparation attempt failed on an unrelated upstream KittenTTS wheel download (HTTP 504), and the active environment's capability probe could not import chess. The validator was therefore run directly from its unmodified official module in the isolated test environment with Gambit's dependencies installed. A fresh native-window startup and a new default-backend chat could not be verified in this run: the native refresh stalled, and the default backend's session-creation request timed out. These environment checks remain open; the live evidence above is a routed game test, not a fresh native launch claim.
+The installed Hermes environment changed during an ongoing source update. A final CLI dependency preparation attempt failed on an unrelated upstream KittenTTS wheel download (HTTP 504), and the active environment's capability probe could not import chess. The validator was therefore run directly from its unmodified official module in the isolated test environment with Gambit's dependencies installed. A fresh native-window startup and a new default-backend chat could not be verified in this run: the native refresh stalled, and the default backend's session-creation request timed out. Those were the limitations of the 8 November run; the 9 November acceptance section above records the subsequent repairs and checks. The earlier evidence is a routed game test, not a fresh native launch claim.
 
 The repair also keys the shared Python runtime by its own source revision. Supported plugin reloads now adopt changed handlers while the agent and dashboard still share one runtime for unchanged source. A regression test verifies both entry points adopt a changed module.
 

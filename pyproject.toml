@@ -1,6 +1,6 @@
 [project]
 name = "hermes-gambit"
-version = "0.2.3"
+version = "0.2.4"
 description = "A board-only chess companion for Hermes: play, import, replay, and learn in chat."
 requires-python = ">=3.11"
 license = "GPL-3.0-or-later"

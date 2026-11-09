@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-09",
+  "version": "0.2.4",
+  "tested_implementation_commit": "76e06e98274bb5eeae86e5491486ec38caf51048",
+  "submission_status": "Repository release only; catalog and hackathon submissions remain separate",
+  "platform": "macOS arm64; Hermes Desktop and Agent 0.23.0",
+  "python_behavioral_tests": 86,
+  "desktop_contracts": "passed, including new startup regressions",
+  "official_validation": {
+    "normal_installation": {
+      "checks": 16,
+      "warnings": 0,
+      "ok": true
+    },
+    "clean_candidate_home": {
+      "checks": 16,
+      "warnings": 0,
+      "ok": true
+    }
+  },
+  "clean_installs": {
+    "default_homes": 2,
+    "named_profile_required": false,
+    "copied_account_credentials": false,
+    "remote_git_pin": "c072df663a03d67ee5468257f70196d5c609db96",
+    "local_git_pin": "76e06e98274bb5eeae86e5491486ec38caf51048",
+    "doctor": {
+      "tools": 8,
+      "hooks": 1,
+      "passed": true
+    },
+    "desktop_bundle": "byte-equal after official desktop-half reconciliation; native app checked separately",
+    "engine": "Stockfish 19",
+    "move_reply_origin": "engine; no model configured in clean homes",
+    "one_reply_per_turn": true,
+    "normal_silence": true,
+    "restart_persistence": true,
+    "undo_player_turn": true,
+    "imports": [
+      {
+        "platform": "chess.com",
+        "username": "erik",
+        "source_id": "1054412404",
+        "replay_navigation": true
+      },
+      {
+        "platform": "lichess",
+        "username": "thibault",
+        "source_id": "0IdR4QNI",
+        "replay_navigation": true
+      }
+    ]
+  },
+  "native": {
+    "all_profiles_selected": true,
+    "regular_chat_start": true,
+    "play_line": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "d7d6"
+    ],
+    "opponent_reply_origin": "engine_fallback; labelled in board and Coach response",
+    "normal_automatic_coaching": 0,
+    "requested_hint_in_existing_chat": true,
+    "automatic_coach_feedback": true,
+    "chat_provider": "ChatGPT OAuth",
+    "chat_model": "gpt-6.1-sol",
+    "fresh_import_creates_regular_chat": true,
+    "chesscom_exact_selected_row": 2,
+    "chesscom_source_id": "1051690676",
+    "total_plies": 43,
+    "replay_position_feedback": true,
+    "cold_restore_cursor": 1,
+    "post_cold_navigation_cursor": 2,
+    "final_cold_launch_without_recovery": true,
+    "guided_coaching_restored": true,
+    "earlier_environment_recovery": "Updater-paused gateway recovered through supported idle-gateway restart and native Retry; no core changes"
+  },
+  "native_bundle_sha256": "326bd83a8545bec5879100741816e46c4af972024f40c29997dcd9c35f9fda01",
+  "limits": [
+    "Same physical Mac; no second-device or other-OS claim",
+    "Clean homes test engine fallback and imports; actual OAuth coaching checked separately in native app",
+    "Choose and validate the eventual merged pin before catalog submission"
+  ],
+  "approved_demo": "unchanged"
+}

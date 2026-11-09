@@ -40,24 +40,27 @@ function desktop(overrides={}) {
     }
   };
   const routeListeners=new Set(),atom=get=>({get,listen:callback=>{routeListeners.add(callback);return ()=>routeListeners.delete(callback);}});
+  let profileHolds=0;
   const host={state:{focusedStoredSessionId:atom(()=>env.focused),focusedSessionId:atom(()=>env.runtime),
     activeSessionId:atom(()=>env.primaryRuntime),cwd:value('/workspace'),
     focusedSessionProfile:atom(()=>env.profile),profile:atom(()=>env.activeProfile),connectionId:atom(()=>env.connection),
-    focusedSessionOwner:{get:()=>env.ownerConnection?({connectionId:env.ownerConnection,profile:env.profile}):null},gateway:value('open'),busyBySession:{get:()=>env.busy}},
+    focusedSessionOwner:atom(()=>env.ownerConnection?({connectionId:env.ownerConnection,profile:env.profile}):null),gateway:value('open'),busyBySession:{get:()=>env.busy}},
     composer:{getDraft:async()=>{started.draftWait.resolve();if(env.draftWait)await env.draftWait;return env.draft;},submit:(sid,text)=>{
       if(!env.submitAccepted)return false;
       submissions.push({sid,text});env.onSubmit?.();return true;
     }},revealPane:()=>{},undismissPane:()=>{},paneVisibility:()=>value(true),
-    profileRoutes:async()=>[{connectionId:env.ownerConnection||env.connection,mode:'local',profile:env.profile,targetProfile:env.profile}],
+    profileRoutes:async()=>{if(env.discoveryError)throw env.discoveryError;return [{connectionId:env.ownerConnection||env.connection,mode:'local',profile:env.profile,targetProfile:env.profile}];},
+    retainProfile:async()=>{profileHolds++;let released=false;return ()=>{if(!released){released=true;profileHolds--;}};},
     requestProfile:async(route,method,params)=>{
+      if(env.requireHold)assert.ok(profileHolds>0,'A multi-request startup must retain its route.');
       rpcRoutes.push({route,method,params});
       if(method==='session.info')return {profile_name:route.profile};
-      if(method==='session.create'){started.createWait.resolve();if(env.createWait)await env.createWait;return {session_id:'created-runtime',stored_session_id:'created-stored'};}
-      if(method==='session.title')return {};
+      if(method==='session.create'){started.createWait.resolve();if(env.createWait)await env.createWait;if(env.createError)throw env.createError;return {session_id:'created-runtime',stored_session_id:'created-stored'};}
+      if(method==='session.title'){if(env.titleError)throw env.titleError;return {};}
       assert.equal(method,'command.dispatch');assert.equal(params.name,'chess');
       const {path,options}=JSON.parse(params.arg.slice('__board__ '.length));
       return {type:'exec',output:JSON.stringify(await boardRest(path,options))};
-    },openSession:async(id,options)=>opened.push({id,options})};
+    },openSession:async(id,options)=>{if(env.requireHold)assert.ok(profileHolds>0);opened.push({id,options});}};
   const context={host,React,
     useValue:store=>store.get(),gatewayActivationEpoch:()=>env.epoch,createBoard:()=>function Board(){},
     window:{location:{hash:env.hash||'#/'}},Date:{now:()=>env.now},console:{warn:()=>{}}};
@@ -89,7 +92,7 @@ function desktop(overrides={}) {
   };
   requestRender=()=>{if(renderedBoard)renderBoard();};
   return {env,contributions,submissions,acks,listeners,stored,started,rpcRoutes,opened,renderBoard,deliver:intervals[0],
-    currentBoard:()=>renderedBoard,
+    currentBoard:()=>renderedBoard,profileHolds:()=>profileHolds,
     notifyRoute:()=>routeListeners.forEach(callback=>callback()),dispose:()=>disposers.forEach(callback=>callback())};
 }
 
@@ -263,6 +266,38 @@ for(const overrides of [{profile:'other'},{ownerConnection:'remote'}]) {
   wait.resolve();await assert.rejects(starting,/still connecting/);
   assert.equal(x.rpcRoutes.length,1,'Navigating away during chat creation must stop game startup.');
   assert.equal(x.opened.length,0,'Late chat creation must not steal focus from the new chat.');
+}
+{
+  const wait=deferred(),x=desktop({focused:null,runtime:null,stored:[['open',true]],createWait:wait.promise}),board=x.renderBoard();
+  const starting=board.props.onStart({colour:'white',mode:'normal'});
+  await x.started.createWait.promise;
+  x.notifyRoute();x.notifyRoute();
+  assert.equal(x.currentBoard().props.key,board.props.key,'A refreshed owner object for the same chat must preserve the mounted board.');
+  wait.resolve();await starting;
+  assert.equal(x.opened[0].id,'created-stored','Background session-list refreshes must not cancel fresh-chat startup.');
+}
+{
+  const wait=deferred(),x=desktop({fetchWait:wait.promise}),delivery=x.deliver();
+  await x.started.fetchWait.promise;x.notifyRoute();wait.resolve();await delivery;
+  assert.equal(x.submissions.length,1,'Refreshing the same owner during a read must not starve coaching delivery.');
+}
+{
+  const x=desktop({focused:null,runtime:null,stored:[['open',true]],discoveryError:new Error('An unrelated remote gateway is offline')}),board=x.renderBoard();
+  await board.props.onStart({colour:'white',mode:'normal'});
+  assert.equal(x.opened[0].id,'created-stored','Local startup must not depend on discovering unrelated remote connections.');
+}
+for(const createError of [null,new Error('Could not create session')]) {
+  const x=desktop({focused:null,runtime:null,stored:[['open',true]],requireHold:true,createError}),board=x.renderBoard();
+  if(createError)await assert.rejects(board.props.onStart({mode:'normal'}),/Could not create session/);
+  else await board.props.onStart({mode:'normal'});
+  assert.equal(x.profileHolds(),0,'Release the startup connection after success or failure.');
+}
+{
+  const x=desktop({focused:null,runtime:null,stored:[['open',true]],titleError:new Error('Title is already in use')}),board=x.renderBoard();
+  await board.props.onStart({mode:'normal'});
+  assert.equal(x.opened[0].id,'created-stored','An optional chat title must not prevent starting the game.');
+  assert.match(x.rpcRoutes.find(call=>call.method==='session.title').params.title,/^Chess with Hermes · /);
+  assert.equal(x.profileHolds(),0);
 }
 {
   const x=desktop();x.listeners['plugin.gambit.initialized']({payload:{session_id:'route-a',session_aliases:['chat-a']}});
