@@ -1,43 +1,57 @@
 # Release checklist
 
-Updated 9 November 2026. The earlier implementation and approved demo are merged in `itsflownium/gambit-hackathon`. Version 0.2.4 includes the reviewed native startup fixes and completed acceptance evidence. The [verification report](verification.md) records local evidence and its limits.
+Updated 10 November 2026 for the 0.3.0 terminal release. All 175 behavioral tests, real pseudo-terminal integration, production dashboard play/coaching, 24 host transport checks, native TUI commands, fresh default-home terminal installation/play, dependency-aware candidate validation and final 88-second film QA passed. Anonymous public-candidate admission and catalogue gates pass. The existing catalogue PR records the published release pin and remains a draft. The [verification report](verification.md) preserves the evidence boundaries and earlier Desktop results.
 
-## Implementation
+## 0.3.0 candidate
 
-- [x] Board-only pane with a knight toolbar button and coaching in the existing chat.
-- [x] Normal and Coach modes, with progressive hints available on request.
-- [x] Exactly one opponent reply per accepted human move, with a hard 60-second deadline and labelled fallback.
-- [x] Legal moves, both colours, promotion, endings, undo, saved matches and PGN export.
-- [x] Public Chess.com and Lichess username searches with exact-match selection and source links.
-- [x] Replay every half-move, practice recorded or alternative lines, and preserve the original match.
-- [x] Position-anchored coaching, draft protection and separate conversation/profile state.
-- [x] GG/fireworks after resignation, followed by a fresh playable board.
-- [x] 86 Python behavioral tests and desktop contracts passed; all 16 official validator checks passed in both the normal Hermes installation and clean default homes, with no warnings.
-- [x] Supported Git installations into two empty default Hermes homes passed on the development Mac, without a named profile or copied account credentials.
-- [x] Board operations follow the visible chat without requiring a dedicated profile; fresh-chat play/import and stale-navigation guards have regression coverage.
+- [x] Set the plugin, Python package, dashboard and preview package release labels to 0.3.0.
+- [x] Document standalone `hermes gambit`, `/chess` text output in Hermes CLI/TUI conversations, and the optional graphical Desktop pane.
+- [x] Retain macOS-only catalogue scope and the `>=0.23.0` Hermes floor.
+- [x] Review public CLI registration and profile-scoped model, settings and storage APIs; no new runtime dependencies, environment requirements or hooks.
+- [x] Pass all 175 behavioral tests, including CLI/TUI reply/board/coaching contracts, terminal session isolation, engine recovery, portable bare/start slash commands, legacy surface detection and close-race regressions.
+- [x] Launch the actual curses renderer in a real pseudo-terminal with a fixture engine; complete one turn, refresh the reply, resize, show help, quit and restore terminal input flags.
+- [x] Run the official profile-scoped `hermes gambit --help`; command registration succeeds.
+- [x] Complete actual terminal `1.f3 e5 2.g4 Qh4#` with both replies from GPT-6.1 Sol through the existing host provider, automatic `f3` review and requested hint levels 1 and 2.
+- [x] Complete clean Normal `1.e4 c5` with a model-selected reply and no automatic feedback; verify recorded `...c5 → Nf3`, alternative `...e6 → d4`, and preservation of the selected source match.
+- [x] Pass official candidate validation with `--install-deps`, actual dependency resolution/installation, all 16 checks, a safe security scan and no validator warnings; final-pin acceptance remains separate.
+- [x] Pass automated feature coverage for both colours, modes, hints, imports, replay/practice, Undo, endings, saving and restoration; keep live acceptance claims scoped to the recorded checks.
+- [x] Verify production CLI move tools return one completed model reply, the exact anchored review request, real review and board.
+- [x] Launch the official native Ink TUI; run `/chess`, `/chess move e4`, `/chess hint 1` and `/exit` successfully.
+- [x] Pass production CLI Normal play without automatic review/hints, an explicit level-one clue and all 24 host transport checks.
+- [x] Install the documented runtime candidate through the official Git installer into a fresh default Hermes home without Desktop, a named profile or copied auth; verify actionable missing-engine handling, then configured-engine Normal play, one labelled fallback, help and clean exit.
+- [x] Run official Plugin Doctor on that clean installed candidate: exit 0, eight tools, one hook and no issues.
+- [x] Pass Python compilation, generated Desktop-entry syntax, Desktop contracts and whitespace checks after shared-runtime changes.
+- [x] Pass candidate payload, outside-tree symlink and self-updater checks; validate catalogue shape with the current upstream schema checker.
+- [x] Complete source regressions, Desktop contracts, fresh-runtime Plugin Doctor and anonymous public-candidate dependency-aware validation; record exact publication checks in the catalogue PR.
 
-## Demo and documentation
+## New terminal demo
 
-- [x] Include the revised 89-second demo, poster, English captions, eight chapter controls and local review player.
-- [x] Show fresh GPT OAuth play, progressive hints and coaching; disclose the public SDK capture adapter, timing edits, still crops and unimplemented future ideas.
-- [x] Verify 1920×1080 at 30 fps, H.264/AAC, full decoding and a chapter seek to the replay scene.
-- [x] Include installation instructions, licenses, dependency notices and behavior disclosures.
-- [x] Prepare event requirements, entry copy, a social-post draft and a catalog-entry draft.
-- [x] Prepare the [optional second-computer checklist](second-device-check.md).
+- [x] Capture actual terminal operation and promote the verified 88.000-second film and review package.
+- [x] Keep model replies, local engine fallback and recorded source replies distinguishable; disclose timing cuts and the faithful ANSI capture rendering.
+- [x] Disclose that the main linked-development capture predates the final commit and its exact in-memory bytes were not frozen; the separate Normal take follows the core commit/source sync.
+- [x] Replace the earlier Desktop demo and its review-player links with the terminal film.
+- [x] Verify 18 caption cues, nine external chapter controls, the real feedback poster/screenshot, audio attribution, clean full decode, desktop/mobile player seeking and MP4 checksum.
+- [x] Review visible frames, repository text and media metadata for private information. Verify final Git author/committer metadata when publishing the source.
 
-## Review and submission status
+## Exact pin and existing catalogue PR
 
-- [x] Initial implementation PR merged into this repository.
-- [x] Revised live-demo and earlier profile-context fix merged; final demo approved.
-- [x] Ordinary-chat routing and startup PR #3 merged.
-- [x] Repair same-owner refresh cancellation, unrelated gateway discovery delays, startup connection lifetime and duplicate chat-title failures; add regression coverage.
-- [x] Native regular-chat launch, Normal turn, requested OAuth hint and automatic Coach feedback passed with All profiles selected.
-- [x] Fixed candidate passed clean default-home real-engine play, Undo, restart persistence, both public imports and replay navigation.
-- [x] Native fresh-chat Chess.com picker preserved its username/results, opened the exact selected match and returned position-specific OAuth coaching.
-- [x] Cold native launch restored the match, cursor and coaching transcript; live controls worked without recovery steps after installer work finished.
-- [ ] Optional verification on another physical computer; other operating systems have not been verified.
-- [x] Review the 0.2.4 startup fixes and verify that generated bundles match their source.
-- [ ] Choose and validate the final merged release pin before any catalog submission.
-- [ ] Separately authorize an upstream catalog PR, social post and organizer form submission.
+- [x] Commit the complete source, documentation and reviewed terminal demo to `itsflownium/gambit-hackathon` using the public maintainer identity.
+- [x] Resolve a public, cloneable full 40-character source commit and verify the candidate from an anonymous checkout at that exact pin.
+- [x] Rerun the current structural, executable-payload, self-updater and symlink-confinement checks; inspect every warning.
+- [x] Update only `plugin-catalog/gambit.yaml` on the existing `feat/gambit-catalog-0.2.4` branch for [PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547).
+- [x] Bump its pin and version together; update `docs_url`, screenshots, demo/source links and behavior disclosures to the same verified commit.
+- [x] Match the candidate's declared eight tools, one hook, empty middleware and empty environment requirements to its registrations; standalone CLI registration adds no tool or hook.
+- [x] Keep the existing upstream PR in draft and record the actual checks completed. A passing local validator does not constitute catalogue acceptance.
 
-New conversational coaching requires working access to the configured Hermes provider. Local board fallback and source-match replay are separate from that provider's availability. This repository PR does not submit a marketplace or hackathon entry.
+The catalogue entry remains `tier: community` and macOS only. The standalone terminal board requires curses and an interactive terminal; Desktop is required only for the graphical pane. With `plugins.isolation: host`, Hermes skips standalone CLI command registration; use `/chess` in a Hermes conversation. Stockfish remains a separately installed local executable. Linux, Windows and another physical computer are unverified.
+
+## Historical 0.2.4 acceptance
+
+- [x] Native regular-chat startup, Normal play, requested OAuth hint, automatic Coach feedback, selected-match replay and cold-start restoration checked on one Mac.
+- [x] 86 behavioral tests, Desktop contracts and all 16 official validator checks passed without warnings in the documented environments.
+- [x] Supported installation into two clean default Hermes homes passed with real Stockfish, Undo, restart persistence, public imports and replay navigation.
+- [x] Earlier 89-second Desktop demo, poster, English captions, eight chapters, decode and player-seek checks completed.
+
+Those checks describe earlier source and media. They are not a substitute for 0.3.0 acceptance. The [second-computer checklist](second-device-check.md) and verification on other operating systems are optional follow-ups, not blockers for this macOS-only release; those scopes remain unverified.
+
+Social posting and the organizer form require their own authorization. Neither is performed by updating the existing catalogue draft.

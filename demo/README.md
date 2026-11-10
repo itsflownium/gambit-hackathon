@@ -1,23 +1,17 @@
-# Gambit live demo
+# Gambit terminal demo
 
-[![Watch Gambit](poster.png)](Gambit-Demo-Review.mp4)
+[![Watch the 88-second Gambit demo](poster.png)](Gambit-Demo-Review.mp4)
 
-[Watch the revised 89-second demo](Gambit-Demo-Review.mp4). Open `Review.html` for eight chapter controls and optional English captions. The MP4 is 1920×1080 at 30 fps, H.264/AAC with stereo 48 kHz audio.
+[Watch the film](Gambit-Demo-Review.mp4), or open [Review.html](Review.html) for nine chapter controls and optional English captions. The video is 1920×1080, H.264 at 30 fps, with AAC stereo audio at 48 kHz.
 
-## Fresh evidence
+The fresh terminal session shows the real board and public move status, a deliberately short teaching game `1.f3 e5 2.g4 Qh4#`, requested hint levels one and two, and genuine Hermes feedback explaining the exposed king. Both opponent replies were stored as `origin=hermes`; the model was GPT-6.1 Sol, selected through Hermes before capture in an isolated demo profile using the existing authorized Hermes OAuth connection. The clean Normal-mode turn is `1.e4 c5`, with a genuine Hermes reply and no automatic coaching.
 
-The deliberately short real game is `1. f3 e5 2. g4 Qh4#`. GPT-6 Sol, using the existing Hermes OAuth connection and xhigh reasoning, selected both replies from Stockfish-calculated legal candidates. They were stored as `origin=hermes`, taking 5.501 and 7.467 seconds. The film shows the actual pending-move indicator rather than private model reasoning.
+A real public Chess.com search selects match `186751169392`, from Black's perspective. Practice `...c5` receives the exact recorded `Nf3`; alternative `...e6` receives a fresh Hermes-selected `d4`. The imported original retains all 15 half-moves and its `1-0` result. The source move hashes before and after practice match. The final replay position is labelled `15 / 15`; its `Qxe7+` is a check, and the film makes no mate claim about the imported match.
 
-Fresh chat turns called `chess_hint` and `chess_review`: a level-one clue, a level-two knight hint, and feedback explaining why `2.g4` permitted immediate mate and how `2.Nc3` would have avoided it. Normal mode completed `e4 → e5` with a model reply and no automatic coaching event.
+Actual terminal sessions are rendered faithfully from timestamped ANSI captures. Every application cell and response comes from those captures. Added presentation is limited to outer terminal chrome, chapter labels and the visible “cuts shorten waits” disclosure. All selected source spans play at their original speed; cuts remove waits between them. The terminal is rendered at 12 fps and encoded at 30 fps with repeated frames. Full waits and failed or discarded takes remain private. This is an edited demonstration, not a latency or reliability benchmark. [The exact edit spans](edit-timeline.json) and [capture provenance](source-provenance.json) accompany the film.
 
-The picker found completed public Chess.com match `186751169392` for `EmboldenedNeighbor`, showing opponent, date, result and Black perspective. Practice `...c5` received exactly the original `Nf3`; alternative `...e6` received a fresh model-selected `Nc3`. Both received real retrospective coaching. The imported original retained all 15 half-moves. Lichess is supported and was separately checked; this film's search uses Chess.com.
+The Coach recording used the supported linked local Gambit 0.3.0 terminal candidate. Source files were refreshed during the run after Python had imported its modules, so the exact in-memory code bytes were not frozen. The repository revision and current tree fingerprint are labelled as observations made after capture. They are not an immutable capture-time commit claim. The clean Normal recording began after the final core commit and source sync. One genuine Unicode take was discarded for piece readability; a fresh Normal take keeps earlier Coach history out of that scene.
 
-## Capture and editing
+Narration retains the approved Kokoro v1.0 `af_heart` synthetic voice, rendered locally through kokoro-onnx 0.6.1 at speed 0.95. The original score is *Quiet Continuation*, made with local additive synthesis without external samples or tracks. [Audio timings](audio-timings.json) include the original-model phoneme timing used for the 18 English caption cues.
 
-The unchanged release board runs in a public Hermes SDK workspace beside the real Hermes chat, bound to the actual plugin API. A local recording adapter handles that binding and coaching delivery. This is a live shared-board capture, not a fresh native toolbar-launch test. Chat replies are not recreated. Crops, stills, timing cuts and accelerated waiting periods make the results readable within 89 seconds.
-
-The first 30 fps source capture overloaded the development Mac and two hint attempts timed out. After closing the disposable demo app and reducing capture to 10 fps, the requested hints succeeded. The final 30 fps film repeats source frames where needed. It is an edited demonstration, not a performance or reliability benchmark. The failed takes are excluded from the edited success sequence; the failure and correction are disclosed here.
-
-Narration uses Kokoro v1.0's `af_heart` synthetic voice, through kokoro-onnx 0.6.1, with the original score *Quiet Continuation*. Music uses local additive synthesis without samples or external tracks. The closing recurring-mistake and targeted-practice ideas are explicitly unimplemented. See `audio-timings.json` for timing and provenance, and the repository's third-party notices for licensing.
-
-Raw captures, credentials, runtime databases, model weights, engines and production helpers are excluded. Catalog submission, social posting and the organizer form remain separate actions.
+Private runtime homes, raw logs, credentials, databases, engines, model weights and local machine paths are excluded. The terminal text scan and visual review are reported directly; no successful OCR claim is made. Catalog submission, social posting and organizer submission remain separate actions.

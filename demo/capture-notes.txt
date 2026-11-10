@@ -1,0 +1,11 @@
+Gambit terminal demo — production notes
+
+88 seconds. Actual terminal sessions rendered faithfully from their timestamped ANSI captures. Cuts shorten waits; responses are genuine. Every selected source span plays at original speed. Source terminal rendering is 12 fps, repeated into a 30 fps export. Outer chrome, chapter labels and the wait-cut disclosure are presentation styling.
+
+Fresh proof: 1.f3 e5 2.g4 Qh4#, genuine requested hint levels 1 and 2, and real Hermes feedback. Clean Normal turn: 1.e4 c5 with no automatic coaching. Public Chess.com source: 186751169392, 15 half-moves retained. Recorded c5 -> Nf3; alternative e6 -> genuine Hermes d4. The final imported source position is Qxe7+ (check, not an asserted mate).
+
+The linked local Gambit 0.3.0 terminal candidate was imported before a later source refresh during the Coach take. Exact in-memory code bytes were not frozen. Post-capture repository/tree hashes are labelled accordingly, not as an immutable capture-time source pin. The clean Normal take began after final core commit and sync. See source-provenance.json and edit-timeline.json for the exact evidence and edit boundary.
+
+The player has nine external chapter controls and optional English captions. Caption timing comes from the narration model's original phoneme durations. Synthetic narration: Kokoro v1.0 af_heart through kokoro-onnx 0.6.1 at speed 0.95. Original score: Quiet Continuation, local additive synthesis, no external samples or tracks. This is not a performance benchmark.
+
+Privacy method: exact selected terminal-state text scan and visual frame/outer-chrome review, plus narration, caption and public metadata scans. No OCR-success claim. Raw recordings and runtime/account material remain private.

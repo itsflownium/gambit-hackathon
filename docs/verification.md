@@ -1,8 +1,63 @@
-# Local verification — Gambit 0.2.4
+# Local verification — Gambit 0.3.0
 
-Updated 2026-11-09 (AEDT). This report records local implementation and media checks. Repository review is separate from catalog acceptance and hackathon submission.
+Updated 2026-11-10 (AEDT). Version 0.3.0 has automated, real terminal, production CLI tool/coaching, native TUI, fresh-install and final media checks recorded below. Anonymous public-candidate admission and catalogue security checks pass; the catalogue PR records the published pin and its final checks. Historical Desktop results retain their original dates and versions. Repository verification is separate from catalogue acceptance and hackathon submission.
 
-## Result
+## Terminal release checks — 10 November
+
+The candidate adds `hermes gambit`, a standalone curses board using a separate Gambit session, and `/chess` text-board output inside a Hermes CLI or TUI conversation. The graphical Desktop pane remains optional. The declared Hermes floor remains `>=0.23.0`, with macOS-only catalogue scope.
+
+The sanitized [terminal acceptance summary](terminal-acceptance.json) records the test totals, actual host scope, timing observations, fresh-install fallback, Plugin Doctor, validator and final film fingerprint.
+
+The final candidate run of `python -m pytest -q --tb=short` passed **175 behavioral tests** in 12.20 seconds, with two existing dependency deprecation warnings. It covers terminal commands and session isolation, position-bound coaching, deterministic slash actions, CLI/TUI tool output and reply waiting, engine recovery, portable bare/start slash commands on local, unknown and Desktop surfaces, legacy host-surface detection and coaching close races. Natural nonterminal tool policy and the graphical board's asynchronous transport have regression coverage. Python compilation, generated Desktop-entry syntax, Desktop contracts and whitespace checks also passed.
+
+A real Unix pseudo-terminal integration check starts the actual curses renderer, accepts `e4`, stores exactly one fixture-engine `...e5`, shows the updated reply, survives a resize, displays help, quits cleanly and restores terminal echo/canonical input. That test uses a fixture engine and no live model; it is separate from the production check below.
+
+The official profile-scoped command `hermes -p gambit-demo gambit --help` succeeds and displays the registered standalone command's options. It does not open a board or make a model request. The host reports an existing environment/lock synchronization notice; the help check is not a fresh dependency-aware validator pass.
+
+The actual ASCII terminal dashboard completed `1.f3 e5 2.g4 Qh4#` using GPT-6.1 Sol through the existing host-managed OAuth provider route. Both opponent replies were stored with Hermes origin. Automatic feedback for `f3` and requested level-one/level-two hints returned genuine model prose. The first hint was a quiet-improvement clue; the second named the e2 pawn. A separate clean Normal take completed `1.e4 c5` with a Hermes-origin reply, no automatic feedback and `coach_queued=false`.
+
+The terminal capture selected public Chess.com match `186751169392`, with 15 original half-moves and Black perspective. Following `...c5` received the recorded `Nf3`; trying `...e6` received a fresh Hermes-selected `d4`. Returning to the source preserved all original moves and its result. This is distinct from the older Desktop film's alternative continuation.
+
+The main Coach/replay take used a supported linked local development install before the final source commit and later file copies; its exact in-memory bytes were not frozen. The separate clean Normal take launched after the core commit and source sync. The film is genuine recorded terminal operation, but it is not an immutable capture of the final release pin. [Source provenance](../demo/source-provenance.json) and the [edit timeline](../demo/edit-timeline.json) preserve those disclosures.
+
+The final [terminal film](../demo/Gambit-Demo-Review.mp4) is **88.000 seconds**, 1920×1080, H.264 at 30 fps with 2,640 frames, and stereo 48 kHz AAC. Full decoding passed with no errors or warnings. It includes 18 English caption cues and nine external chapter controls. Actual browser playback and a seek to 68.040902 seconds passed; the caption band fits with playback controls visible on desktop and at a 375-pixel mobile width. Native fullscreen remains unverified because the headless QA browser denied it.
+
+The [poster](../demo/poster.png) and [terminal screenshot](terminal-preview.png) use the real feedback frame at 42.75 seconds. Selected terminal text, encoded frames, public text and video metadata passed the recorded privacy checks. The MP4 SHA-256 is `0d3818034ae52e6ef95659e36643ebb3b7ba2157959678c379a3a248b0fed522`. Detailed checks are in [video-verification.json](../demo/video-verification.json) and [delivery-checks.json](../demo/delivery-checks.json).
+
+The official production CLI one-shot JSONL route started a game through the actual model/tool cycle and returned the text board. Playing `e4` returned in 6.615 seconds at ply 2 with no pending reply; the one opponent reply was Hermes-selected `...e6` in 6.584 seconds. The result carried an exact game/ply-1/position-key coaching request. The model called `chess_review` with those anchors and returned retrospective feedback plus the board. This checks the real CLI transport and tool loop, rather than a keyboard recording of the classic interactive CLI.
+
+After switching that game to Normal, `Nf3` received exactly one Hermes-selected reply in 6.149 seconds, with no automatic coaching prompt and no review or hint call. An explicit hint request then returned only a level-one clue. The combined host transport acceptance passed **24/24 checks**, including the native TUI flow below.
+
+The official native Ink TUI launcher was exercised in a 132×36 terminal: `/chess` displayed a board, `/chess move e4` returned a completed opponent reply, `/chess hint 1` displayed the requested clue and `/exit` returned 0. A local command can lack an active agent client marker, so bare/start slash commands now return the portable deterministic board on all chat surfaces; the TUI retake passed after the normal profile/gateway refresh.
+
+A supported Git installation of candidate runtime commit `389d0713ebd981f50d73765a08e6829eca13cdbd` succeeded in a fresh default Hermes home without Desktop, a named profile or copied authentication. The first cold launch correctly showed an actionable missing-Stockfish error and quit with status 0. After configuring only that fresh home's plugin `engine_path` for the separately installed Stockfish 19, a second cold `hermes gambit` launch opened a Normal board, accepted `e4`, stored exactly one `...e5`, showed labelled engine fallback, emitted no automatic feedback, displayed help and quit cleanly with status 0. Official `hermes plugins doctor gambit --ci` also exited 0, finding eight tools, one hook and no issues. With no model credentials copied, this acceptance demonstrates terminal installation and local fallback, not model-backed play in that fresh home.
+
+A stable candidate copy passed the official validator with **`--install-deps`**, including actual dependency resolution and installation. All **16 checks passed**, the security scan was **safe**, and the validator reported **no warnings**. The same dependency-aware checks passed again on an anonymous public checkout at `c524b17eafd1a0136cb401cbdfcaff9f9d1911f1`. The catalogue PR records the final published source pin and its checks.
+
+An anonymous checkout at `c524b17eafd1a0136cb401cbdfcaff9f9d1911f1` passed the current upstream executable-payload, outside-tree symlink and self-updater gates. The current catalogue structural validator accepted that real public commit with no errors or warnings. The complete plugin, documentation and new demo are included in that checkout.
+
+On every chat surface, bare `/chess` starts a White, Balanced, Coach game when none is selected, or refreshes the selected board. Slash commands return deterministic board output or engine evidence without autonomous model narration. Ordinary CLI/TUI chat tools wait for one scheduled opponent reply, return `terminal_board` and, in Coach mode, include an anchored `coaching_prompt` for `chess_review`. Desktop graphical-board requests remain asynchronous; natural-tool behavior still uses the host's session surface. Full-match recap completion is announced only through Desktop delivery; CLI/TUI can retrieve a requested recap later through the summary tool. The standalone dashboard has no summary command.
+
+## Release acceptance checklist
+
+- [x] Verify supported Git installation and cold terminal play/help/quit in a fresh default home at the documented runtime candidate commit.
+- [x] Verify the production terminal teaching game, automatic move feedback and requested hint levels 1 and 2 through the configured provider.
+- [x] Verify clean Normal silence, exact public-match selection, recorded practice, a model-selected alternative and preservation of the original source match.
+- [x] Publish capture provenance and distinguish genuine model replies, local fallback and recorded source replies accurately in the film and notes.
+- [x] Pass automated coverage for both colours, modes, imports, replay/practice, Undo, endings and restoration; record the live checks above with their actual scope.
+- [x] Exercise production CLI tools with a model-selected reply, exact anchored review and the returned board; pass the official native TUI slash-command flow.
+- [x] Complete production CLI Normal/hint checks, 24/24 host transport checks and the final 175-test regression run.
+- [x] Pass Desktop contracts and generated-entry syntax checks after the shared-runtime changes.
+- [x] Pass Plugin Doctor on the fresh installed runtime and all current catalogue structural, payload, self-update, symlink and dependency-aware admission checks on the anonymous public candidate; record the final pin in the catalogue PR.
+- [x] Verify the 88-second terminal film's full decode, 18 captions, nine chapter controls, desktop/mobile playback and seek, provenance, privacy and checksum; replace the earlier demo package.
+
+The existing [catalogue PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547) remains a draft. Its version, source pin, documentation, screenshots and demo are tracked together. The source-local catalogue file remains a template because a source commit cannot contain its own hash; the upstream entry is authoritative.
+
+## Historical Desktop verification
+
+The remaining report records 0.2.4 and earlier evidence. It is preserved to identify what was actually checked before the terminal release.
+
+### Earlier Desktop result
 
 All requested local features are implemented and installed in Hermes Desktop. Use the knight button in the top bar, then **Play Hermes** or **Import game**. Play, choose Normal or Coach mode, request hints, or choose a specific Chess.com or Lichess match by username. Chat also supports `/chess` and ordinary username requests.
 

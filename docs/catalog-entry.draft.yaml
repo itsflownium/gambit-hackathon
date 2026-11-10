@@ -1,38 +1,43 @@
-# CATALOG DRAFT ONLY — NOT SUBMIT-READY. The final release pin is pending.
-# Checked 2026-11-08 against:
+# SOURCE-LOCAL CATALOG TEMPLATE — the exact 0.3.0 pin is recorded in the upstream PR.
+# Rules checked 2026-11-10 against:
 # https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/README.md#entry-schema
 # https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/catalog-submission
 #
-# Set sha to the final merged release commit before a separate upstream submission.
-# Eventual catalog location: plugin-catalog/gambit.yaml in the Hermes repository.
+# The existing upstream PR is https://github.com/NousResearch/hermes-agent/pull/152547.
+# Keep it draft and update its plugin-catalog/gambit.yaml after exact-pin verification.
+# The source commit cannot embed its own hash; this template retains a placeholder.
 # Full behavior disclosures and local evidence: hackathon-entry.md and verification.md.
 name: gambit
 title: Gambit for Hermes
 repo: "https://github.com/itsflownium/gambit-hackathon"
 sha: "TODO_FULL_40_HEX_MERGED_RELEASE_COMMIT_SHA"
-description: Play chess with Hermes, understand mistakes, and replay or practice alternatives from public Chess.com and Lichess matches.
+description: Play chess in a Hermes terminal or Desktop pane, understand mistakes, and replay or practice public Chess.com and Lichess matches.
 maintainer: itsflownium
 tier: community
-category: desktop
+category: tools
 requires_hermes: ">=0.23.0"
-version: "0.2.4"
+version: "0.3.0"
 readme: true
-# Conservative proposed scope: verified on this Mac, including two clean default Hermes homes.
+# macOS is the only established platform; exact-pin checks are recorded in the upstream PR.
 # No separate-machine, Linux or Windows compatibility claim has been established.
 platforms: [macos]
-# Public repo layout is not yet decided; add subdir only if needed.
-# docs_url and image are omitted until reviewed public URLs exist.
+# Plugin source lives at the public repository root; no subdir is needed.
+# Set docs_url and screenshots to the verified final source commit in the PR.
 # Replace [] with up to six commit-pinned HTTPS GitHub-hosted screenshot URLs.
-# Existing local choices: docs/board-preview.png, docs/import-preview.png,
-# docs/replay-context-preview.png, docs/menu-preview.png, docs/gg-preview.png.
+# Final choices: docs/terminal-preview.png and docs/import-preview.png.
+# The terminal image is the reviewed real feedback frame from the 88-second film.
 screenshots: []
 known_issues:
-  - Requires Hermes Desktop and a separately installed local Stockfish executable.
+  - Requires a separately installed local Stockfish executable; it is not bundled or downloaded automatically. Hermes Desktop is optional for the graphical pane.
+  - The standalone terminal board requires an interactive terminal with Python curses support and uses a separate Gambit session.
+  - Hermes skips standalone CLI command registration with plugins.isolation set to host; /chess remains available in a Hermes conversation.
+  - Slash shortcuts return direct board or engine evidence; use ordinary chat or the standalone coaching pane for model explanations.
+  - Full-match recap completion is announced through Desktop only. CLI/TUI can retrieve the result later; the standalone dashboard has no summary command.
   - Imports completed public standard-chess games only; source publication delays and rate limits may apply.
   - Chess.com Bot and Coach games are unavailable through public username lookup.
   - Uses the configured Hermes provider for moves and coaching; normal provider usage and charges apply.
   - The 60-second deadline applies to board replies; conversational coaching has the host provider's response time.
-  - Verified on this Mac and in two clean default Hermes homes; other operating systems have not been verified.
+  - Catalogue scope is macOS only; Linux, Windows and another physical computer have not been verified.
 capabilities:
   provides_tools:
     - chess_state

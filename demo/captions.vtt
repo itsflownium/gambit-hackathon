@@ -1,53 +1,66 @@
 WEBVTT
 
-00:00:00.600 --> 00:00:03.684
-Your next move can teach you something. Meet
-Gambit.
+00:00:00.214 --> 00:00:03.888
+Meet Gambit: chess you can play
+and understand inside Hermes.
 
-00:00:07.000 --> 00:00:12.090
-Play a real game against Hermes. Make one
-move, and Hermes calculates one reply.
+00:00:04.689 --> 00:00:06.614
+Make your move in the terminal.
 
-00:00:12.090 --> 00:00:15.362
-You can see it working before the move
-lands.
+00:00:06.614 --> 00:00:10.339
+A live status follows Hermes
+as it prepares one reply,
 
-00:00:20.000 --> 00:00:25.284
-Stuck? Ask for a hint. Hermes starts with a
-clue, then reveals more only when you
+00:00:10.339 --> 00:00:11.695
+then the board updates.
 
-00:00:25.284 --> 00:00:27.596
-ask. The answer stays in your chat.
+00:00:18.489 --> 00:00:20.799
+Need a nudge? Ask for a hint.
 
-00:00:33.000 --> 00:00:37.774
-In Coach mode, Hermes explains the move you
-just played, using Stockfish analysis.
+00:00:20.799 --> 00:00:23.703
+Start with a clue that leaves
+the move yours to find.
 
-00:00:37.774 --> 00:00:42.548
-Here is the mistake, why it matters, and a
-clear way to improve.
+00:00:27.493 --> 00:00:29.443
+Ask again for more detail.
 
-00:00:48.500 --> 00:00:54.035
-Normal mode keeps commentary quiet. Hints
-and explanations are there when you ask.
+00:00:29.443 --> 00:00:31.541
+You choose when to reveal the next hint.
 
-00:00:57.000 --> 00:01:02.276
-Bring your own games. Search Chess dot com
-or Lichess, choose the exact match, and
+00:00:34.610 --> 00:00:38.285
+In Coach mode, Hermes reviews
+the move you just played.
 
-00:01:02.276 --> 00:01:04.035
-replay it with your coach.
+00:00:38.285 --> 00:00:42.635
+Stockfish analysis explains what changed
+and why it matters.
 
-00:01:07.000 --> 00:01:12.778
-Follow the original line, or try another
-idea. Hermes responds to your move, while
+00:00:42.635 --> 00:00:46.075
+Here, pushing the g-pawn exposed
+the king to checkmate.
 
-00:01:12.778 --> 00:01:14.841
-the original match stays intact.
+00:00:53.468 --> 00:00:56.996
+Choose Normal mode for a quiet game,
+with help when you ask.
 
-00:01:20.000 --> 00:01:25.116
-Today: play, replay, and understand. Next:
-turn recurring mistakes into targeted
+00:00:59.489 --> 00:01:01.064
+Bring your own history.
 
-00:01:25.116 --> 00:01:28.372
-practice. That is where Gambit can go.
+00:01:01.064 --> 00:01:04.714
+Find the exact Chess.com match
+and open it in replay.
+
+00:01:08.610 --> 00:01:11.885
+Follow the original line,
+or try another move.
+
+00:01:11.885 --> 00:01:15.787
+Practice the alternative while
+your imported game stays intact.
+
+00:01:21.364 --> 00:01:23.714
+Play a game. Understand a decision.
+
+00:01:23.809 --> 00:01:26.934
+Try another line.
+Gambit, built for Hermes.

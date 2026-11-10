@@ -1,0 +1,95 @@
+{
+  "version": "0.3.0",
+  "verified_date": "2026-11-10",
+  "platform": "macos",
+  "behavioral_tests": {
+    "passed": 175,
+    "dependency_deprecation_warnings": 2,
+    "seconds": 12.2
+  },
+  "host_transport": {
+    "status": "passed",
+    "checks_passed": 24,
+    "checks_total": 24,
+    "checks": {
+      "natural_chat_started_game": true,
+      "move_completed": true,
+      "exactly_two_plies": true,
+      "pending_cleared": true,
+      "model_origin": true,
+      "within_60_seconds": true,
+      "terminal_board_supplied": true,
+      "anchored_review_game": true,
+      "anchored_review_human_ply": true,
+      "anchored_position_in_prompt": true,
+      "final_board_rendered": true,
+      "normal_mode_switched": true,
+      "normal_move_exactly_one_reply": true,
+      "normal_move_host_selected_reply": true,
+      "normal_move_under_60_seconds": true,
+      "normal_no_coaching_prompt": true,
+      "normal_no_review_or_hint_calls": true,
+      "manual_hint_level1_only": true,
+      "manual_hint_response_is_clue": true,
+      "native_tui_clean_exit": true,
+      "native_tui_board": true,
+      "native_tui_coordinates": true,
+      "native_tui_completed_reply": true,
+      "native_tui_requested_hint1": true
+    },
+    "surfaces": {
+      "cli": "Official Hermes one-shot stream-json host transport: natural-language start, e4 with exact anchored review, Normal Nf3 without review/hints, explicitly requested level1 hint.",
+      "native_tui": "Official Hermes native Ink UI controlled through a real PTY at132x36: /chess, /chess movee4, /chess hint1, clean /exit."
+    },
+    "timings_seconds": {
+      "coach_reply": 6.584,
+      "normal_reply": 6.149,
+      "native_tui_flow": 53.85
+    },
+    "scope_limits": [
+      "CLI was tested through official one-shot JSONL transport, not a classic interactive prompt_toolkit screen.",
+      "Native Ink test used slash actions; natural-language tool-loop coaching was verified in the CLI host transport."
+    ]
+  },
+  "fresh_default_home": {
+    "runtime_candidate_commit": "389d0713ebd981f50d73765a08e6829eca13cdbd",
+    "official_git_install": true,
+    "plugin_symlink": false,
+    "named_profile_required": false,
+    "desktop_required": false,
+    "authentication_copied": false,
+    "initial_missing_engine_error_actionable": true,
+    "configured_external_engine": "Stockfish 19",
+    "normal_moves": [
+      "e2e4",
+      "e7e5"
+    ],
+    "reply_origin": "engine_fallback",
+    "reply_seconds": 5.571,
+    "reply_label_visible": true,
+    "automatic_coaching": 0,
+    "help_visible": true,
+    "clean_exit_code": 0,
+    "game_persisted": true,
+    "plugin_doctor": {
+      "exit_code": 0,
+      "tools": 8,
+      "hooks": 1,
+      "issues": 0
+    }
+  },
+  "candidate_admission": {
+    "official_dependency_install": true,
+    "checks_passed": 16,
+    "warnings": 0,
+    "security_verdict": "safe",
+    "exact_catalogue_pin": "Recorded separately in the catalogue pull request"
+  },
+  "demo": {
+    "file": "demo/Gambit-Demo-Review.mp4",
+    "duration_seconds": 88.0,
+    "sha256": "0d3818034ae52e6ef95659e36643ebb3b7ba2157959678c379a3a248b0fed522",
+    "capture_provenance": "demo/source-provenance.json",
+    "media_verification": "demo/video-verification.json"
+  }
+}

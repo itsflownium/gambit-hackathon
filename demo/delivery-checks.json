@@ -1,24 +1,30 @@
 {
   "complete": [
-    "89-second film",
-    "fresh live GPT game",
+    "88-second film",
+    "genuine terminal Hermes game",
     "requested hint levels 1 and 2",
-    "fresh move feedback",
-    "Normal mode without automatic coaching",
-    "exact public match selection",
-    "recorded and alternative practice with coaching",
-    "14 English caption cues",
-    "eight chapter controls",
-    "full decode",
-    "real browser seek",
-    "public text and metadata scan"
+    "actual Stockfish-grounded coach feedback",
+    "completed Normal turn without automatic coaching",
+    "exact public match import",
+    "recorded and alternative practice with preserved original",
+    "18 English caption cues",
+    "nine external chapter controls",
+    "clean full decode",
+    "actual browser playback and chapter seek",
+    "caption band below video with playback controls visible",
+    "desktop and mobile caption fit",
+    "public text and video metadata identifier scan",
+    "selected terminal text scan and encoded-frame visual review",
+    "SHA256 integrity check"
   ],
-  "not_performed": [
-    "second physical computer",
-    "fresh native toolbar launch in this take",
+  "not_verified": [
+    "native fullscreen in the headless QA browser",
+    "immutable capture-time source snapshot for the main Coach/import/practice take"
+  ],
+  "separate_actions": [
     "catalog submission",
     "social posting",
     "organizer form submission"
   ],
-  "review_notes": "The film is an edited demonstration, not a latency or reliability benchmark. Capture method and initial load-related hint timeouts are disclosed in README.md."
+  "review_notes": "Actual terminal sessions rendered from timestamped ANSI capture. Cuts shorten waits; selected spans retain original speed. Source pin limitations and formatting retakes are disclosed in README.md and source-provenance.json. The film is an edited demonstration, not a performance benchmark."
 }

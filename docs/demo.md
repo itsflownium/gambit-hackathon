@@ -1,22 +1,29 @@
-# Live demonstration and review cut
+# Terminal demonstration
 
-The repository includes the revised [89-second demo](../demo/Gambit-Demo-Review.mp4), [poster](../demo/poster.png), captions and a chapter player. The film now uses fresh GPT OAuth play, hints and coaching. Catalog submission, social posting and the organizer form remain separate from this repository PR.
+The repository includes an [88-second terminal demo](../demo/Gambit-Demo-Review.mp4), [poster](../demo/poster.png), English captions and a [nine-chapter review player](../demo/Review.html). The film follows a real game through the supported `hermes gambit` dashboard, requested hints, retrospective coaching, Normal mode, exact-match import and practice from replay.
 
 | Time | Evidence in the film |
 | --- | --- |
-| 0–6.5 s | Gambit and its focused board/chat concept. |
-| 6.5–19.5 s | A real human `f3` followed by a GPT-selected `...e5`; the actual pending-move indicator is visible. |
-| 19.5–32.5 s | Fresh requested level-one and level-two hints from the actual Hermes chat. |
-| 32.5–47.5 s | The same short game ends with `g4 → Qh4#`; fresh feedback explains why the move exposed the king and gives a safer alternative. |
-| 47.5–56.5 s | A real Normal-mode opening turn with a model reply and no automatic coaching event. |
-| 56.5–66.5 s | The public Chess.com username picker identifies the exact match by opponent, date, result and side. Lichess is also supported and was separately checked. |
-| 66.5–79.5 s | Recorded `...c5 → Nf3` and alternative `...e6 → Nc3`, with actual retrospective chat feedback. The imported original retains its 15 half-moves. |
-| 79.5–89 s | Recurring-mistake analysis and targeted practice, explicitly labelled future ideas that are not implemented. |
+| 0–4 s | The playable terminal board, Coach mode and input. |
+| 4–18 s | Human `f3`, actual public progress and a genuine Hermes `...e5` reply. |
+| 18–27 s | A requested level-one clue for the current position. |
+| 27–34 s | A distinct level-two hint, requested at the same position. |
+| 34–53 s | Human `2.g4`, the genuine `...Qh4#` reply and actual coaching explaining the exposed king and forced mate. |
+| 53–59 s | A separate, completed Normal-mode `1.e4 c5` turn with a genuine Hermes reply and no automatic coaching. |
+| 59–68 s | A public Chess.com search, specific match selection and loaded replay. |
+| 68–81 s | Recorded `...c5 → Nf3` and genuine alternative `...e6 → d4`, with the imported original preserved. |
+| 81–88 s | The actual terminal board remains visible for the closing line. |
 
-Both opponent moves in the short teaching game were stored as `origin=hermes`, using GPT-6 Sol through the existing Hermes OAuth connection at xhigh reasoning. Stockfish calculates legal candidate moves and provides the evidence for hints and reviews. The visible activity indicator is progress feedback, not private model reasoning.
+The actual terminal session is rendered from its timestamped ANSI capture. Cuts shorten waits; the responses are genuine. The source-to-edit map retains the original events and waits privately. The film is an edited demonstration, not a performance benchmark. It shows public move status, with no private model reasoning or recreated product replies.
 
-The recording mounts the unchanged release board through a public Hermes SDK workspace beside the real chat. A local capture adapter binds them to the actual game API and submits real chat turns. This is a live shared-board recording, not a fresh native toolbar-launch test. Crops, stills, timing cuts and accelerated waits make the responses readable within 89 seconds. Chat responses are not recreated. The film is not a latency or reliability benchmark.
+The fresh provider run uses GPT-6.1 Sol, selected through Hermes before capture in an isolated demo profile using the existing authorized OAuth connection. Both opponent moves in `1.f3 e5 2.g4 Qh4#` were genuine Hermes replies. The coaching ties `2.g4` to the exposed king and forced mate. Stockfish calculates legal candidates and supplies the position evidence for hints and reviews.
 
-The first high-rate capture overloaded the Mac and two hint attempts timed out. They succeeded after closing the disposable app and reducing capture to 10 fps. The edited film uses those verified results; the 30 fps export repeats source frames as needed. Full production notes, voice provenance, captions and integrity checks are in [the demo folder](../demo/README.md).
+The import selects completed Chess.com match `186751169392` from the Black perspective. A recorded practice branch follows `...c5 → Nf3`; a separate alternative `...e6` receives the fresh Hermes reply `d4`. Both branches receive real retrospective feedback. The imported original retains all 15 half-moves and its `1–0` result.
 
-For a live presentation, open the knight button in Hermes, choose Coach mode, play one move, ask for a hint, and allow the actual chat turn to finish. Then search a public username, choose a specific match, and try a move in replay. Keep working Stockfish and Hermes-provider access configured. Normal mode is available for a quiet game with hints on request.
+The main Coach/import/practice take used the supported linked local terminal candidate during development. Its exact in-memory source bytes were not frozen, and files were refreshed after its modules loaded. The separate clean Normal take followed the core commit and source sync. [Capture provenance](../demo/source-provenance.json) records that limit; [the exact edit spans](../demo/edit-timeline.json) retain source timing.
+
+Narration uses the locally rendered Kokoro v1.0 `af_heart` synthetic voice through kokoro-onnx 0.6.1 at speed 0.95. The original score, *Quiet Continuation*, uses local additive synthesis without external samples or tracks. Eighteen caption cues use the narration model's original phoneme durations. Production notes, audio provenance, captions and integrity checks are in [the demo folder](../demo/README.md).
+
+For a live presentation, run `hermes gambit` from a configured Hermes installation. Choose Coach, play a legal move and allow the real reply and feedback to complete. Request a clue, then ask for the next hint level when wanted. Choose Normal for a quiet game, or import a specific public match and try a move in replay. The CLI/TUI chat command is `/chess`.
+
+Raw terminal captures, runtime homes, account credentials, database files, engine binaries, voice model weights and production helpers are excluded from the public demo package. Catalog submission, social posting and the organizer form remain separate actions.

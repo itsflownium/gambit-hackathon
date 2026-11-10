@@ -1,4 +1,4 @@
-"""One profile-scoped runtime, shared by our two Hermes entry points."""
+"""One profile-scoped runtime, shared by Hermes entry points."""
 from __future__ import annotations
 
 import threading
@@ -46,10 +46,12 @@ def service():
 
 def register(ctx):
     from hermes_constants import get_hermes_home
+    from .cli import register_cli
     from .tools import register_tools
     home = str(get_hermes_home().resolve())
     _contexts[home] = ctx
     register_tools(ctx, service)
+    register_cli(ctx, service)
     def unload():
         with _lock:
             current = _services.pop(home, None)
