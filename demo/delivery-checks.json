@@ -15,7 +15,13 @@
     "desktop and mobile caption fit",
     "public text and video metadata identifier scan",
     "selected terminal text scan and encoded-frame visual review",
-    "SHA256 integrity check"
+    "SHA256 integrity check",
+    "actual CLI launch and native Ink TUI closing",
+    "public alias throughout added chrome",
+    "identity-field relabelling disclosed",
+    "unchanged audio and captions verified",
+    "revised full-film decode and native closing seek",
+    "267 rendered-state privacy check"
   ],
   "not_verified": [
     "native fullscreen in the headless QA browser",
@@ -26,5 +32,5 @@
     "social posting",
     "organizer form submission"
   ],
-  "review_notes": "Actual terminal sessions rendered from timestamped ANSI capture. Cuts shorten waits; selected spans retain original speed. Source pin limitations and formatting retakes are disclosed in README.md and source-provenance.json. The film is an edited demonstration, not a performance benchmark."
+  "review_notes": "Actual CLI, terminal dashboard and native TUI captures. The requested public alias itsflownium appears in added chrome and authorized identity or working-directory fields. Actual chess and model-response content is unchanged. Cuts shorten waits; selected spans retain original speed. Source snapshot and fullscreen verification limits remain disclosed."
 }

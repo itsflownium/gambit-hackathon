@@ -1,10 +1,10 @@
 # Terminal demonstration
 
-The repository includes an [88-second terminal demo](../demo/Gambit-Demo-Review.mp4), [poster](../demo/poster.png), English captions and a [nine-chapter review player](../demo/Review.html). The film follows a real game through the supported `hermes gambit` dashboard, requested hints, retrospective coaching, Normal mode, exact-match import and practice from replay.
+The repository includes an [88-second terminal demo](../demo/Gambit-Demo-Review.mp4), [poster](../demo/poster.png), English captions and a [nine-chapter review player](../demo/Review.html). The film opens with a real Hermes CLI launch, follows the supported `hermes gambit` dashboard through a game, requested hints, coaching, import and practice, then closes in the native Hermes Ink TUI.
 
 | Time | Evidence in the film |
 | --- | --- |
-| 0–4 s | The playable terminal board, Coach mode and input. |
+| 0–4 s | The actual `itsflownium` shell prompt, typed Hermes CLI launch and real CLI chess board. |
 | 4–18 s | Human `f3`, actual public progress and a genuine Hermes `...e5` reply. |
 | 18–27 s | A requested level-one clue for the current position. |
 | 27–34 s | A distinct level-two hint, requested at the same position. |
@@ -12,7 +12,9 @@ The repository includes an [88-second terminal demo](../demo/Gambit-Demo-Review.
 | 53–59 s | A separate, completed Normal-mode `1.e4 c5` turn with a genuine Hermes reply and no automatic coaching. |
 | 59–68 s | A public Chess.com search, specific match selection and loaded replay. |
 | 68–81 s | Recorded `...c5 → Nf3` and genuine alternative `...e6 → d4`, with the imported original preserved. |
-| 81–88 s | The actual terminal board remains visible for the closing line. |
+| 81–88 s | The native Hermes Ink TUI shows `/chess` input and the genuine `1.e4 c5` board and reply. |
+
+The public alias `itsflownium` appears in added chrome throughout the film. The real child-shell prompt already uses that handle. Disposable profile identity and visible working-directory fields are relabelled only in the declared presentation regions; chess state, moves, public match data and model response text are unchanged. The middle 4–81 seconds retains the original 17 source spans, and the audio and 18 caption cues are unchanged.
 
 The actual terminal session is rendered from its timestamped ANSI capture. Cuts shorten waits; the responses are genuine. The source-to-edit map retains the original events and waits privately. The film is an edited demonstration, not a performance benchmark. It shows public move status, with no private model reasoning or recreated product replies.
 

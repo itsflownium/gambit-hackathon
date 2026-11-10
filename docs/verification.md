@@ -53,6 +53,10 @@ On every chat surface, bare `/chess` starts a White, Balanced, Coach game when n
 
 The existing [catalogue PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547) remains a draft. Its version, source pin, documentation, screenshots and demo are tracked together. The source-local catalogue file remains a template because a source commit cannot contain its own hash; the upstream entry is authoritative.
 
+### Public-identity video revision
+
+The 88-second film now opens with an actual classic CLI launch and ends with the native Ink TUI. The shell prompt and visible identity/path fields use `itsflownium`. All 267 selected rendered states and the media metadata passed the privacy check, with zero findings. The main gameplay, hints, coaching, source-game practice and original audio are preserved. Caption/player checks include a real seek to the native TUI close. The private original capture remains evidence; visible identity changes are disclosed in the demo notes.
+
 ## Historical Desktop verification
 
 The remaining report records 0.2.4 and earlier evidence. It is preserved to identify what was actually checked before the terminal release.
