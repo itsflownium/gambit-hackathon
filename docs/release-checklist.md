@@ -1,6 +1,6 @@
 # Release checklist
 
-Updated 11 November 2026 for the 0.3.0 release and CLI/Desktop demo revision. All 175 behavioral tests, real pseudo-terminal integration, production dashboard play/coaching, 24 host transport checks, native TUI commands, fresh default-home terminal installation/play, dependency-aware candidate validation and final 88-second film QA, native Desktop closing playback, 41 native-state privacy checks and poster checks passed. Anonymous public-candidate admission and catalogue gates pass. The existing catalogue PR records the published release pin and is ready for review. The [verification report](verification.md) preserves the evidence boundaries and earlier Desktop results.
+Updated 11 November 2026 for the 0.3.0 release and CLI/Desktop demo revision. All 175 behavioral tests, real pseudo-terminal integration, production dashboard play/coaching, 24 host transport checks, native TUI commands, fresh default-home terminal installation/play, dependency-aware candidate validation and final 88-second film QA, exact 44/44 Desktop/CLI playback, 44 native-second privacy samples and poster checks passed. Anonymous public-candidate admission and catalogue gates pass. The existing catalogue PR records the published release pin and is ready for review. The [verification report](verification.md) preserves the evidence boundaries and earlier Desktop results.
 
 ## 0.3.0 candidate
 
@@ -29,8 +29,8 @@ Updated 11 November 2026 for the 0.3.0 release and CLI/Desktop demo revision. Al
 - [x] Capture actual terminal operation and promote the verified 88.000-second film and review package.
 - [x] Keep model replies, local engine fallback and recorded source replies distinguishable; disclose timing cuts and the faithful ANSI capture rendering.
 - [x] Disclose that the main linked-development capture predates the final commit and its exact in-memory bytes were not frozen; the separate Normal take follows the core commit/source sync.
-- [x] Show the verified CLI footage and actual native Desktop in the 88-second film; retain TUI as a supported feature.
-- [x] Verify 18 caption cues, nine external chapter controls, the real feedback poster/screenshot, audio attribution, clean full decode, desktop/mobile player seeking and MP4 checksum.
+- [x] Give the actual native Desktop and CLI exactly 44 seconds each; show native thinking, play, hints and feedback, and retain TUI as a supported feature.
+- [x] Verify 19 caption cues, nine external chapter controls, the real feedback poster/screenshot, audio attribution, clean full decode, desktop/mobile player seeking and MP4 checksum.
 - [x] Review visible frames, repository text and media metadata for private information. Verify final Git author/committer metadata when publishing the source.
 
 - [x] Use `itsflownium` in the full film’s launch prompt and CLI/TUI identity fields; verify the shared video, poster, captions and metadata.

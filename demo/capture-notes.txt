@@ -1,29 +1,5 @@
-Gambit — CLI and native Desktop demo
+Gambit: 44 seconds native Desktop / 44 seconds CLI
 
-The 88-second film keeps the approved genuine CLI launch, terminal game, hints,
-coaching, Normal mode, exact-match import and replay practice at 0–81 seconds.
-The final seven seconds now show the actual installed Hermes Desktop app:
-Play Hermes, select e2, play e4, wait for the real reply and see ...e6.
-The reply is stored as origin=hermes. TUI is supported and listed as a feature;
-this cut does not show native TUI footage.
+A real native Hermes Desktop game fills the first 44 seconds: two human moves, genuine Hermes replies, public thinking status, a requested hint, mistake coaching, and an exact public-match import. The next 44 seconds show the real CLI launch and terminal board, a reply, progressive hints, Coach feedback and quiet Normal play. TUI remains supported and is mentioned as a feature. Native-window frames and timestamped terminal captures are genuine. Cuts shorten waits. Synthetic narration: Kokoro af_heart. Original score: Quiet Continuation.
 
-CLI footage is rendered faithfully from timestamped ANSI capture. Desktop is
-captured directly from the native app through timestamped window screenshots.
-Frames are held until the next capture; the movie is encoded at 30 fps. Chosen
-ranges run at original speed and cuts shorten waits. The bottom native host/device
-status strip is cropped for privacy. The public alias itsflownium remains in
-added chrome. Chess moves and model response text are unchanged.
-
-The original CLI game and explanations use GPT-6.1 Sol through the existing
-authorized Hermes OAuth connection. The separate Desktop turn uses its existing
-default-profile Nous Portal configuration. No credentials, global model settings,
-OS account names or gameplay code were changed for recording.
-
-The existing source-snapshot limitation of the main terminal take is retained in
-source-provenance.json. These are separate real sessions, not a cross-surface
-session-continuity claim. This edited demonstration is not a performance benchmark.
-
-Approved synthetic narration is unchanged: Kokoro v1.0 af_heart, speed 0.95.
-The unchanged original score is Quiet Continuation, made with local additive
-synthesis without external samples or tracks. Eighteen English caption cues
-and nine chapter controls accompany the film. No private reasoning is shown.
+Native game: 1.e4 e5 2.g4 d5, Strong/Coach. Genuine requested hint and g4 mistake feedback appear in the existing chat. Both halves use the configured Hermes OAuth model. Native host/device strip is cropped for privacy. The film uses separate sessions. Source-snapshot limitations remain in source-provenance.json. No gameplay, tool output or model reply was recreated. Revised Kokoro af_heart narration uses original synthesis phoneme timing for 19 caption cues.
