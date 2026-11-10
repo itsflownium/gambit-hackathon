@@ -1,6 +1,6 @@
 # Gambit for Hermes — 0.3.0
 
-Entry copy updated 10 November 2026 for [itsflownium/gambit-hackathon](https://github.com/itsflownium/gambit-hackathon). The terminal release has 175 passing behavioral tests, 24 passing host transport checks, real dashboard/CLI/native-TUI operation, fresh default-home terminal installation/play and a verified 88-second film. Final immutable-pin publication and validation remain pending. The existing [catalogue PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547) remains a draft. No social post or organizer form has been submitted by this release work.
+Entry copy updated 10 November 2026 for [itsflownium/gambit-hackathon](https://github.com/itsflownium/gambit-hackathon). The terminal release has 175 passing behavioral tests, 24 passing host transport checks, real dashboard/CLI/native-TUI operation, fresh default-home terminal installation/play and a verified 88-second film. Anonymous public-candidate admission and catalogue gates pass; the catalogue PR records the published pin. The existing [catalogue PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547) remains a draft. No social post or organizer form has been submitted by this release work.
 
 ## Short pitch
 
@@ -21,7 +21,7 @@ The standalone dashboard keeps its own Gambit session in the active Hermes profi
 | Area | Scope and evidence |
 | --- | --- |
 | Usefulness | Real dashboard play, automatic feedback, two requested hint levels, clean Normal silence, selected public-match practice, production CLI anchored review and native TUI commands were checked. The source match remained unchanged after recorded and alternative practice. |
-| Reliability | All 175 behavioral tests, 24 host transport checks, actual curses pseudo-terminal integration, fresh default-home terminal installation/play and Desktop contracts pass. Fixture, fallback and provider evidence are recorded separately. A stable candidate passed dependency resolution/installation and all 16 official checks with a safe scan and no validator warnings. Anonymous final-pin validation remains pending. |
+| Reliability | All 175 behavioral tests, 24 host transport checks, actual curses pseudo-terminal integration, fresh default-home terminal installation/play and Desktop contracts pass. Fixture, fallback and provider evidence are recorded separately. A stable candidate passed dependency resolution/installation and all 16 official checks with a safe scan and no validator warnings. The anonymous public candidate also passes the current admission, structure, payload, confinement and self-updater gates. |
 | Polish | The terminal release adds a curses dashboard and conversation text board. Its 88-second film passes decode, caption, chapter-seek, desktop/mobile player and privacy checks. The optional Desktop pane retains its knight launcher, drag/click board, promotion choices, match picker, source identity and resignation animation. |
 | Creativity | A selected source match becomes a preserved original plus editable practice branches. Recorded replies remain distinguishable from new calculations, and explanations use position-specific engine evidence. |
 
@@ -29,7 +29,7 @@ The [verification report](verification.md) separates current terminal checks fro
 
 ## Implemented scope and future ideas
 
-The 0.3.0 candidate brings terminal presentation to the existing untimed standard-chess service: either colour; Learning, Balanced and Strong presets; Normal and Coach modes; progressive hints; public username imports and exact-match selection; replay and practice branches; move-review evidence; saved games; Undo; resignation; legal draw claims; and annotated PGN export. Full-match recaps remain available through Hermes chat tools: Desktop can announce completion, CLI/TUI users retrieve the result on a later request, and the standalone dashboard has no summary command. Final immutable-pin acceptance remains pending.
+The 0.3.0 candidate brings terminal presentation to the existing untimed standard-chess service: either colour; Learning, Balanced and Strong presets; Normal and Coach modes; progressive hints; public username imports and exact-match selection; replay and practice branches; move-review evidence; saved games; Undo; resignation; legal draw claims; and annotated PGN export. Full-match recaps remain available through Hermes chat tools: Desktop can announce completion, CLI/TUI users retrieve the result on a later request, and the standalone dashboard has no summary command. The anonymous public candidate passes admission and catalogue gates; the existing catalogue PR remains a draft.
 
 Recurring-mistake detection across a player's history, personalized training plans, spaced practice and long-term improvement tracking remain future ideas. They are not implemented features. A current match recap uses evidence from that match and does not invent accuracy scores.
 

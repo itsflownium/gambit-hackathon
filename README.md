@@ -4,7 +4,7 @@ Play a game. Understand a move. Revisit your own matches.
 
 Gambit brings chess to Hermes terminals and Desktop. Run `hermes gambit` for a standalone terminal board, use `/chess` for text-board output in a Hermes CLI or TUI conversation, or open the optional graphical pane in Hermes Desktop. Play against Hermes, request hints, and replay or practice public Chess.com and Lichess matches.
 
-Version 0.3.0 supports the standalone terminal board, ordinary CLI chat tools and the native Hermes TUI. Production checks cover model-backed play/coaching and the real CLI/TUI command flow. The terminal film is verified; final release-pin validation is pending. See the [verification report](docs/verification.md). The catalogue scope remains macOS only.
+Version 0.3.0 supports the standalone terminal board, ordinary CLI chat tools and the native Hermes TUI. Production checks cover model-backed play/coaching and the real CLI/TUI command flow. The terminal film and anonymous public-source admission checks pass. The exact catalogue pin is recorded in the draft catalogue PR. See the [verification report](docs/verification.md). The catalogue scope remains macOS only.
 
 ## Demo
 
@@ -195,6 +195,6 @@ The committed preview bundle can be rebuilt after board changes with `npm ci && 
 
 ## Release status
 
-Version 0.3.0 adds the terminal board and `/chess` text presentation while retaining the optional Desktop pane. All **175 behavioral tests** pass. Production dashboard play/coaching, CLI tool flow, native TUI commands, Desktop contracts and dependency-aware candidate validation pass. A supported Git install into a fresh default Hermes home also passed actual terminal play, help and clean exit without Desktop or copied model credentials; its reply was labelled engine fallback. The 88-second terminal film passes decode, captions, chapter seek, desktop/mobile player and privacy checks. Anonymous validation at the final release pin remains pending. Earlier Desktop results are preserved as historical evidence.
+Version 0.3.0 adds the terminal board and `/chess` text presentation while retaining the optional Desktop pane. All **175 behavioral tests** pass. Production dashboard play/coaching, CLI tool flow, native TUI commands, Desktop contracts and dependency-aware candidate validation pass. A supported Git install into a fresh default Hermes home also passed actual terminal play, help and clean exit without Desktop or copied model credentials; its reply was labelled engine fallback. The 88-second terminal film passes decode, captions, chapter seek, desktop/mobile player and privacy checks. The anonymous public candidate passed dependency-aware admission and the current catalogue structure, payload, confinement and self-updater gates. The catalogue PR records its published pin. Earlier Desktop results are preserved as historical evidence.
 
 The existing [upstream catalogue PR](https://github.com/NousResearch/hermes-agent/pull/152547) remains a draft. Its source pin and media URLs must be updated after the reviewed source release is published and checked at that exact commit. Social posting and the hackathon form are separate actions. See the [release checklist](docs/release-checklist.md) and [verification report](docs/verification.md).

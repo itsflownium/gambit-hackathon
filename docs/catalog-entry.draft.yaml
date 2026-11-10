@@ -1,4 +1,4 @@
-# SOURCE-LOCAL CATALOG TEMPLATE — the final 0.3.0 pin and exact-pin validation are pending.
+# SOURCE-LOCAL CATALOG TEMPLATE — the exact 0.3.0 pin is recorded in the upstream PR.
 # Rules checked 2026-11-10 against:
 # https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/README.md#entry-schema
 # https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/catalog-submission
@@ -18,7 +18,7 @@ category: tools
 requires_hermes: ">=0.23.0"
 version: "0.3.0"
 readme: true
-# macOS is the only established platform; final-pin acceptance is pending.
+# macOS is the only established platform; exact-pin checks are recorded in the upstream PR.
 # No separate-machine, Linux or Windows compatibility claim has been established.
 platforms: [macos]
 # Plugin source lives at the public repository root; no subdir is needed.

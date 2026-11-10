@@ -1,6 +1,6 @@
 # Local verification — Gambit 0.3.0
 
-Updated 2026-11-10 (AEDT). Version 0.3.0 has automated, real terminal, production CLI tool/coaching, native TUI, fresh-install and final media checks recorded below. Final immutable-pin publication and validation are pending. Historical Desktop results retain their original dates and versions. Repository verification is separate from catalogue acceptance and hackathon submission.
+Updated 2026-11-10 (AEDT). Version 0.3.0 has automated, real terminal, production CLI tool/coaching, native TUI, fresh-install and final media checks recorded below. Anonymous public-candidate admission and catalogue security checks pass; the catalogue PR records the published pin and its final checks. Historical Desktop results retain their original dates and versions. Repository verification is separate from catalogue acceptance and hackathon submission.
 
 ## Terminal release checks — 10 November
 
@@ -32,9 +32,9 @@ The official native Ink TUI launcher was exercised in a 132×36 terminal: `/ches
 
 A supported Git installation of candidate runtime commit `389d0713ebd981f50d73765a08e6829eca13cdbd` succeeded in a fresh default Hermes home without Desktop, a named profile or copied authentication. The first cold launch correctly showed an actionable missing-Stockfish error and quit with status 0. After configuring only that fresh home's plugin `engine_path` for the separately installed Stockfish 19, a second cold `hermes gambit` launch opened a Normal board, accepted `e4`, stored exactly one `...e5`, showed labelled engine fallback, emitted no automatic feedback, displayed help and quit cleanly with status 0. Official `hermes plugins doctor gambit --ci` also exited 0, finding eight tools, one hook and no issues. With no model credentials copied, this acceptance demonstrates terminal installation and local fallback, not model-backed play in that fresh home.
 
-A stable candidate copy passed the official validator with **`--install-deps`**, including actual dependency resolution and installation. All **16 checks passed**, the security scan was **safe**, and the validator reported **no warnings**. This is candidate acceptance; the same checks must be repeated from an anonymous checkout at the final immutable public pin.
+A stable candidate copy passed the official validator with **`--install-deps`**, including actual dependency resolution and installation. All **16 checks passed**, the security scan was **safe**, and the validator reported **no warnings**. The same dependency-aware checks passed again on an anonymous public checkout at `c524b17eafd1a0136cb401cbdfcaff9f9d1911f1`. The catalogue PR records the final published source pin and its checks.
 
-Candidate snapshot payload, outside-tree symlink and self-updater checks passed. The 0.3.0 catalogue draft's shape also passed the current upstream structural validator with no warnings after substituting a synthetic 40-hex pin solely for the schema check. The unpublished placeholder is not a release pin, and this shape check does not establish reachability or final-pin identity.
+An anonymous checkout at `c524b17eafd1a0136cb401cbdfcaff9f9d1911f1` passed the current upstream executable-payload, outside-tree symlink and self-updater gates. The current catalogue structural validator accepted that real public commit with no errors or warnings. The complete plugin, documentation and new demo are included in that checkout.
 
 On every chat surface, bare `/chess` starts a White, Balanced, Coach game when none is selected, or refreshes the selected board. Slash commands return deterministic board output or engine evidence without autonomous model narration. Ordinary CLI/TUI chat tools wait for one scheduled opponent reply, return `terminal_board` and, in Coach mode, include an anchored `coaching_prompt` for `chess_review`. Desktop graphical-board requests remain asynchronous; natural-tool behavior still uses the host's session surface. Full-match recap completion is announced only through Desktop delivery; CLI/TUI can retrieve a requested recap later through the summary tool. The standalone dashboard has no summary command.
 
@@ -48,10 +48,10 @@ On every chat surface, bare `/chess` starts a White, Balanced, Coach game when n
 - [x] Exercise production CLI tools with a model-selected reply, exact anchored review and the returned board; pass the official native TUI slash-command flow.
 - [x] Complete production CLI Normal/hint checks, 24/24 host transport checks and the final 175-test regression run.
 - [x] Pass Desktop contracts and generated-entry syntax checks after the shared-runtime changes.
-- [ ] Run Plugin Doctor, the current catalogue structural validator, payload/self-update/symlink checks and `hermes plugins validate --install-deps` against an anonymous checkout at the final full source commit.
+- [x] Pass Plugin Doctor on the fresh installed runtime and all current catalogue structural, payload, self-update, symlink and dependency-aware admission checks on the anonymous public candidate; record the final pin in the catalogue PR.
 - [x] Verify the 88-second terminal film's full decode, 18 captions, nine chapter controls, desktop/mobile playback and seek, provenance, privacy and checksum; replace the earlier demo package.
 
-The existing [catalogue PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547) remains a draft. Its pin, version, documentation and media URLs must be updated after this candidate is committed and verified. The current source-local catalogue template deliberately has no final pin.
+The existing [catalogue PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547) remains a draft. Its version, source pin, documentation, screenshots and demo are tracked together. The source-local catalogue file remains a template because a source commit cannot contain its own hash; the upstream entry is authoritative.
 
 ## Historical Desktop verification
 

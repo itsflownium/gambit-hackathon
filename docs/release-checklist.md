@@ -1,6 +1,6 @@
 # Release checklist
 
-Updated 10 November 2026 for the 0.3.0 terminal release. All 175 behavioral tests, real pseudo-terminal integration, production dashboard play/coaching, 24 host transport checks, native TUI commands, fresh default-home terminal installation/play, dependency-aware candidate validation and final 88-second film QA passed. Anonymous final-pin validation and the existing catalogue draft update are pending. The [verification report](verification.md) preserves the evidence boundaries and earlier Desktop results.
+Updated 10 November 2026 for the 0.3.0 terminal release. All 175 behavioral tests, real pseudo-terminal integration, production dashboard play/coaching, 24 host transport checks, native TUI commands, fresh default-home terminal installation/play, dependency-aware candidate validation and final 88-second film QA passed. Anonymous public-candidate admission and catalogue gates pass. The existing catalogue PR records the published release pin and remains a draft. The [verification report](verification.md) preserves the evidence boundaries and earlier Desktop results.
 
 ## 0.3.0 candidate
 
@@ -22,7 +22,7 @@ Updated 10 November 2026 for the 0.3.0 terminal release. All 175 behavioral test
 - [x] Run official Plugin Doctor on that clean installed candidate: exit 0, eight tools, one hook and no issues.
 - [x] Pass Python compilation, generated Desktop-entry syntax, Desktop contracts and whitespace checks after shared-runtime changes.
 - [x] Pass candidate payload, outside-tree symlink and self-updater checks; validate catalogue shape with the current upstream schema checker.
-- [ ] Run required final-pin regression/validator checks, including Desktop contracts, Plugin Doctor and the official dependency-aware plugin validator.
+- [x] Complete source regressions, Desktop contracts, fresh-runtime Plugin Doctor and anonymous public-candidate dependency-aware validation; record exact publication checks in the catalogue PR.
 
 ## New terminal demo
 
@@ -35,13 +35,13 @@ Updated 10 November 2026 for the 0.3.0 terminal release. All 175 behavioral test
 
 ## Exact pin and existing catalogue PR
 
-- [ ] Commit the complete source, documentation and reviewed terminal demo to `itsflownium/gambit-hackathon` using the public maintainer identity.
-- [ ] Resolve a public, cloneable full 40-character source commit and verify the candidate from an anonymous checkout at that exact pin.
-- [ ] Rerun the current structural, executable-payload, self-updater and symlink-confinement checks; inspect every warning.
-- [ ] Update only `plugin-catalog/gambit.yaml` on the existing `feat/gambit-catalog-0.2.4` branch for [PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547).
-- [ ] Bump its pin and version together; update `docs_url`, screenshots, demo/source links and behavior disclosures to the same verified commit.
+- [x] Commit the complete source, documentation and reviewed terminal demo to `itsflownium/gambit-hackathon` using the public maintainer identity.
+- [x] Resolve a public, cloneable full 40-character source commit and verify the candidate from an anonymous checkout at that exact pin.
+- [x] Rerun the current structural, executable-payload, self-updater and symlink-confinement checks; inspect every warning.
+- [x] Update only `plugin-catalog/gambit.yaml` on the existing `feat/gambit-catalog-0.2.4` branch for [PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547).
+- [x] Bump its pin and version together; update `docs_url`, screenshots, demo/source links and behavior disclosures to the same verified commit.
 - [x] Match the candidate's declared eight tools, one hook, empty middleware and empty environment requirements to its registrations; standalone CLI registration adds no tool or hook.
-- [ ] Keep the existing upstream PR in draft and record the actual checks completed. A passing local validator does not constitute catalogue acceptance.
+- [x] Keep the existing upstream PR in draft and record the actual checks completed. A passing local validator does not constitute catalogue acceptance.
 
 The catalogue entry remains `tier: community` and macOS only. The standalone terminal board requires curses and an interactive terminal; Desktop is required only for the graphical pane. With `plugins.isolation: host`, Hermes skips standalone CLI command registration; use `/chess` in a Hermes conversation. Stockfish remains a separately installed local executable. Linux, Windows and another physical computer are unverified.
 
