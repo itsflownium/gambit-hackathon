@@ -1,82 +1,86 @@
 1
 00:00:00,214 --> 00:00:03,888
-Meet Gambit: chess you can play
-and understand inside Hermes.
+Meet Gambit: chess you can play and
+understand inside Hermes.
 
 2
-00:00:04,689 --> 00:00:06,614
-Make your move in the terminal.
+00:00:04,710 --> 00:00:07,430
+On Desktop, make your move on the board.
 
 3
-00:00:06,614 --> 00:00:10,339
-A live status follows Hermes
-as it prepares one reply,
+00:00:07,430 --> 00:00:11,527
+Hermes calculates a reply, and the live
+status shows it working.
 
 4
-00:00:10,339 --> 00:00:11,695
-then the board updates.
+00:00:17,364 --> 00:00:19,789
+When you need help, ask for a hint.
 
 5
-00:00:18,489 --> 00:00:20,799
-Need a nudge? Ask for a hint.
+00:00:19,789 --> 00:00:22,667
+Hermes explains the position in your
+existing chat.
 
 6
-00:00:20,799 --> 00:00:23,703
-Start with a clue that leaves
-the move yours to find.
+00:00:28,243 --> 00:00:31,593
+Coach mode connects Stockfish analysis to
+your last move,
 
 7
-00:00:27,493 --> 00:00:29,443
-Ask again for more detail.
+00:00:31,593 --> 00:00:33,353
+with a clear way to improve.
 
 8
-00:00:29,443 --> 00:00:31,541
-You choose when to reveal the next hint.
+00:00:36,410 --> 00:00:40,310
+Find your Chess.com or Lichess games by
+username.
 
 9
-00:00:34,610 --> 00:00:38,285
-In Coach mode, Hermes reviews
-the move you just played.
+00:00:40,310 --> 00:00:42,361
+Choose the exact match to replay.
 
 10
-00:00:38,285 --> 00:00:42,635
+00:00:48,589 --> 00:00:50,514
+Make your move in the terminal.
+
+11
+00:00:50,514 --> 00:00:54,239
+A live status follows Hermes as it
+prepares one reply,
+
+12
+00:00:54,239 --> 00:00:55,595
+then the board updates.
+
+13
+00:00:59,193 --> 00:01:02,643
+Use /chess in CLI or TUI.
+
+14
+00:01:02,643 --> 00:01:06,664
+Ask for a clue, then request the next hint
+when you want more detail.
+
+15
+00:01:10,410 --> 00:01:14,085
+In Coach mode, Hermes reviews the move you
+just played.
+
+16
+00:01:14,085 --> 00:01:18,435
 Stockfish analysis explains what changed
 and why it matters.
 
-11
-00:00:42,635 --> 00:00:46,075
-Here, pushing the g-pawn exposed
-the king to checkmate.
-
-12
-00:00:53,468 --> 00:00:56,996
-Choose Normal mode for a quiet game,
-with help when you ask.
-
-13
-00:00:59,489 --> 00:01:01,064
-Bring your own history.
-
-14
-00:01:01,064 --> 00:01:04,714
-Find the exact Chess.com match
-and open it in replay.
-
-15
-00:01:08,610 --> 00:01:11,885
-Follow the original line,
-or try another move.
-
-16
-00:01:11,885 --> 00:01:15,787
-Practice the alternative while
-your imported game stays intact.
-
 17
-00:01:21,364 --> 00:01:23,714
-Play a game. Understand a decision.
+00:01:18,435 --> 00:01:21,875
+Here, pushing the g-pawn exposed the king
+to checkmate.
 
 18
-00:01:23,809 --> 00:01:26,934
-Try another line.
-Gambit, built for Hermes.
+00:01:22,164 --> 00:01:24,514
+Play a game. Understand a decision.
+
+19
+00:01:24,609 --> 00:01:27,734
+Try another line. Gambit, built for
+Hermes.

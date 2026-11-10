@@ -1,281 +1,175 @@
 {
   "duration_seconds": 88,
-  "source_terminal_render_fps": 12,
-  "encoded_fps": 30,
-  "all_selected_source_spans_at_original_speed": true,
-  "middle_4_to_81_seconds_unchanged": true,
-  "full_waits_retained_privately": true,
-  "public_alias": "itsflownium",
+  "Desktop_seconds": 44,
+  "CLI_seconds": 44,
+  "surface_split_percent": [
+    50,
+    50
+  ],
+  "all_source_ranges_at_original_speed": true,
+  "cuts_shorten_waits": true,
   "segments": [
     {
-      "start": 22.9,
-      "end": 23.3,
-      "duration": 0.4,
-      "label": "Actual itsflownium shell prompt",
-      "bookend": "cli",
-      "edit_start": 0.0,
-      "edit_end": 0.4,
-      "speed": 1.0000000000000053,
-      "source_recording": "shell-cli-take01"
-    },
-    {
-      "start": 24.7,
-      "end": 25.5,
-      "duration": 0.8,
-      "label": "Genuine typed Hermes launch",
-      "bookend": "cli",
-      "edit_start": 0.4,
-      "edit_end": 1.2000000000000002,
-      "speed": 1.0000000000000009,
-      "source_recording": "shell-cli-take01"
-    },
-    {
-      "start": 49.35,
-      "end": 49.85,
-      "duration": 0.5,
-      "label": "Actual launch command and Enter",
-      "bookend": "cli",
-      "edit_start": 1.2000000000000002,
-      "edit_end": 1.7000000000000002,
-      "speed": 1.0,
-      "source_recording": "shell-cli-take01"
-    },
-    {
-      "start": 54.5,
-      "end": 55.1,
-      "duration": 0.6,
-      "label": "Genuine Hermes CLI startup",
-      "bookend": "cli",
-      "edit_start": 1.7000000000000002,
-      "edit_end": 2.3000000000000003,
-      "speed": 1.0000000000000024,
-      "source_recording": "shell-cli-take01"
-    },
-    {
-      "start": 160.0,
-      "end": 161.7,
-      "duration": 1.7,
-      "label": "Actual classic CLI chess board",
-      "bookend": "cli",
-      "edit_start": 2.3000000000000003,
-      "edit_end": 4.0,
-      "speed": 0.9999999999999933,
-      "source_recording": "shell-cli-take01"
-    },
-    {
-      "start": 12.0,
-      "end": 15.6,
-      "duration": 3.6,
-      "label": "f3 input and real pending start",
-      "edit_start": 4.0,
-      "edit_end": 7.6,
-      "speed": 0.9999999999999999,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 18.8,
-      "end": 21.5,
-      "duration": 2.7,
-      "label": "Real public pending; middle wait cut",
-      "edit_start": 7.6,
-      "edit_end": 10.3,
-      "speed": 0.9999999999999997,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 22.2,
-      "end": 29.9,
-      "duration": 7.7,
-      "label": "Genuine e5 reply and first automatic review",
-      "edit_start": 10.3,
-      "edit_end": 18.0,
-      "speed": 0.9999999999999999,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 50.0,
-      "end": 52.8,
-      "duration": 2.8,
-      "label": "Requested hint 1",
-      "edit_start": 18.0,
-      "edit_end": 20.8,
-      "speed": 0.999999999999999,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 56.35,
-      "end": 62.55,
-      "duration": 6.2,
-      "label": "Actual hint 1 model result",
-      "edit_start": 20.8,
-      "edit_end": 27.0,
-      "speed": 0.9999999999999993,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 117.3,
-      "end": 119.8,
-      "duration": 2.5,
-      "label": "Requested hint 2 and engine clue",
-      "edit_start": 27.0,
-      "edit_end": 29.5,
-      "speed": 1.0,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 120.45,
-      "end": 124.95,
-      "duration": 4.5,
-      "label": "Actual hint 2 model result",
-      "edit_start": 29.5,
-      "edit_end": 34.0,
-      "speed": 1.0,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 143.3,
-      "end": 146.1,
-      "duration": 2.8,
-      "label": "g4 and real pending start",
-      "edit_start": 34.0,
-      "edit_end": 36.8,
-      "speed": 0.999999999999994,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 149.9,
-      "end": 166.1,
-      "duration": 16.2,
-      "label": "Genuine Qh4 mate and actual Coach result",
-      "edit_start": 36.8,
-      "edit_end": 53.0,
-      "speed": 0.9999999999999993,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 13.95,
-      "end": 19.95,
-      "duration": 6.0,
-      "label": "Genuine completed Normal turn, clean feed and no automatic coaching",
-      "edit_start": 53.0,
-      "edit_end": 59.0,
-      "speed": 1.0,
-      "source_recording": "provider-take03"
-    },
-    {
-      "start": 215.3,
-      "end": 217.7,
-      "duration": 2.4,
-      "label": "Actual public match search and results",
-      "edit_start": 59.0,
-      "edit_end": 61.4,
-      "speed": 0.9999999999999906,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 217.7,
-      "end": 220.2,
-      "duration": 2.5,
-      "label": "Read exact public match result",
-      "edit_start": 61.4,
-      "edit_end": 63.9,
-      "speed": 1.0,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 260.6,
-      "end": 264.7,
-      "duration": 4.1,
-      "label": "Actual open command and identified replay",
-      "edit_start": 63.9,
-      "edit_end": 68.0,
-      "speed": 0.9999999999999918,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 289.9,
-      "end": 291.9,
-      "duration": 2.0,
-      "label": "Recorded-line c5 input and pending",
-      "edit_start": 68.0,
-      "edit_end": 70.0,
-      "speed": 1.0,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 294.2,
-      "end": 298.2,
-      "duration": 4.0,
-      "label": "Actual recorded Nf3 reply",
-      "edit_start": 70.0,
-      "edit_end": 74.0,
-      "speed": 1.0,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 346.2,
-      "end": 348.2,
-      "duration": 2.0,
-      "label": "Alternative e6 input and pending",
-      "edit_start": 74.0,
-      "edit_end": 76.0,
-      "speed": 1.0,
-      "source_recording": "provider-take02"
-    },
-    {
-      "start": 356.0,
-      "end": 361.0,
-      "duration": 5.0,
-      "label": "Genuine alternative d4 reply and Coach result",
-      "edit_start": 76.0,
-      "edit_end": 81.0,
-      "speed": 1.0,
-      "source_recording": "provider-take02"
-    },
-    {
-      "source_recording": "native-desktop-window",
-      "start": 8.0,
-      "end": 9.2,
-      "edit_start": 81,
-      "edit_end": 82.2,
-      "duration": 1.2,
+      "edit_start": 0,
+      "edit_end": 4,
+      "source_start": 2,
+      "duration": 4,
       "speed": 1,
-      "label": "Actual native Play Hermes action"
+      "label": "Real native app and game startup",
+      "surface": "Desktop"
     },
     {
-      "source_recording": "native-desktop-window",
-      "start": 16.84,
-      "end": 17.84,
-      "edit_start": 82.2,
-      "edit_end": 83.2,
-      "duration": 1.0,
+      "edit_start": 4,
+      "edit_end": 7,
+      "source_start": 18.11,
+      "duration": 3,
       "speed": 1,
-      "label": "Playable Normal board"
+      "label": "Human selects e2 and plays e4",
+      "surface": "Desktop"
     },
     {
-      "source_recording": "native-desktop-window",
-      "start": 24.92,
-      "end": 27.32,
-      "edit_start": 83.2,
-      "edit_end": 85.60000000000001,
-      "duration": 2.4,
+      "edit_start": 7,
+      "edit_end": 11,
+      "source_start": 22,
+      "duration": 4,
       "speed": 1,
-      "label": "Actual e2 to e4 selection and pending reply"
+      "label": "Live thinking status and genuine first reply",
+      "surface": "Desktop"
     },
     {
-      "source_recording": "native-desktop-window",
-      "start": 58.0,
-      "end": 60.4,
-      "edit_start": 85.6,
-      "edit_end": 88.0,
-      "duration": 2.4,
+      "edit_start": 11,
+      "edit_end": 17,
+      "source_start": 26,
+      "duration": 6,
       "speed": 1,
-      "label": "Completed native Desktop turn"
+      "label": "Completed reply and real first coaching",
+      "surface": "Desktop"
+    },
+    {
+      "edit_start": 17,
+      "edit_end": 20,
+      "source_start": 66.1,
+      "duration": 3,
+      "speed": 1,
+      "label": "Request a hint in the native pane",
+      "surface": "Desktop"
+    },
+    {
+      "edit_start": 20,
+      "edit_end": 28,
+      "source_start": 71,
+      "duration": 8,
+      "speed": 1,
+      "label": "Actual hint appears in the bound chat",
+      "surface": "Desktop"
+    },
+    {
+      "edit_start": 28,
+      "edit_end": 30,
+      "source_start": 90.71,
+      "duration": 2,
+      "speed": 1,
+      "label": "Human selects g2 and plays g4",
+      "surface": "Desktop"
+    },
+    {
+      "edit_start": 30,
+      "edit_end": 31,
+      "source_start": 99,
+      "duration": 1,
+      "speed": 1,
+      "label": "Second reply and review working",
+      "surface": "Desktop"
+    },
+    {
+      "edit_start": 31,
+      "edit_end": 36,
+      "source_start": 150.4,
+      "duration": 5,
+      "speed": 1,
+      "label": "Actual mistake explanation and Nf3 improvement",
+      "surface": "Desktop"
+    },
+    {
+      "edit_start": 36,
+      "edit_end": 38,
+      "source_start": 157.5,
+      "duration": 2,
+      "speed": 1,
+      "label": "Native Chess.com and Lichess picker",
+      "surface": "Desktop"
+    },
+    {
+      "edit_start": 38,
+      "edit_end": 41,
+      "source_start": 173.54,
+      "duration": 3,
+      "speed": 1,
+      "label": "Genuine username search and exact match result",
+      "surface": "Desktop"
+    },
+    {
+      "edit_start": 41,
+      "edit_end": 44,
+      "source_start": 190.1,
+      "duration": 3,
+      "speed": 1,
+      "label": "Chosen match loaded in native replay",
+      "surface": "Desktop"
+    },
+    {
+      "edit_start": 44,
+      "edit_end": 48,
+      "source_start": 0,
+      "duration": 4,
+      "label": "CLI launch and real text board",
+      "speed": 1,
+      "surface": "CLI"
+    },
+    {
+      "edit_start": 48,
+      "edit_end": 58,
+      "source_start": 4,
+      "duration": 10,
+      "label": "Human f3 and genuine e5 reply",
+      "speed": 1,
+      "surface": "CLI"
+    },
+    {
+      "edit_start": 58,
+      "edit_end": 65,
+      "source_start": 18,
+      "duration": 7,
+      "label": "Requested level-one clue",
+      "speed": 1,
+      "surface": "CLI"
+    },
+    {
+      "edit_start": 65,
+      "edit_end": 70,
+      "source_start": 29,
+      "duration": 5,
+      "label": "Requested level-two hint",
+      "speed": 1,
+      "surface": "CLI"
+    },
+    {
+      "edit_start": 70,
+      "edit_end": 83,
+      "source_start": 34,
+      "duration": 13,
+      "label": "Human g4, genuine Qh4 mate and coaching",
+      "speed": 1,
+      "surface": "CLI"
+    },
+    {
+      "edit_start": 83,
+      "edit_end": 88,
+      "source_start": 53,
+      "duration": 5,
+      "label": "Quiet Normal turn",
+      "speed": 1,
+      "surface": "CLI"
     }
-  ],
-  "CLI_0_to_81_seconds_preserved": true,
-  "native_Desktop_seconds": 7,
-  "native_TUI_footage_shown": false,
-  "native_capture": "112 timestamped native-window captures; 41 selected source states",
-  "native_identity_privacy": "Bottom status strip cropped; public alias in added outer chrome"
+  ]
 }

@@ -1,31 +1,23 @@
-# CLI and native Desktop demonstration
+# Equal Desktop and CLI demonstration
 
-The repository includes an [88-second CLI and Desktop demo](../demo/Gambit-Demo-Review.mp4), [poster](../demo/poster.png), English captions and a [nine-chapter review player](../demo/Review.html). The film opens with a real Hermes CLI launch, follows the supported `hermes gambit` dashboard through a game, requested hints, coaching, import and practice, then closes in the actual native Hermes Desktop app.
+The [88-second film](../demo/Gambit-Demo-Review.mp4) devotes **44 seconds to the actual native Hermes Desktop app and 44 seconds to CLI**. Its [review player](../demo/Review.html) has nine chapters and 19 English caption cues. TUI remains supported and is mentioned in the narration and feature descriptions.
 
-| Time | Evidence in the film |
+| Time | Genuine footage |
 | --- | --- |
-| 0–4 s | The actual `itsflownium` shell prompt, typed Hermes CLI launch and real CLI chess board. |
-| 4–18 s | Human `f3`, actual public progress and a genuine Hermes `...e5` reply. |
-| 18–27 s | A requested level-one clue for the current position. |
-| 27–34 s | A distinct level-two hint, requested at the same position. |
-| 34–53 s | Human `2.g4`, the genuine `...Qh4#` reply and actual coaching explaining the exposed king and forced mate. |
-| 53–59 s | A separate, completed Normal-mode `1.e4 c5` turn with a genuine Hermes reply and no automatic coaching. |
-| 59–68 s | A public Chess.com search, specific match selection and loaded replay. |
-| 68–81 s | Recorded `...c5 → Nf3` and genuine alternative `...e6 → d4`, with the imported original preserved. |
-| 81–88 s | The actual installed native Hermes Desktop app shows Play Hermes, human `e4`, public move status and the genuine `...e6` reply. |
+| 0–17 s | Native Desktop game startup, human e4, live public thinking status and Hermes e5. |
+| 17–28 s | A requested hint arrives in the existing native chat. |
+| 28–36 s | Human g4, Hermes d5 and actual coaching: g4 weakens the king and delays development; Nf3 improves development. |
+| 36–44 s | The native Chess.com/Lichess picker searches a username and loads exact Chess.com match 186751169392. |
+| 44–48 s | Genuine itsflownium shell launch and CLI chess output. |
+| 48–58 s | CLI human f3, public thinking status and genuine Hermes e5. |
+| 58–70 s | Requested progressive hint levels one and two. |
+| 70–83 s | Human g4, genuine Qh4 mate and actual Coach feedback. |
+| 83–88 s | Completed quiet Normal-mode e4 c5 turn. |
 
-The public alias `itsflownium` appears in added chrome throughout the film. The real child-shell prompt already uses that handle. Disposable profile identity and visible working-directory fields are relabelled only in the declared presentation regions; chess state, moves, public match data and model response text are unchanged. The first 81 seconds retain the verified CLI source spans; the final seven seconds are a native Desktop capture. The audio and 18 caption cues are unchanged. The native bottom host/device status strip is cropped for identity privacy. TUI remains supported and is listed in the feature descriptions.
+The native half is a fresh Strong/Coach game using GPT-6.1 Sol through the existing authorized Hermes OAuth connection. The chat visibly uses XHigh effort. Successful structured host audits confirm both native opponent replies. The actual chat shows the requested hint and move-anchored coaching. No credentials were copied and no recording-specific provider override or runtime patch was used.
 
-The actual terminal session is rendered from its timestamped ANSI capture. The Desktop section uses timestamped native-window screenshots, held until the next capture. Its separate `1.e4 e6` game uses the normal default profile and its existing Nous Portal provider; no named profile or global provider change is required. Cuts shorten waits; the responses are genuine. The source-to-edit map retains the original events and waits privately. The film is an edited demonstration, not a performance benchmark. It shows public move status, with no private model reasoning or recreated product replies.
+Native-window frames and the existing genuine timestamped ANSI footage run at original source speed, with cuts shortening waits. Captured frames are held until the next capture; the video is encoded at 30 fps. These are separate sessions. No game state or model response is recreated, and no private reasoning is shown. The native host/device status strip is cropped; itsflownium appears in added chrome. The original main CLI take's exact process-memory source snapshot was not frozen; [capture provenance](../demo/source-provenance.json) retains that boundary.
 
-The fresh provider run uses GPT-6.1 Sol, selected through Hermes before capture in an isolated demo profile using the existing authorized OAuth connection. Both opponent moves in `1.f3 e5 2.g4 Qh4#` were genuine Hermes replies. The coaching ties `2.g4` to the exposed king and forced mate. Stockfish calculates legal candidates and supplies the position evidence for hints and reviews.
+The revised narration uses the approved Kokoro v1.0 af_heart synthetic voice at speed 0.95. The original score is Quiet Continuation. [Audio timing](../demo/audio-timings.json), [selected source ranges](../demo/edit-timeline.json), [media checks](../demo/video-verification.json) and [privacy checks](../demo/privacy-report.json) accompany the film.
 
-The import selects completed Chess.com match `186751169392` from the Black perspective. A recorded practice branch follows `...c5 → Nf3`; a separate alternative `...e6` receives the fresh Hermes reply `d4`. Both branches receive real retrospective feedback. The imported original retains all 15 half-moves and its `1–0` result.
-
-The main Coach/import/practice take used the supported linked local terminal candidate during development. Its exact in-memory source bytes were not frozen, and files were refreshed after its modules loaded. The separate clean Normal take followed the core commit and source sync. [Capture provenance](../demo/source-provenance.json) records that limit; [the exact edit spans](../demo/edit-timeline.json) retain source timing.
-
-Narration uses the locally rendered Kokoro v1.0 `af_heart` synthetic voice through kokoro-onnx 0.6.1 at speed 0.95. The original score, *Quiet Continuation*, uses local additive synthesis without external samples or tracks. Eighteen caption cues use the narration model's original phoneme durations. Production notes, audio provenance, captions and integrity checks are in [the demo folder](../demo/README.md).
-
-For a live presentation, run `hermes gambit` from a configured Hermes installation. Choose Coach, play a legal move and allow the real reply and feedback to complete. Request a clue, then ask for the next hint level when wanted. Choose Normal for a quiet game, or import a specific public match and try a move in replay. The CLI/TUI chat command is `/chess`.
-
-Raw terminal captures, runtime homes, account credentials, database files, engine binaries, voice model weights and production helpers are excluded from the public demo package. Catalog submission, social posting and the organizer form remain separate actions.
+Use `/chess` in Hermes CLI or TUI. Run `hermes gambit` from a shell for the standalone terminal board. In Desktop, open the knight button and play in the graphical pane while hints and coaching stay in the bound chat. Raw recordings, runtime homes, credentials, databases and machine paths remain private.

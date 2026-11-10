@@ -1,93 +1,127 @@
 {
-  "capture_time_code_snapshot_frozen": false,
-  "capture_time_source_limitation": "Supported linked local production plugin was imported at launch before final commit and later file copies. Exact in-memory source bytes were not frozen. Current source hashes must not be described as an immutable take02 snapshot.",
-  "normal_take_source_note": "Launched after final core commit and latest source sync.",
-  "provider": {
-    "model": "gpt-6.1-sol",
-    "connection": "Existing authorized Hermes OAuth connection",
-    "successful_structured_audits_coach_take": 10,
-    "successful_structured_audits_normal_take": 1,
-    "responses_recreated": false,
-    "private_reasoning_included": false,
-    "plugin_routing_overrides": false,
-    "model_configuration": "Selected through Hermes before capture in an isolated demo profile."
+  "date": "2026-11-11",
+  "plugin_version": "0.3.0",
+  "duration_seconds": 88,
+  "surface_seconds": {
+    "native_Desktop": 44,
+    "CLI": 44
   },
-  "recordings": [
-    {
-      "id": "provider-take02",
-      "sha256": "0eb3ddf0d1549b2c7d3acc64e138df8795d6178df63a3b6ca5fbd3bbbe499408",
-      "full_seconds": 425.059224,
-      "terminal_columns": 110,
-      "terminal_rows": 32
-    },
-    {
-      "id": "provider-take03",
-      "sha256": "e282d056e5ec238c9d4062ff9caa803d6dfe2c3ec6f470467e0b1564b850ac7c",
-      "full_seconds": 63.695059,
-      "terminal_columns": 110,
-      "terminal_rows": 32
-    }
-  ],
-  "verified_behavior": {
-    "teaching_game": "1.f3 e5 2.g4 Qh4#",
-    "teaching_reply_origins": [
-      "hermes",
-      "hermes"
+  "native_TUI_footage_shown": false,
+  "TUI_feature_retained": true,
+  "public_alias": "itsflownium",
+  "responses_recreated": false,
+  "private_reasoning_shown": false,
+  "native_Desktop": {
+    "app": "Actual installed Hermes Desktop 0.23.0 on macOS",
+    "game": "1.e4 e5 2.g4 d5",
+    "human": "White",
+    "strength": "Strong",
+    "mode": "Coach",
+    "move_events": [
+      {
+        "kind": "human_move",
+        "record": {
+          "revision": 1,
+          "moves": [
+            "e2e4"
+          ],
+          "result": "*"
+        }
+      },
+      {
+        "kind": "hermes_move",
+        "record": {
+          "revision": 2,
+          "moves": [
+            "e2e4",
+            "e7e5"
+          ],
+          "result": "*"
+        }
+      },
+      {
+        "kind": "review",
+        "record": {
+          "revision": 3,
+          "moves": [
+            "e2e4",
+            "e7e5"
+          ],
+          "result": "*"
+        }
+      },
+      {
+        "kind": "human_move",
+        "record": {
+          "revision": 4,
+          "moves": [
+            "e2e4",
+            "e7e5",
+            "g2g4"
+          ],
+          "result": "*"
+        }
+      },
+      {
+        "kind": "hermes_move",
+        "record": {
+          "revision": 5,
+          "moves": [
+            "e2e4",
+            "e7e5",
+            "g2g4",
+            "d7d5"
+          ],
+          "result": "*"
+        }
+      },
+      {
+        "kind": "review",
+        "record": {
+          "revision": 6,
+          "moves": [
+            "e2e4",
+            "e7e5",
+            "g2g4",
+            "d7d5"
+          ],
+          "result": "*"
+        }
+      }
     ],
+    "last_reply_origin": "hermes",
+    "last_reply_elapsed_seconds": 6.794,
+    "hint": "Look for a quiet move that improves your position, then check what forcing replies your opponent might have.",
+    "mistake_feedback": "Your 2.g4 was a mistake: it weakened your king\u2019s pawn cover and delayed development while Black struck centrally with ...d5. Instead, 2.Nf3 would have developed your knight and attacked e5.",
+    "engine_classification": "mistake",
+    "model": "gpt-6.1-sol",
+    "effort_visible": "XHigh",
+    "connection": "Existing authorized Hermes OAuth connection",
+    "successful_structured_host_audits": 2,
+    "provider_or_auth_overrides": false,
+    "raw_window_frames": 603,
+    "capture": "Timestamped native-window captures through the computer-use API; frames held until the next capture",
+    "privacy": "Bottom host/device status strip cropped; actual app, board, tools and chat output unchanged",
+    "source_note": "Installed 0.3.0 with no recording-specific runtime edits; no process-memory snapshot was frozen",
+    "import_platform": "Chess.com",
+    "import_username": "EmboldenedNeighbor",
+    "import_source_id": "186751169392",
+    "import_original_plies": 15
+  },
+  "CLI": {
+    "source": "Previously verified genuine timestamped CLI and terminal-dashboard captures",
+    "teaching_game": "1.f3 e5 2.g4 Qh4#",
     "requested_hint_levels": [
       1,
       2
     ],
-    "coaching_origin": "hermes",
     "normal_game": "1.e4 c5",
-    "normal_reply_origin": "hermes",
-    "normal_automatic_feedback_count": 0,
-    "import_platform": "chess.com",
-    "import_source_id": "186751169392",
-    "import_original_plies_before": 15,
-    "import_original_plies_after": 15,
-    "import_moves_sha256_before": "83676a55407b1f4091cbb5bfe18abd3425ed81b1e03f0d9bb98806a3d60ef988",
-    "import_moves_sha256_after": "83676a55407b1f4091cbb5bfe18abd3425ed81b1e03f0d9bb98806a3d60ef988",
-    "recorded_practice": "c5 -> Nf3 (recorded)",
-    "alternative_practice": "e6 -> d4 (hermes)"
+    "model": "gpt-6.1-sol",
+    "connection": "Existing authorized Hermes OAuth connection",
+    "source_snapshot_limitation": "Supported linked local production plugin was imported at launch before final commit and later file copies. Exact in-memory source bytes were not frozen. Current source hashes must not be described as an immutable take02 snapshot."
   },
-  "plugin_version": "0.3.0",
-  "surfaces_shown": [
-    "classic CLI",
-    "terminal dashboard",
-    "native Desktop"
-  ],
-  "TUI_supported": true,
-  "native_TUI_footage_in_this_edit": false,
-  "previous_film_sha256": "6a42bf34ac59bfb127acba847c892d4e292d69166fe7b9713d3649b9a6f7c797",
-  "sha256": "9722890720ea11899ff83ee8dd7f6ba1d348b1481be35845be1ca22372aee4a2",
-  "retained_CLI_footage_seconds": [
-    0,
-    81
-  ],
-  "audio_and_18_caption_cues_unchanged": true,
-  "native_Desktop": {
-    "date": "2026-11-11",
-    "app": "Hermes Desktop 0.23.0, installed macOS app",
-    "runtime_source_pin": "b4564d7708d4d7f15ca41be064740fca3274598a",
-    "profile": "normal default profile; no named profile required",
-    "capture_method": "Timestamped native-window screenshots captured through the computer-use API; sampled frames are held until the next capture",
-    "raw_captured_frames": 112,
-    "selected_unique_native_frames": 41,
-    "selected_edit_seconds": 7,
-    "game": "1.e4 e6",
-    "reply_origin": "hermes",
-    "reply_elapsed_seconds": 11.422,
-    "provider": "Existing default-profile configuration, Nous Portal",
-    "model": "deepseek/deepseek-v4.1-flash",
-    "board_actions": "Actual Play Hermes, e2 selection, e4 destination, public thinking status and completed reply",
-    "privacy": "Bottom host/device status strip cropped. Gameplay and model output are unchanged.",
-    "credentials_copied": false,
-    "global_model_or_OS_identity_changed": false,
-    "code_modified_for_recording": false,
-    "private_reasoning_included": false
-  },
-  "public_alias": "itsflownium",
-  "sessions_across_surfaces_are_separate": true,
-  "editing": "All chosen source ranges at original speed; cuts shorten waits; original CLI source-snapshot limitation retained."
+  "edit": "Separate genuine sessions, original-speed source ranges, cuts shorten waits. No cross-surface session-continuity claim.",
+  "audio": "Revised narration in the approved Kokoro af_heart voice at speed 0.95; original Quiet Continuation score",
+  "captions": 19,
+  "chapters": 9
 }

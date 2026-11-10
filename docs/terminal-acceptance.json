@@ -100,14 +100,13 @@
   "current_demo_revision": {
     "date": "2026-11-11",
     "seconds": 88,
-    "sha256": "9722890720ea11899ff83ee8dd7f6ba1d348b1481be35845be1ca22372aee4a2",
-    "surfaces_shown": [
-      "classic CLI",
-      "terminal dashboard",
-      "native Desktop"
-    ],
+    "Desktop_seconds": 44,
+    "CLI_seconds": 44,
+    "sha256": "38531e9576f4edad5b452962debb7ac70cd0e986da566fdc0e3649d8fc3b595b",
+    "native_Desktop_game": "1.e4 e5 2.g4 d5",
+    "native_move_audits": 2,
     "TUI_feature_retained": true,
-    "native_Desktop_game": "1.e4 e6",
-    "native_Desktop_reply_origin": "hermes"
+    "caption_cues": 19,
+    "chapters": 9
   }
 }

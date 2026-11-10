@@ -1,38 +1,38 @@
 [
   {
     "start": 0,
-    "title": "CLI launch with itsflownium"
+    "title": "Desktop: play Hermes"
   },
   {
-    "start": 4,
-    "title": "One move, one reply"
+    "start": 17,
+    "title": "Desktop: hints in chat"
   },
   {
-    "start": 18,
-    "title": "A clue on request"
+    "start": 28,
+    "title": "Desktop: Coach feedback"
   },
   {
-    "start": 27,
-    "title": "The next hint"
+    "start": 36,
+    "title": "Desktop: choose your match"
   },
   {
-    "start": 34,
-    "title": "Coach feedback"
+    "start": 44,
+    "title": "CLI: launch and /chess"
   },
   {
-    "start": 53,
-    "title": "Normal mode"
+    "start": 48,
+    "title": "CLI: one move, one reply"
   },
   {
-    "start": 59,
-    "title": "Import the exact match"
+    "start": 58,
+    "title": "CLI: progressive hints"
   },
   {
-    "start": 68,
-    "title": "Try another line"
+    "start": 70,
+    "title": "CLI: understand a mistake"
   },
   {
-    "start": 81,
-    "title": "Native Hermes Desktop"
+    "start": 83,
+    "title": "Play. Replay. Understand."
   }
 ]

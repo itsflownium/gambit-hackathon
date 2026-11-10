@@ -1,6 +1,6 @@
 {
-  "status": "Narration checked against the genuine selected terminal footage",
-  "duration_seconds": 88.0,
+  "status": "Fresh balanced Desktop and CLI edit",
+  "duration_seconds": 88,
   "sample_rate": 48000,
   "channels": 2,
   "voice": "af_heart",
@@ -18,109 +18,109 @@
       "voice": "af_heart",
       "speed": 0.95,
       "scheduled_start": 0.1,
-      "scheduled_end": 4.0,
+      "scheduled_end": 4.2,
       "actual_start": 0.1,
       "actual_end": 3.917958,
       "duration_seconds": 3.817958,
-      "remaining_window_seconds": 0.082042,
+      "remaining_window_seconds": 0.282042,
       "filename": "voice01.wav"
     },
     {
       "clip": 2,
-      "id": "move",
-      "text": "Make your move in the terminal. A live status follows Hermes as it prepares one reply, then the board updates.",
+      "id": "desktop-move",
+      "text": "On Desktop, make your move on the board. Hermes calculates a reply, and the live status shows it working.",
       "voice": "af_heart",
       "speed": 0.95,
       "scheduled_start": 4.6,
-      "scheduled_end": 17.2,
+      "scheduled_end": 16.5,
       "actual_start": 4.6,
-      "actual_end": 11.724625,
-      "duration_seconds": 7.124625,
-      "remaining_window_seconds": 5.475375,
+      "actual_end": 11.537333,
+      "duration_seconds": 6.937333,
+      "remaining_window_seconds": 4.962667,
       "filename": "voice02.wav"
     },
     {
       "clip": 3,
-      "id": "hint-one",
-      "text": "Need a nudge? Ask for a hint. Start with a clue that leaves the move yours to find.",
+      "id": "desktop-hint",
+      "text": "When you need help, ask for a hint. Hermes explains the position in your existing chat.",
       "voice": "af_heart",
       "speed": 0.95,
-      "scheduled_start": 18.4,
-      "scheduled_end": 26.5,
-      "actual_start": 18.4,
-      "actual_end": 23.702625,
-      "duration_seconds": 5.302625,
-      "remaining_window_seconds": 2.797375,
+      "scheduled_start": 17.3,
+      "scheduled_end": 27.4,
+      "actual_start": 17.3,
+      "actual_end": 22.696625,
+      "duration_seconds": 5.396625,
+      "remaining_window_seconds": 4.703375,
       "filename": "voice03.wav"
     },
     {
       "clip": 4,
-      "id": "hint-two",
-      "text": "Ask again for more detail. You choose when to reveal the next hint.",
+      "id": "desktop-coach",
+      "text": "Coach mode connects Stockfish analysis to your last move, with a clear way to improve.",
       "voice": "af_heart",
       "speed": 0.95,
-      "scheduled_start": 27.4,
-      "scheduled_end": 33.6,
-      "actual_start": 27.4,
-      "actual_end": 31.540667,
-      "duration_seconds": 4.140667,
-      "remaining_window_seconds": 2.059333,
+      "scheduled_start": 28.2,
+      "scheduled_end": 35.8,
+      "actual_start": 28.2,
+      "actual_end": 33.353292,
+      "duration_seconds": 5.153292,
+      "remaining_window_seconds": 2.446708,
       "filename": "voice04.wav"
     },
     {
       "clip": 5,
-      "id": "coach",
-      "text": "In Coach mode, Hermes reviews the move you just played. Stockfish analysis explains what changed and why it matters. Here, pushing the g-pawn exposed the king to checkmate.",
+      "id": "desktop-import",
+      "text": "Find your Chess dot com or Lichess games by username. Choose the exact match to replay.",
       "voice": "af_heart",
       "speed": 0.95,
-      "scheduled_start": 34.5,
-      "scheduled_end": 52.3,
-      "actual_start": 34.5,
-      "actual_end": 46.094625,
-      "duration_seconds": 11.594625,
-      "remaining_window_seconds": 6.205375,
+      "scheduled_start": 36.3,
+      "scheduled_end": 43.8,
+      "actual_start": 36.3,
+      "actual_end": 42.360667,
+      "duration_seconds": 6.060667,
+      "remaining_window_seconds": 1.439333,
       "filename": "voice05.wav"
     },
     {
       "clip": 6,
-      "id": "normal",
-      "text": "Choose Normal mode for a quiet game, with help when you ask.",
+      "id": "cli-move",
+      "text": "Make your move in the terminal. A live status follows Hermes as it prepares one reply, then the board updates.",
       "voice": "af_heart",
       "speed": 0.95,
-      "scheduled_start": 53.4,
-      "scheduled_end": 58.7,
-      "actual_start": 53.4,
-      "actual_end": 57.015958,
-      "duration_seconds": 3.615958,
-      "remaining_window_seconds": 1.684042,
+      "scheduled_start": 48.5,
+      "scheduled_end": 58.0,
+      "actual_start": 48.5,
+      "actual_end": 55.624625,
+      "duration_seconds": 7.124625,
+      "remaining_window_seconds": 2.375375,
       "filename": "voice06.wav"
     },
     {
       "clip": 7,
-      "id": "import",
-      "text": "Bring your own history. Find the exact Chess dot com match and open it in replay.",
+      "id": "cli-hints",
+      "text": "Use slash chess in CLI or TUI. Ask for a clue, then request the next hint when you want more detail.",
       "voice": "af_heart",
       "speed": 0.95,
-      "scheduled_start": 59.4,
-      "scheduled_end": 67.5,
-      "actual_start": 59.4,
-      "actual_end": 64.714,
-      "duration_seconds": 5.314,
-      "remaining_window_seconds": 2.786,
+      "scheduled_start": 59.1,
+      "scheduled_end": 69.4,
+      "actual_start": 59.1,
+      "actual_end": 66.674,
+      "duration_seconds": 7.574,
+      "remaining_window_seconds": 2.726,
       "filename": "voice07.wav"
     },
     {
       "clip": 8,
-      "id": "practice",
-      "text": "Follow the original line, or try another move. Practice the alternative while your imported game stays intact.",
+      "id": "cli-coach",
+      "text": "In Coach mode, Hermes reviews the move you just played. Stockfish analysis explains what changed and why it matters. Here, pushing the g-pawn exposed the king to checkmate.",
       "voice": "af_heart",
       "speed": 0.95,
-      "scheduled_start": 68.5,
-      "scheduled_end": 80.4,
-      "actual_start": 68.5,
-      "actual_end": 75.796667,
-      "duration_seconds": 7.296667,
-      "remaining_window_seconds": 4.603333,
+      "scheduled_start": 70.3,
+      "scheduled_end": 82.0,
+      "actual_start": 70.3,
+      "actual_end": 81.894625,
+      "duration_seconds": 11.594625,
+      "remaining_window_seconds": 0.105375,
       "filename": "voice08.wav"
     },
     {
@@ -129,12 +129,12 @@
       "text": "Play a game. Understand a decision. Try another line. Gambit, built for Hermes.",
       "voice": "af_heart",
       "speed": 0.95,
-      "scheduled_start": 81.3,
-      "scheduled_end": 87.8,
-      "actual_start": 81.3,
-      "actual_end": 86.943958,
+      "scheduled_start": 82.1,
+      "scheduled_end": 87.9,
+      "actual_start": 82.1,
+      "actual_end": 87.743958,
       "duration_seconds": 5.643958,
-      "remaining_window_seconds": 0.856042,
+      "remaining_window_seconds": 0.156042,
       "filename": "voice09.wav"
     }
   ],
@@ -145,88 +145,93 @@
       "text": "Meet Gambit: chess you can play and understand inside Hermes."
     },
     {
-      "start": 4.689,
-      "end": 6.614,
+      "start": 4.710333,
+      "end": 7.430333,
+      "text": "On Desktop, make your move on the board."
+    },
+    {
+      "start": 7.430333,
+      "end": 11.527333,
+      "text": "Hermes calculates a reply, and the live status shows it working."
+    },
+    {
+      "start": 17.364,
+      "end": 19.789,
+      "text": "When you need help, ask for a hint."
+    },
+    {
+      "start": 19.789,
+      "end": 22.666667,
+      "text": "Hermes explains the position in your existing chat."
+    },
+    {
+      "start": 28.242667,
+      "end": 31.592667,
+      "text": "Coach mode connects Stockfish analysis to your last move,"
+    },
+    {
+      "start": 31.592667,
+      "end": 33.353292,
+      "text": "with a clear way to improve."
+    },
+    {
+      "start": 36.410333,
+      "end": 40.310333,
+      "text": "Find your Chess.com or Lichess games by username."
+    },
+    {
+      "start": 40.310333,
+      "end": 42.360667,
+      "text": "Choose the exact match to replay."
+    },
+    {
+      "start": 48.589,
+      "end": 50.514,
       "text": "Make your move in the terminal."
     },
     {
-      "start": 6.614,
-      "end": 10.339,
+      "start": 50.514,
+      "end": 54.239,
       "text": "A live status follows Hermes as it prepares one reply,"
     },
     {
-      "start": 10.339,
-      "end": 11.694667,
+      "start": 54.239,
+      "end": 55.594667,
       "text": "then the board updates."
     },
     {
-      "start": 18.489,
-      "end": 20.799,
-      "text": "Need a nudge? Ask for a hint."
+      "start": 59.192667,
+      "end": 62.642667,
+      "text": "Use slash chess in CLI or TUI."
     },
     {
-      "start": 20.799,
-      "end": 23.702625,
-      "text": "Start with a clue that leaves the move yours to find."
+      "start": 62.642667,
+      "end": 66.664,
+      "text": "Ask for a clue, then request the next hint when you want more detail."
     },
     {
-      "start": 27.492667,
-      "end": 29.442667,
-      "text": "Ask again for more detail."
-    },
-    {
-      "start": 29.442667,
-      "end": 31.540667,
-      "text": "You choose when to reveal the next hint."
-    },
-    {
-      "start": 34.610333,
-      "end": 38.285333,
+      "start": 70.410333,
+      "end": 74.085333,
       "text": "In Coach mode, Hermes reviews the move you just played."
     },
     {
-      "start": 38.285333,
-      "end": 42.635333,
+      "start": 74.085333,
+      "end": 78.435333,
       "text": "Stockfish analysis explains what changed and why it matters."
     },
     {
-      "start": 42.635333,
-      "end": 46.074667,
+      "start": 78.435333,
+      "end": 81.874667,
       "text": "Here, pushing the g-pawn exposed the king to checkmate."
     },
     {
-      "start": 53.467667,
-      "end": 56.996,
-      "text": "Choose Normal mode for a quiet game, with help when you ask."
-    },
-    {
-      "start": 59.489,
-      "end": 61.064,
-      "text": "Bring your own history."
-    },
-    {
-      "start": 61.064,
-      "end": 64.714,
-      "text": "Find the exact Chess.com match and open it in replay."
-    },
-    {
-      "start": 68.610333,
-      "end": 71.885333,
-      "text": "Follow the original line, or try another move."
-    },
-    {
-      "start": 71.885333,
-      "end": 75.786667,
-      "text": "Practice the alternative while your imported game stays intact."
-    },
-    {
-      "start": 81.364,
-      "end": 83.714,
+      "start": 82.164,
+      "end": 84.514,
       "text": "Play a game. Understand a decision."
     },
     {
-      "start": 83.809,
-      "end": 86.934,
+      "start": 84.609,
+      "end": 87.734,
       "text": "Try another line. Gambit, built for Hermes."
     }
   ],

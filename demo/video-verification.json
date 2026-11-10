@@ -11,12 +11,12 @@
   "audio_sample_rate": 48000,
   "audio_channels": 2,
   "full_decode": "passed; no errors or warnings",
-  "audio_loudness_lufs": -18.22,
-  "audio_true_peak_dbtp": -4.47,
-  "english_caption_cues": 18,
+  "audio_loudness_lufs": -18.16,
+  "audio_true_peak_dbtp": -4.54,
+  "english_caption_cues": 19,
   "player_chapters": 9,
   "embedded_chapters": 0,
-  "sha256": "9722890720ea11899ff83ee8dd7f6ba1d348b1481be35845be1ca22372aee4a2",
+  "sha256": "38531e9576f4edad5b452962debb7ac70cd0e986da566fdc0e3649d8fc3b595b",
   "checks": {
     "under_89_seconds": true,
     "target_88_seconds": true,
@@ -29,12 +29,15 @@
     "full_decode": true,
     "audible_mix_loudness": true,
     "audio_true_peak_below_minus_1_dbtp": true,
-    "18_caption_cues": true,
+    "19_caption_cues": true,
     "captions_within_film": true,
     "captions_do_not_overlap": true,
     "nine_player_chapters": true,
     "embedded_chapters_if_present": true,
-    "public_text_and_metadata_identifier_scan": true
+    "public_text_and_metadata_identifier_scan": true,
+    "exact_50_50_split": true,
+    "Desktop_1320_frames": true,
+    "CLI_1320_frames": true
   },
   "all_automated_checks_passed": true,
   "scanned_text_assets": [
@@ -50,22 +53,18 @@
     "source-provenance.json"
   ],
   "identifier_findings": [],
-  "visual_source_and_frame_privacy_review": "Passed: all 41 selected native Desktop states, new poster, retained CLI source review and encoded closing frame review",
-  "actual_browser_playback_review": "Passed: native Desktop chapter sought and played through to 88 seconds without a media error",
-  "surfaces_shown": [
-    "classic CLI",
-    "terminal dashboard",
-    "native Desktop"
+  "visual_source_and_frame_privacy_review": "Passed: retained CLI source review, all 44 native-second samples, poster, and 16 encoded scene/transition frames",
+  "actual_browser_playback_review": "Passed: Desktop and CLI chapters sought and played, English captions enabled, clean end at 88 seconds",
+  "Desktop_seconds": 44,
+  "CLI_seconds": 44,
+  "surface_split_percent": [
+    50,
+    50
   ],
-  "TUI_feature_retained": true,
-  "native_TUI_footage_shown": false,
-  "native_Desktop_seconds": 7,
-  "CLI_seconds": 81,
-  "audio_packet_stream_unchanged": true,
-  "caption_files_unchanged": true,
-  "native_Desktop_game": "1.e4 e6",
-  "native_Desktop_reply_origin": "hermes",
-  "native_privacy_OCR_states": 41,
-  "poster_OCR_checked": true,
-  "native_fullscreen": "Remains unverified; prior player implementation retained."
+  "native_Desktop_frames": 1320,
+  "CLI_frames": 1320,
+  "native_Desktop_game": "1.e4 e5 2.g4 d5",
+  "native_Desktop_genuine_move_audits": 2,
+  "required_media_checks_passed": true,
+  "private_reasoning_shown": false
 }

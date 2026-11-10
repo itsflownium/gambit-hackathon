@@ -10,7 +10,7 @@ Version 0.3.0 supports the standalone terminal board, ordinary CLI chat tools, t
 
 [![Watch the Gambit CLI and Desktop demo](demo/poster.png)](demo/Gambit-Demo-Review.mp4)
 
-[Watch the 88-second CLI and Desktop demo](demo/Gambit-Demo-Review.mp4). It shows real terminal dashboard play, requested hints, coaching, a quiet Normal turn, exact public-match import and replay practice, followed by a genuine turn in the native Hermes Desktop app. The [demo folder](demo/README.md) includes 18 English caption cues, nine chapter controls, a poster and the verified review player. Timing cuts and the linked-development capture's source-pin limit are disclosed in [the capture provenance](demo/source-provenance.json); the original main CLI take's exact in-memory source snapshot was not frozen.
+[Watch the 88-second 50/50 Desktop and CLI demo](demo/Gambit-Demo-Review.mp4). The first 44 seconds show the actual native Desktop app playing two turns, live thinking status, a requested hint, real mistake feedback and an exact public-match import. The next 44 seconds show the genuine CLI launch, replies, progressive hints, Coach feedback and quiet Normal play. The [demo folder](demo/README.md) includes 19 English caption cues, nine chapters, the poster and review player. Timing cuts and source-snapshot limits are disclosed in [capture provenance](demo/source-provenance.json).
 
 The CLI launch prompt uses the public alias `itsflownium`. The native Desktop host/device status strip is cropped for privacy, and the alias appears in added chrome throughout. The full film and its accompanying media have been checked for personal names and local paths. TUI remains a supported feature.
 

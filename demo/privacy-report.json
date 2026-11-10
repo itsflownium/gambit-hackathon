@@ -2,13 +2,12 @@
   "date": "2026-11-11",
   "passed": true,
   "public_alias": "itsflownium",
-  "retained_CLI_review": "Previously reviewed 0\u201381 second source ranges retained; original text scan had no private identity findings",
-  "native_Desktop_selected_states": 41,
-  "native_Desktop_OCR_states": 41,
-  "poster_OCR_checked": true,
-  "OCR_method": "Local Apple Vision accurate text recognition, CPU only",
-  "native_identity_handling": "Bottom host/device status strip cropped; public alias appears in added chrome",
-  "public_text_and_video_metadata_scan": "passed",
   "private_identifier_findings": 0,
-  "gameplay_and_model_response_text_recreated": false
+  "native_Desktop_sampled_seconds_checked": 44,
+  "poster_checked": true,
+  "OCR_samples": 45,
+  "method": "Local Apple Vision accurate text recognition, plus source/encoded-frame visual review and public text/metadata scan",
+  "retained_CLI_review": "Previously verified source ranges; no new text added to CLI frames",
+  "native_identity_handling": "Bottom host/device status strip cropped; public handle in added chrome",
+  "no_claim_of_OCR_on_every_source_frame": true
 }
