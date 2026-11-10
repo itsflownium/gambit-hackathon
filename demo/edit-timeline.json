@@ -1,25 +1,67 @@
 {
   "duration_seconds": 88,
-  "terminal_source_render_fps": 12,
+  "source_terminal_render_fps": 12,
   "encoded_fps": 30,
-  "resolution": [
-    1920,
-    1080
-  ],
-  "added_presentation": "Outer terminal chrome, chapter labels, and wait-cut disclosure only; terminal cells come from actual captured ANSI output.",
-  "all_selected_spans_play_at_original_speed": true,
+  "all_selected_source_spans_at_original_speed": true,
+  "middle_4_to_81_seconds_unchanged": true,
   "full_waits_retained_privately": true,
-  "raw_recordings_distributed": false,
+  "public_alias": "itsflownium",
+  "identity_and_path_field_regions": 11,
   "segments": [
     {
-      "start": 6.0,
-      "end": 10.0,
-      "duration": 4.0,
-      "label": "Ready Coach board",
+      "start": 22.9,
+      "end": 23.3,
+      "duration": 0.4,
+      "label": "Actual itsflownium shell prompt",
+      "bookend": "cli",
       "edit_start": 0.0,
-      "edit_end": 4.0,
+      "edit_end": 0.4,
+      "speed": 1.0000000000000053,
+      "source_recording": "shell-cli-take01"
+    },
+    {
+      "start": 24.7,
+      "end": 25.5,
+      "duration": 0.8,
+      "label": "Genuine typed Hermes launch",
+      "bookend": "cli",
+      "edit_start": 0.4,
+      "edit_end": 1.2000000000000002,
+      "speed": 1.0000000000000009,
+      "source_recording": "shell-cli-take01"
+    },
+    {
+      "start": 49.35,
+      "end": 49.85,
+      "duration": 0.5,
+      "label": "Actual launch command and Enter",
+      "bookend": "cli",
+      "edit_start": 1.2000000000000002,
+      "edit_end": 1.7000000000000002,
       "speed": 1.0,
-      "source_recording": "provider-take02"
+      "source_recording": "shell-cli-take01"
+    },
+    {
+      "start": 54.5,
+      "end": 55.1,
+      "duration": 0.6,
+      "label": "Genuine Hermes CLI startup",
+      "bookend": "cli",
+      "edit_start": 1.7000000000000002,
+      "edit_end": 2.3000000000000003,
+      "speed": 1.0000000000000024,
+      "source_recording": "shell-cli-take01"
+    },
+    {
+      "start": 160.0,
+      "end": 161.7,
+      "duration": 1.7,
+      "label": "Actual classic CLI chess board",
+      "bookend": "cli",
+      "edit_start": 2.3000000000000003,
+      "edit_end": 4.0,
+      "speed": 0.9999999999999933,
+      "source_recording": "shell-cli-take01"
     },
     {
       "start": 12.0,
@@ -192,14 +234,26 @@
       "source_recording": "provider-take02"
     },
     {
-      "start": 398.35,
-      "end": 405.35,
-      "duration": 7.0,
-      "label": "Return to unchanged fifteen-ply source",
+      "start": 136.0,
+      "end": 137.25,
+      "duration": 1.25,
+      "label": "Actual native TUI identity and chess command",
+      "bookend": "tui",
       "edit_start": 81.0,
+      "edit_end": 82.25,
+      "speed": 1.0,
+      "source_recording": "native-tui-take01"
+    },
+    {
+      "start": 158.6,
+      "end": 164.35,
+      "duration": 5.75,
+      "label": "Actual native TUI chess board",
+      "bookend": "tui",
+      "edit_start": 82.25,
       "edit_end": 88.0,
       "speed": 1.0,
-      "source_recording": "provider-take02"
+      "source_recording": "native-tui-take01"
     }
   ]
 }

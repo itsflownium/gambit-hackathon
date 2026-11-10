@@ -1,7 +1,7 @@
 [
   {
     "start": 0,
-    "title": "Gambit in the terminal"
+    "title": "CLI launch with itsflownium"
   },
   {
     "start": 4,
@@ -33,6 +33,6 @@
   },
   {
     "start": 81,
-    "title": "Play. Understand. Practice."
+    "title": "Native Hermes TUI"
   }
 ]

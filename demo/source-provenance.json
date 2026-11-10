@@ -62,12 +62,51 @@
     "source_terminal_render_fps": 12,
     "encoded_fps": 30,
     "cuts_shorten_waits": true,
-    "disclosure": "Actual terminal session rendered from its timestamped ANSI capture. Cuts shorten waits; responses are genuine."
+    "disclosure": "Actual terminal session rendered from its timestamped ANSI capture. Cuts shorten waits; responses are genuine.",
+    "selected_source_spans": 24
   },
   "privacy": {
-    "method": "Exact terminal text scan plus selected-frame, outer-chrome, narration and caption review; no OCR claim",
-    "selected_rendered_states_scanned": 250,
-    "selected_unique_text_states": 73,
-    "identifier_matches": 0
+    "public_alias": "itsflownium",
+    "selected_rendered_states_scanned": 267,
+    "selected_unique_text_states": 89,
+    "identifier_matches": 0,
+    "original_film_private_name_findings": 0,
+    "ocr_claim": false
+  },
+  "identity_revision": {
+    "original_movie_sha256": "0d3818034ae52e6ef95659e36643ebb3b7ba2157959678c379a3a248b0fed522",
+    "revised_movie_sha256": "6a42bf34ac59bfb127acba847c892d4e292d69166fe7b9713d3649b9a6f7c797",
+    "public_alias": "itsflownium",
+    "shell_prompt_actually_emitted_alias": true,
+    "shell_prompt_method": "Temporary child-shell prompt only; no OS account or global preference change",
+    "presentation_replacements": "Opaque public-alias replacement only in actual profile identity and visible working-directory fields. Chess, public match data and model responses are unchanged.",
+    "original_film_private_name_findings": 0,
+    "selected_identity_and_path_field_regions": 11,
+    "middle_4_to_81_seconds_source_spans_unchanged": true,
+    "sampled_core_application_pixels_identical_before_encoding": [
+      22,
+      42.75
+    ],
+    "audio_stream_copied_unchanged": true,
+    "new_cli_command": "hermes chat --cli -t gambit",
+    "new_native_tui_command": "hermes chat --tui --native -t gambit",
+    "new_cli_game": "1.e4 c5",
+    "new_native_tui_game": "1.e4 c5",
+    "new_move_reply_origins": [
+      "hermes",
+      "hermes"
+    ],
+    "new_sources": [
+      {
+        "id": "shell-cli-take01",
+        "sha256": "69e4de1cdb63b1f514992102c23d3939fcc158ed2e815a9e445a9804a33fd345",
+        "full_seconds": 243.860283
+      },
+      {
+        "id": "native-tui-take01",
+        "sha256": "c905defee4143fe81840d1d144d3ca347b027ce009a725d590d3ae0e9a2b2a1c",
+        "full_seconds": 256.463906
+      }
+    ]
   }
 }

@@ -88,8 +88,13 @@
   "demo": {
     "file": "demo/Gambit-Demo-Review.mp4",
     "duration_seconds": 88.0,
-    "sha256": "0d3818034ae52e6ef95659e36643ebb3b7ba2157959678c379a3a248b0fed522",
+    "sha256": "6a42bf34ac59bfb127acba847c892d4e292d69166fe7b9713d3649b9a6f7c797",
     "capture_provenance": "demo/source-provenance.json",
-    "media_verification": "demo/video-verification.json"
+    "media_verification": "demo/video-verification.json",
+    "public_identity": "itsflownium",
+    "launch_views": [
+      "classic CLI",
+      "native Ink TUI"
+    ]
   }
 }

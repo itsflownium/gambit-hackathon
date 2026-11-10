@@ -12,6 +12,8 @@ Version 0.3.0 supports the standalone terminal board, ordinary CLI chat tools an
 
 [Watch the 88-second terminal demo](demo/Gambit-Demo-Review.mp4). It shows real dashboard play, requested hints, coaching, a quiet Normal turn, exact public-match import and replay practice. The [demo folder](demo/README.md) includes 18 English caption cues, nine chapter controls, a poster and the verified review player. Timing cuts and the linked-development capture's source-pin limit are disclosed in [the capture provenance](demo/source-provenance.json); this is genuine terminal footage, not an immutable recording of the final release commit.
 
+The launch-screen prompt and visible CLI/TUI identity fields use the public alias `itsflownium`. The full film and its accompanying media have been checked for personal names and local paths.
+
 ## Start
 
 ### Standalone terminal board

@@ -16,25 +16,19 @@
   "english_caption_cues": 18,
   "player_chapters": 9,
   "embedded_chapters": 0,
-  "sha256": "0d3818034ae52e6ef95659e36643ebb3b7ba2157959678c379a3a248b0fed522",
+  "sha256": "6a42bf34ac59bfb127acba847c892d4e292d69166fe7b9713d3649b9a6f7c797",
   "checks": {
-    "under_89_seconds": true,
-    "target_88_seconds": true,
-    "resolution_1920x1080": true,
-    "h264": true,
-    "frame_rate_30": true,
-    "frame_count_2640": true,
-    "aac": true,
-    "audio_48000_stereo": true,
-    "full_decode": true,
-    "audible_mix_loudness": true,
-    "audio_true_peak_below_minus_1_dbtp": true,
-    "18_caption_cues": true,
-    "captions_within_film": true,
-    "captions_do_not_overlap": true,
-    "nine_player_chapters": true,
-    "embedded_chapters_if_present": true,
-    "public_text_and_metadata_identifier_scan": true
+    "exact_88_seconds": true,
+    "1920x1080_h264_30fps_2640frames": true,
+    "aac_48000_stereo": true,
+    "clean_full_decode": true,
+    "expected_sha256": true,
+    "audio_packet_stream_unchanged": true,
+    "middle_17_source_spans_unchanged": true,
+    "no_private_identifier_in_video_metadata": true,
+    "public_alias_in_artist_metadata": true,
+    "caption_files_unchanged": true,
+    "nine_chapter_starts_unchanged": true
   },
   "all_automated_checks_passed": true,
   "scanned_text_assets": [
@@ -50,25 +44,20 @@
     "source-provenance.json"
   ],
   "identifier_findings": [],
-  "visual_source_and_frame_privacy_review": "passed: exact selected terminal text scan and twelve encoded-frame visual reviews by the editor",
-  "actual_browser_playback_review": "passed for normal playback, chapter seek, captions and responsive mobile width",
+  "visual_source_and_frame_privacy_review": "passed; selected-state scan, retained core review and four newly encoded CLI/TUI frames",
+  "actual_browser_playback_review": "passed; actual revised film played and sought to the native TUI closing chapter with correct captions",
   "player": {
     "browser": "Isolated headless Chrome",
-    "actual_film_tested": true,
+    "actual_revision_tested": true,
     "chapters": 9,
     "english_caption_cues": 18,
-    "coach_caption_seek_seconds": 43.0,
-    "coach_caption_text_verified": "Here, pushing the g-pawn exposed / the king to checkmate.",
-    "replay_seek_seconds": 68.040902,
+    "native_tui_closing_seek_seconds": 86.031819,
     "playback_started": true,
     "media_error": null,
-    "byte_range_playback_verified": true,
-    "captions_below_video_with_controls": true,
-    "two_line_captions_fit_desktop": true,
-    "mobile_viewport_pixels": 375,
-    "mobile_content_width_pixels": 375,
-    "two_line_captions_fit_mobile": true,
-    "native_fullscreen": "Not verified: this headless browser denied native fullscreen with not granted. The player retains native-caption fullscreen handling."
+    "closing_caption_verified": true,
+    "caption_band_below_video": true,
+    "prior_player_caption_fit_regressions_retained": true,
+    "native_fullscreen": "Previously unverified in the headless browser; unchanged native-caption fullscreen handling retained."
   },
   "capture": {
     "model": "gpt-6.1-sol",
@@ -77,7 +66,7 @@
     "plugin_routing_overrides": false,
     "supported_terminal_entry_point": true,
     "method": "Actual timestamped ANSI terminal capture rendered faithfully",
-    "selected_source_spans": 19,
+    "selected_source_spans": 24,
     "all_selected_source_spans_at_original_speed": true,
     "source_terminal_render_fps": 12,
     "encoded_fps": 30,
@@ -101,15 +90,49 @@
     "imported_original_plies_preserved": 15,
     "imported_original_moves_and_result_preserved": true,
     "capture_time_code_snapshot_frozen": false,
-    "source_provenance_file": "source-provenance.json"
+    "source_provenance_file": "source-provenance.json",
+    "surfaces": [
+      "classic CLI",
+      "terminal dashboard",
+      "native Ink TUI"
+    ],
+    "new_cli_game": "1.e4 c5",
+    "new_native_tui_game": "1.e4 c5",
+    "new_reply_origins": [
+      "hermes",
+      "hermes"
+    ]
   },
   "privacy": {
-    "public_text_and_video_metadata_scan": "passed",
-    "selected_rendered_states_scanned": 250,
-    "selected_unique_text_states": 73,
-    "selected_encoded_frames_visually_reviewed": 12,
+    "public_alias": "itsflownium",
+    "selected_rendered_states_scanned": 267,
+    "selected_unique_text_states": 89,
+    "identity_and_path_field_regions": 11,
     "identifier_findings": 0,
+    "original_film_private_name_findings": 0,
+    "prior_core_frame_reviews_retained": 12,
+    "new_bookend_encoded_frames_reviewed": 4,
+    "public_text_video_and_image_metadata_scan": "passed",
     "ocr_claim": false
   },
-  "required_video_and_player_checks_passed": true
+  "required_video_and_player_checks_passed": true,
+  "audio_packet_sha256": "46c916261f81c103e865cb4d295ed07a1bf83585c645f07a7ebf7f7c4e80c35f",
+  "audio_metrics_basis": "Previously measured identical AAC packet stream",
+  "identity_revision": {
+    "public_alias": "itsflownium",
+    "alias_in_outer_chrome_throughout_88_seconds": true,
+    "actual_child_shell_prompt_uses_alias": true,
+    "presentation_field_labels": [
+      "profile_identity",
+      "profile_prompt",
+      "working_directory"
+    ],
+    "identity_and_path_regions": 11,
+    "chess_and_model_response_content_changed": false,
+    "original_film_private_name_findings": 0,
+    "middle_4_to_81_seconds_17_source_spans_unchanged": true,
+    "audio_packet_stream_unchanged": true,
+    "caption_files_unchanged": true,
+    "chapter_starts_unchanged": true
+  }
 }

@@ -33,6 +33,8 @@ Updated 10 November 2026 for the 0.3.0 terminal release. All 175 behavioral test
 - [x] Verify 18 caption cues, nine external chapter controls, the real feedback poster/screenshot, audio attribution, clean full decode, desktop/mobile player seeking and MP4 checksum.
 - [x] Review visible frames, repository text and media metadata for private information. Verify final Git author/committer metadata when publishing the source.
 
+- [x] Use `itsflownium` in the full film’s launch prompt and CLI/TUI identity fields; verify the shared video, poster, captions and metadata.
+
 ## Exact pin and existing catalogue PR
 
 - [x] Commit the complete source, documentation and reviewed terminal demo to `itsflownium/gambit-hackathon` using the public maintainer identity.
