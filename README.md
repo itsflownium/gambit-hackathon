@@ -2,23 +2,41 @@
 
 Play a game. Understand a move. Revisit your own matches.
 
-Gambit adds one knight button to Hermes Desktop's top bar. It opens a chess board beside your existing chat, with direct play and a Chess.com/Lichess match picker. Coaching, hints, explanations, and match reviews stay in Hermes chat.
+Gambit brings chess to Hermes terminals and Desktop. Run `hermes gambit` for a standalone terminal board, use `/chess` for text-board output in a Hermes CLI or TUI conversation, or open the optional graphical pane in Hermes Desktop. Play against Hermes, request hints, and replay or practice public Chess.com and Lichess matches.
+
+Version 0.3.0 supports the standalone terminal board, ordinary CLI chat tools and the native Hermes TUI. Production checks cover model-backed play/coaching and the real CLI/TUI command flow. The terminal film is verified; final release-pin validation is pending. See the [verification report](docs/verification.md). The catalogue scope remains macOS only.
 
 ## Demo
 
-[![Watch the Gambit demo](demo/poster.png)](demo/Gambit-Demo-Review.mp4)
+[![Watch the Gambit terminal demo](demo/poster.png)](demo/Gambit-Demo-Review.mp4)
 
-[Watch the 89-second demo](demo/Gambit-Demo-Review.mp4). The [demo folder](demo/README.md) includes English captions, a poster, chapter timings and a local review player. The revised film shows a real GPT OAuth game, requested hints and fresh feedback in chat. Its shared-board SDK capture and timing edits are disclosed. The ending clearly identifies future ideas that are not implemented.
+[Watch the 88-second terminal demo](demo/Gambit-Demo-Review.mp4). It shows real dashboard play, requested hints, coaching, a quiet Normal turn, exact public-match import and replay practice. The [demo folder](demo/README.md) includes 18 English caption cues, nine chapter controls, a poster and the verified review player. Timing cuts and the linked-development capture's source-pin limit are disclosed in [the capture provenance](demo/source-provenance.json); this is genuine terminal footage, not an immutable recording of the final release commit.
 
 ## Start
 
-Open the knight button and choose **Play Hermes** or **Import game**. You can also initialize through chat:
+### Standalone terminal board
+
+After installation, open an interactive macOS terminal and run:
+
+```sh
+hermes gambit
+```
+
+The curses dashboard is a separate terminal application with its own Gambit session. It uses the active Hermes profile's plugin data and configured provider; it does not attach itself to whichever Hermes chat happens to be visible. Hermes Desktop is optional.
+
+Run `hermes gambit --help` for options. `--colour white|black`, `--strength learning|balanced|strong` and `--mode coach|normal` choose a new game's settings; `--ascii` uses ASCII pieces. `--session` resumes a saved standalone `terminal:<32-hex>` session in the active profile. Launch requires an interactive terminal; non-TTY invocation exits with a usage error. With `plugins.isolation: host`, Hermes skips standalone CLI command registration; use `/chess` in a Hermes conversation instead.
+
+### Hermes CLI or TUI conversation
+
+Initialize chess in your current conversation:
 
 ```text
 /chess
 ```
 
-Use any regular Hermes chat; no dedicated chess profile is required. A fresh **Play Hermes** opens a normal chat automatically. Gambit follows the chat on screen, including when **All profiles** is selected, and keeps each chat's game separate.
+Bare `/chess` starts a White, Balanced, Coach game when none is selected, or refreshes the current board. `/chess` and `/chess play` return the same text board across Hermes chat surfaces. Continue in your CLI or TUI conversation with ordinary chess requests. Each conversation keeps its own game; no dedicated chess profile is required. A CLI/TUI move tool waits for one opponent reply and returns the completed board. In Coach mode, Hermes uses the exact move-review evidence for brief feedback before showing that board.
+
+Shortcuts such as `/chess move e4`, `/chess hint 2` and `/chess next` return board output or local engine evidence directly. Use ordinary conversation when you want a model explanation. Text output updates on a command or chat turn.
 
 Then use ordinary conversation:
 
@@ -34,15 +52,17 @@ Show my saved matches.
 Export this match as PGN.
 ```
 
-The knight button shows or hides the board. Click **Play Hermes** or **New game** to start directly on the board; `/chess` also initializes the conversation. It adds no permanent sidebar entry or extra chat panel. Every control has hover help.
+### Optional Desktop pane
+
+In Hermes Desktop, the knight button shows or hides a graphical board beside your existing chat. Choose **Play Hermes** or **Import game**. A fresh **Play Hermes** creates a normal chat automatically. The pane follows the chat on screen, including with **All profiles** selected, and keeps games separate. Graphical board actions run asynchronously while the pane updates; slash commands still return text directly. It adds no permanent sidebar entry or extra chat panel. Every graphical control has hover help.
 
 ### Play modes
 
-**Coach:** Hermes plays against you and sends short feedback about your preceding move to this chat. You can ask for more detail.
+**Coach:** Hermes plays against you and gives short feedback about your preceding move in the standalone dashboard's coaching pane, an ordinary CLI/TUI chat turn, or the bound Desktop chat. Slash shortcuts return direct board/evidence output; use ordinary chat for narration. You can ask for more detail.
 
 **Normal:** Hermes plays against you without automatic commentary. Hints and explanations are available whenever you ask.
 
-Change mode through chat or the board's compact actions menu. Games are untimed standard chess. Select a piece and destination or drag it. Promotions offer all four piece choices. The compact game menu includes undo, resignation, and a draw claim when the rules allow one. Confirming resignation shows a large GG with fireworks, then starts a fresh playable game as White after three seconds. The resigned match stays saved.
+Change mode through chat or the controls for your board. Games are untimed standard chess, and moves accept SAN or UCI notation through chat. The Desktop pane also supports selecting a piece and destination or dragging it, all four promotion choices, undo, resignation, and legal draw claims. Its resignation animation shows GG and fireworks before starting a fresh game as White after three seconds. The resigned match stays saved.
 
 Optional shortcuts:
 
@@ -51,20 +71,24 @@ Optional shortcuts:
 /chess play black coach learning
 /chess chess.com USERNAME
 /chess lichess USERNAME
+/chess open 2
+/chess move e4
+/chess hint 2
+/chess next
 /chess status
 ```
 
 ### Replay
 
-Click **Import game**, choose **Chess.com** or **Lichess**, enter a username, and search. Select a returned match to open its replay; each result shows the players, date, searched player's colour, and result. Hover for the exact game ID, or use **Older games** to browse further back. Search again to return to the newest matches.
+In the Desktop pane, click **Import game**, choose **Chess.com** or **Lichess**, enter a username, and search. Select a returned match to open its replay; each result shows the players, date, searched player's colour, and result. Hover for the exact game ID, or use **Older games** to browse further back. Search again to return to the newest matches.
 
 You can also tell Hermes the platform and username, for example, “My Lichess username is Alice.” Hermes returns a numbered list. Reply “game 2” to select that exact match, or explicitly ask for “my latest match.” A username alone does not select a game. Each chat keeps its own search list and player perspective. Coaching and requested hints stay in chat.
 
-The board's match strip shows the selected platform, username, opponent, date, and original result, with a link to the official game. It faces that player's side. **Move your pieces directly**, or click **Play from here**, to play through the match yourself. This creates a saved practice game; the original match remains intact, and its identity stays visible during practice.
+The Desktop board's match strip shows the selected platform, username, opponent, date, and original result, with a link to the official game. It faces that player's side. **Move your pieces directly**, or click **Play from here**, to play through the match yourself. Through chat, ask to practice from the selected position. This creates a saved practice game; the original match remains intact, and its identity stays visible during practice.
 
 When you follow the recorded moves, the opponent plays exactly its next recorded reply. If you try a different move, Hermes calculates one legal reply. You move once, the opponent replies once, and it is your turn again. **Back to recorded match** returns to the source. You can also use first/previous/watch/pause/next/last controls or ask Hermes to jump to a move.
 
-Guided playback waits for chat coaching on the selected player's moves. The small guided-control toggle allows replaying without automatic explanations. Forward and back refer to individual White or Black moves, so every position is accessible.
+Desktop guided playback waits for chat coaching on the selected player's moves. Its guided-control toggle allows replaying without automatic explanations. Forward and back refer to individual White or Black moves, so every position is accessible.
 
 Only completed public standard-chess matches are imported. Public APIs can delay availability of a newly completed match. A username is a lookup, not an authenticated account connection. Source links and the original PGN are preserved.
 
@@ -96,9 +120,11 @@ Every accepted move is stored before any model request. Replay navigation cannot
 
 Undo restores your turn, including after a final checkmating move. Coaching and saved annotations follow the retained move sequence: taking back a move removes its pending feedback, and a delayed analysis cannot attach to a different move or match.
 
+For a full-game recap, ask in a Hermes conversation. The `chess_replay` summary tool may calculate in the background. Desktop can announce when it is ready; in CLI/TUI chat, request the recap again later. The standalone terminal dashboard supports move reviews and hints but has no full-match summary command.
+
 ## Install
 
-Requires Hermes Agent **0.23.0 or later** with Hermes Desktop and a local Stockfish executable. Python dependencies are declared with bounded versions in `pyproject.toml` and prepared by Hermes's package manager.
+Requires Hermes Agent **0.23.0 or later**, Python **3.11 or later**, and a local Stockfish executable. The standalone terminal dashboard needs an interactive terminal with Python's `curses` support. Hermes Desktop is required only for the graphical pane. The catalogue scope is **macOS**; Linux, Windows, and a second physical computer have not been verified. Python dependencies are declared with bounded versions in `pyproject.toml` and prepared by Hermes's package manager.
 
 Install the repository through Hermes's supported installer:
 
@@ -108,7 +134,7 @@ hermes plugins install https://github.com/itsflownium/gambit-hackathon --yes-dep
 
 An unpacked source ZIP can use the linked-folder installation below; the Git-URL installer expects a committed Git checkout.
 
-For linked local development, place a link to the checkout in the active Hermes home's `plugins/gambit` directory and run `hermes plugins enable gambit`. Enable **Gambit Chess** in Desktop's Capabilities → Plugins page and rescan if needed. If dependencies were installed after the gateway started, restart the gateway through Hermes's normal restart command.
+For linked local development, place a link to the checkout in the active Hermes home's `plugins/gambit` directory and run `hermes plugins enable gambit`. For the optional Desktop pane, also enable **Gambit Chess** in Capabilities → Plugins and rescan if needed. If dependencies were installed after the gateway started, restart the gateway through Hermes's normal restart command.
 
 Download Stockfish from [its official site](https://stockfishchess.org/download/) and choose its executable in Gambit's plugin settings, or install it on your system PATH. Gambit also recognizes an executable at its profile-local `plugin-data/gambit/engine/stockfish` path. It never downloads or updates an engine in the background.
 
@@ -124,9 +150,11 @@ Settings live under `plugins.entries.gambit.settings`. Global Hermes model and r
 
 ## Chat delivery and data
 
-Coaching is delivered through the native SDK's **session-addressed desktop composer**. It targets only the visible conversation bound to the board, waits while that conversation is busy, and acknowledges delivered events. If that chat is closed or another chat is selected, feedback waits for the correct chat to be visible again. No gateway message-injection permission is required.
+The `/chess` command and eight chess tools operate in their Hermes conversation. Ordinary CLI/TUI move tools wait for the single scheduled opponent reply, return a fixed-width board and carry an exact review request in Coach mode. Slash shortcuts provide deterministic board or engine evidence without autonomous model narration. The standalone terminal board keeps a separate Gambit session in the active profile. Its terminal presentation is not a widget embedded in Hermes's TUI.
 
-Data is profile-local in Hermes's persistent `plugin-data/gambit` directory. Each match and each replay cursor is bound to its own conversation. Deleting a saved match removes its saved analysis and detaches its board from that conversation.
+In the optional Desktop pane, coaching is delivered through the native SDK's **session-addressed desktop composer**. It targets only the visible conversation bound to the board, waits while that conversation is busy, and acknowledges delivered events. If that chat is closed or another chat is selected, feedback waits for the correct chat to be visible again. No gateway message-injection permission is required.
+
+Data is profile-local in Hermes's persistent `plugin-data/gambit` directory. Each selected match and replay cursor belongs to its conversation or standalone terminal session. Deleting a saved match removes its saved analysis and detaches its board from that session.
 
 Network and process disclosure:
 
@@ -155,7 +183,7 @@ hermes plugins doctor . --ci
 hermes plugins validate . --install-deps
 ```
 
-The optional `serve.py` previews only the chessboard in a local browser. The complete conversation experience runs in Hermes Desktop. Install the development extras, then run:
+The optional `serve.py` previews only the graphical chessboard in a local browser. It does not provide the terminal dashboard or a Hermes conversation. Install the development extras, then run:
 
 ```sh
 python serve.py --demo --engine /absolute/path/to/stockfish
@@ -167,4 +195,6 @@ The committed preview bundle can be rebuilt after board changes with `npm ci && 
 
 ## Release status
 
-Version 0.2.4 includes native startup repairs, plugin source, bundled desktop entry, browser preview, tests, documentation and the approved demo. The native startup fixes and acceptance evidence are included here alongside the previously approved demo and ordinary-chat routing changes. Verification records 86 passing behavioral tests and all 16 official Hermes validation checks passing in the normal and clean default-home environments on macOS. Catalog submission, social posting and the hackathon entry form are separate steps. See the [release checklist](docs/release-checklist.md) and [verification report](docs/verification.md).
+Version 0.3.0 adds the terminal board and `/chess` text presentation while retaining the optional Desktop pane. All **175 behavioral tests** pass. Production dashboard play/coaching, CLI tool flow, native TUI commands, Desktop contracts and dependency-aware candidate validation pass. A supported Git install into a fresh default Hermes home also passed actual terminal play, help and clean exit without Desktop or copied model credentials; its reply was labelled engine fallback. The 88-second terminal film passes decode, captions, chapter seek, desktop/mobile player and privacy checks. Anonymous validation at the final release pin remains pending. Earlier Desktop results are preserved as historical evidence.
+
+The existing [upstream catalogue PR](https://github.com/NousResearch/hermes-agent/pull/152547) remains a draft. Its source pin and media URLs must be updated after the reviewed source release is published and checked at that exact commit. Social posting and the hackathon form are separate actions. See the [release checklist](docs/release-checklist.md) and [verification report](docs/verification.md).

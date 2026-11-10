@@ -1,34 +1,38 @@
 [
   {
     "start": 0,
-    "title": "Gambit"
+    "title": "Gambit in the terminal"
   },
   {
-    "start": 6.5,
-    "title": "Play Hermes"
+    "start": 4,
+    "title": "One move, one reply"
   },
   {
-    "start": 19.5,
-    "title": "Hints on request"
+    "start": 18,
+    "title": "A clue on request"
   },
   {
-    "start": 32.5,
-    "title": "Coach mode: a real mistake"
+    "start": 27,
+    "title": "The next hint"
   },
   {
-    "start": 47.5,
+    "start": 34,
+    "title": "Coach feedback"
+  },
+  {
+    "start": 53,
     "title": "Normal mode"
   },
   {
-    "start": 56.5,
+    "start": 59,
     "title": "Import the exact match"
   },
   {
-    "start": 66.5,
-    "title": "Play from replay"
+    "start": 68,
+    "title": "Try another line"
   },
   {
-    "start": 79.5,
-    "title": "Future potential"
+    "start": 81,
+    "title": "Play. Understand. Practice."
   }
 ]

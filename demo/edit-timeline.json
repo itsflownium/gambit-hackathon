@@ -1,0 +1,205 @@
+{
+  "duration_seconds": 88,
+  "terminal_source_render_fps": 12,
+  "encoded_fps": 30,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "added_presentation": "Outer terminal chrome, chapter labels, and wait-cut disclosure only; terminal cells come from actual captured ANSI output.",
+  "all_selected_spans_play_at_original_speed": true,
+  "full_waits_retained_privately": true,
+  "raw_recordings_distributed": false,
+  "segments": [
+    {
+      "start": 6.0,
+      "end": 10.0,
+      "duration": 4.0,
+      "label": "Ready Coach board",
+      "edit_start": 0.0,
+      "edit_end": 4.0,
+      "speed": 1.0,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 12.0,
+      "end": 15.6,
+      "duration": 3.6,
+      "label": "f3 input and real pending start",
+      "edit_start": 4.0,
+      "edit_end": 7.6,
+      "speed": 0.9999999999999999,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 18.8,
+      "end": 21.5,
+      "duration": 2.7,
+      "label": "Real public pending; middle wait cut",
+      "edit_start": 7.6,
+      "edit_end": 10.3,
+      "speed": 0.9999999999999997,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 22.2,
+      "end": 29.9,
+      "duration": 7.7,
+      "label": "Genuine e5 reply and first automatic review",
+      "edit_start": 10.3,
+      "edit_end": 18.0,
+      "speed": 0.9999999999999999,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 50.0,
+      "end": 52.8,
+      "duration": 2.8,
+      "label": "Requested hint 1",
+      "edit_start": 18.0,
+      "edit_end": 20.8,
+      "speed": 0.999999999999999,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 56.35,
+      "end": 62.55,
+      "duration": 6.2,
+      "label": "Actual hint 1 model result",
+      "edit_start": 20.8,
+      "edit_end": 27.0,
+      "speed": 0.9999999999999993,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 117.3,
+      "end": 119.8,
+      "duration": 2.5,
+      "label": "Requested hint 2 and engine clue",
+      "edit_start": 27.0,
+      "edit_end": 29.5,
+      "speed": 1.0,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 120.45,
+      "end": 124.95,
+      "duration": 4.5,
+      "label": "Actual hint 2 model result",
+      "edit_start": 29.5,
+      "edit_end": 34.0,
+      "speed": 1.0,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 143.3,
+      "end": 146.1,
+      "duration": 2.8,
+      "label": "g4 and real pending start",
+      "edit_start": 34.0,
+      "edit_end": 36.8,
+      "speed": 0.999999999999994,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 149.9,
+      "end": 166.1,
+      "duration": 16.2,
+      "label": "Genuine Qh4 mate and actual Coach result",
+      "edit_start": 36.8,
+      "edit_end": 53.0,
+      "speed": 0.9999999999999993,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 13.95,
+      "end": 19.95,
+      "duration": 6.0,
+      "label": "Genuine completed Normal turn, clean feed and no automatic coaching",
+      "edit_start": 53.0,
+      "edit_end": 59.0,
+      "speed": 1.0,
+      "source_recording": "provider-take03"
+    },
+    {
+      "start": 215.3,
+      "end": 217.7,
+      "duration": 2.4,
+      "label": "Actual public match search and results",
+      "edit_start": 59.0,
+      "edit_end": 61.4,
+      "speed": 0.9999999999999906,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 217.7,
+      "end": 220.2,
+      "duration": 2.5,
+      "label": "Read exact public match result",
+      "edit_start": 61.4,
+      "edit_end": 63.9,
+      "speed": 1.0,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 260.6,
+      "end": 264.7,
+      "duration": 4.1,
+      "label": "Actual open command and identified replay",
+      "edit_start": 63.9,
+      "edit_end": 68.0,
+      "speed": 0.9999999999999918,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 289.9,
+      "end": 291.9,
+      "duration": 2.0,
+      "label": "Recorded-line c5 input and pending",
+      "edit_start": 68.0,
+      "edit_end": 70.0,
+      "speed": 1.0,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 294.2,
+      "end": 298.2,
+      "duration": 4.0,
+      "label": "Actual recorded Nf3 reply",
+      "edit_start": 70.0,
+      "edit_end": 74.0,
+      "speed": 1.0,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 346.2,
+      "end": 348.2,
+      "duration": 2.0,
+      "label": "Alternative e6 input and pending",
+      "edit_start": 74.0,
+      "edit_end": 76.0,
+      "speed": 1.0,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 356.0,
+      "end": 361.0,
+      "duration": 5.0,
+      "label": "Genuine alternative d4 reply and Coach result",
+      "edit_start": 76.0,
+      "edit_end": 81.0,
+      "speed": 1.0,
+      "source_recording": "provider-take02"
+    },
+    {
+      "start": 398.35,
+      "end": 405.35,
+      "duration": 7.0,
+      "label": "Return to unchanged fifteen-ply source",
+      "edit_start": 81.0,
+      "edit_end": 88.0,
+      "speed": 1.0,
+      "source_recording": "provider-take02"
+    }
+  ]
+}

@@ -1,72 +1,69 @@
-# Gambit for Hermes — 0.2.2
+# Gambit for Hermes — 0.3.0
 
-Entry copy prepared 8 November 2026 for [itsflownium/gambit-hackathon](https://github.com/itsflownium/gambit-hackathon). The accompanying catalog YAML is a draft pending the final release pin. Repository review does not submit the catalog PR, social post or organizer form.
+Entry copy updated 10 November 2026 for [itsflownium/gambit-hackathon](https://github.com/itsflownium/gambit-hackathon). The terminal release has 175 passing behavioral tests, 24 passing host transport checks, real dashboard/CLI/native-TUI operation, fresh default-home terminal installation/play and a verified 88-second film. Final immutable-pin publication and validation remain pending. The existing [catalogue PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547) remains a draft. No social post or organizer form has been submitted by this release work.
 
 ## Short pitch
 
-Play a game. Understand the mistake. Try another idea. Gambit pairs a focused chess board with your existing Hermes conversation, including replay and practice from your own public Chess.com and Lichess matches.
+Play a game. Understand the mistake. Try another idea. Gambit brings chess to Hermes terminals and Desktop, with coaching and replay practice from public Chess.com and Lichess matches.
 
 ## Entry description
 
-Gambit brings playing and understanding chess into one Hermes conversation. Open the knight button to reveal a board-only pane beside your existing chat. Start an untimed game as either colour, choose Normal for quiet play or Coach for brief feedback, and ask for progressively stronger hints when you want them.
+Run `hermes gambit` for a standalone terminal chess board, use `/chess` for text-board output inside a Hermes CLI or TUI conversation, or open the optional graphical pane in Hermes Desktop. Start an untimed game as either colour, choose Normal for quiet play or Coach for brief feedback, and request progressively stronger hints.
 
-The Import game picker searches completed public Chess.com and Lichess matches by username. Choose a specific result with its players, date, colour and result; the source link remains visible. Replay every half-move, ask for an explanation of the selected move, then move your own pieces to practice an alternative without changing the original game. Following the source produces exactly its next recorded opponent reply. Deviating produces one calculated reply from Hermes.
+Search completed public Chess.com and Lichess games by username, then choose a specific match by its players, date, colour and result. Replay each half-move and practice a different continuation without changing the original. Following the source produces its next recorded opponent reply. Deviating produces one calculated reply.
 
-Python-chess enforces legal moves, Stockfish supplies local calculation evidence, and the configured Hermes model selects moves and explains mistakes in chat. A hard 60-second board-response deadline keeps play moving with a disclosed legal fallback if needed. Saved positions, annotations and PGN export preserve the learning session; Undo removes feedback belonging to discarded moves.
+Python-chess enforces legal moves, Stockfish supplies local calculation evidence, and the configured Hermes model selects moves and explains mistakes. A hard 60-second board-response deadline uses a labelled legal fallback when needed. Saved positions, annotations and PGN export preserve the session; Undo removes feedback belonging to discarded moves.
 
-The result is a small, focused learning loop: play, understand what happened, and try another idea on a board that stays connected to the conversation.
+The standalone dashboard keeps its own Gambit session in the active Hermes profile. Ordinary CLI/TUI chess tools wait for one opponent reply, return the board and request exact-move coaching in Coach mode. Bare `/chess` starts or refreshes the selected board; slash shortcuts return deterministic board or engine evidence on every chat surface without autonomous narration. The Desktop pane delivers coaching to its bound existing chat. The terminal board does not claim to be an embedded Hermes TUI widget.
 
-## Why this entry is useful
+## Evidence and release status
 
-| Area | Current feature and evidence |
+| Area | Scope and evidence |
 | --- | --- |
-| Usefulness | A player can start a game, ask why a move was a mistake, import a particular public match, and practice a different continuation within the same conversation. Native play, requested hints, both import platforms and selected-move explanations were exercised locally. These checks demonstrate the workflow; they are not a claim of measured rating improvement. |
-| Reliability | The local report records 83 passing Python behavioral tests, passing desktop contracts, and all 16 local catalog validation checks passing without warnings. A deliberately stalled model produced exactly one legal backup move at 59.607 seconds. Tests cover special moves, duplicate replies, chat boundaries, takebacks, stale feedback and preservation of source matches. |
-| Polish | One custom knight launcher opens the pane. The board supports click, drag and keyboard movement, all four promotion choices, compact hover-labelled controls, a two-platform import picker and visible source identity. Normal and Coach modes respect the player's choice about commentary; unfinished chat drafts are protected. Resignation has a GG/fireworks transition into a fresh board. |
-| Creativity | A saved match becomes something the player can explore. Following its original line preserves the recorded opponent response; changing a move creates a separate practice branch with one calculated reply. Hermes can explain the decision in the conversation, while the original record remains available for comparison. |
+| Usefulness | Real dashboard play, automatic feedback, two requested hint levels, clean Normal silence, selected public-match practice, production CLI anchored review and native TUI commands were checked. The source match remained unchanged after recorded and alternative practice. |
+| Reliability | All 175 behavioral tests, 24 host transport checks, actual curses pseudo-terminal integration, fresh default-home terminal installation/play and Desktop contracts pass. Fixture, fallback and provider evidence are recorded separately. A stable candidate passed dependency resolution/installation and all 16 official checks with a safe scan and no validator warnings. Anonymous final-pin validation remains pending. |
+| Polish | The terminal release adds a curses dashboard and conversation text board. Its 88-second film passes decode, caption, chapter-seek, desktop/mobile player and privacy checks. The optional Desktop pane retains its knight launcher, drag/click board, promotion choices, match picker, source identity and resignation animation. |
+| Creativity | A selected source match becomes a preserved original plus editable practice branches. Recorded replies remain distinguishable from new calculations, and explanations use position-specific engine evidence. |
 
-The evidence and its limits are documented in [the local verification report](verification.md). Native tests used the configured Hermes model. The isolated browser harness used real Stockfish with simulated chat availability; its engine replies are not presented as native model replies. Installation also succeeded in a fresh Hermes profile on this Mac. A separate physical machine, Linux and Windows have not been verified.
+The [verification report](verification.md) separates current terminal checks from historical results. The established catalogue scope is macOS only; Linux, Windows and another physical computer have not been verified. No rating-improvement claim or calibrated strength rating is made.
 
 ## Implemented scope and future ideas
 
-Version 0.2.2 includes untimed standard chess as either colour; Learning, Balanced and Strong presets; Normal and Coach modes; four requested hint levels; public username imports with specific-match selection, refresh and older-game browsing; replay controls; practice branches; retrospective move evidence and full-match recaps; local saved games; Undo; resignation; legal draw claims; and annotated PGN export.
+The 0.3.0 candidate brings terminal presentation to the existing untimed standard-chess service: either colour; Learning, Balanced and Strong presets; Normal and Coach modes; progressive hints; public username imports and exact-match selection; replay and practice branches; move-review evidence; saved games; Undo; resignation; legal draw claims; and annotated PGN export. Full-match recaps remain available through Hermes chat tools: Desktop can announce completion, CLI/TUI users retrieve the result on a later request, and the standalone dashboard has no summary command. Final immutable-pin acceptance remains pending.
 
-Recurring mistake detection across a player's history, personalized training plans, spaced practice and automatic tracking of long-term improvement are possible future directions. They are not implemented features of 0.2.2. The current full-match recap uses evidence from that match; it does not claim a personalized training model or an accuracy score. Strength presets are descriptive rather than calibrated ratings.
+Recurring-mistake detection across a player's history, personalized training plans, spaced practice and long-term improvement tracking remain future ideas. They are not implemented features. A current match recap uses evidence from that match and does not invent accuracy scores.
 
-## Behavior disclosures for the eventual entry PR
-
-These describe the current plugin and can accompany an eventual catalog PR after the public repository and exact release pin exist.
+## Behavior disclosures for the existing draft PR
 
 | Behavior | Disclosure |
 | --- | --- |
-| Hermes surfaces | Registers eight chess tools, one `pre_llm_call` hook, the `/chess` command and a bundled coaching skill. The native Desktop SDK supplies the toolbar launcher, pane, plugin routes, session state and session-addressed composer. Coaching appears in the existing chat. The plugin has no gateway message-injection permission and does not modify Hermes core. |
-| Third-party network requests | Username searches send the selected username to `api.chess.com` or `lichess.org` over HTTPS and retrieve public game data. Opening the official source link can launch that site's page. Only completed public standard-chess games are supported; platform publication delays and rate limits apply. Chess.com Bot and Coach games are not available through this public lookup. |
-| Model traffic and cost | Move selection and explanations use the user's configured Hermes provider through Hermes's model API. Chess positions, relevant source-match data and engine evidence may be included in those requests and in the bound conversation. The configured provider's usual usage, billing and data handling apply. The one-minute deadline covers the board reply, not the separate chat response. |
-| Local reads outside plugin data | Reads the executable selected in `engine_path`, or discovers Stockfish in its own engine directory, on `PATH`, or at the documented Homebrew/system locations. It checks that executable's filesystem metadata for analysis caching and starts it as a UCI engine. It uses Hermes's supplied configuration and current conversation/profile identifiers. It does not inspect unrelated user documents or credential stores. |
-| Processes and background work | Starts local Stockfish subprocesses directly, without a shell, for engine health checks, candidate moves and analysis. Background threads/timers handle the opponent deadline and full-match analysis. A recap may continue calculating while the pane is closed; automatic chat delivery waits for the correct visible, idle conversation and an empty draft. No separate hosted service is operated. The optional development preview is a manually started loopback web server. |
-| Stored data | A profile-local SQLite database stores games, moves, source PGN and metadata, analyses, annotations, replay positions, conversation bindings and queued feedback. PGN export writes to the plugin's profile-local export directory. Desktop plugin storage retains routing/delivery bookkeeping. Deleting a saved game removes its associated saved analysis and detaches its selected board. |
-| Credentials and telemetry | No Chess.com/Lichess passwords, OAuth login, browser cookies or separate API keys are required. Gambit does not read, store, refresh or rotate provider credentials; Hermes owns provider access. The plugin has no telemetry or usage-reporting endpoint. |
-| Engine distribution and updates | Stockfish is a separately installed prerequisite, not a bundled plugin binary. The local verification used Stockfish 19 from its official archive, with the archive checksum and license recorded in the verification materials. Gambit does not download an engine, replace its own code or load remote executable UI code in the background. |
-| Dependencies and affiliation | Requires Hermes Agent `>=0.23.0`, Hermes Desktop and local Stockfish; Python requires `>=3.11`. Runtime Python dependency ranges are bounded. Gambit is GPL-3.0-or-later; dependency and piece-art notices are in [THIRD_PARTY.md](../THIRD_PARTY.md). It is an independent project, unaffiliated with Chess.com or Lichess, and has no catalog approval or official/verified tier claim. |
+| Hermes surfaces | Eight chess tools, one `pre_llm_call` hook, `/chess`, a bundled coaching skill and public CLI registration for `hermes gambit`. The optional graphical pane uses the public Desktop SDK toolbar, pane, profile routes, session state and session-addressed composer. No Hermes core replacement or gateway message-injection permission is required. |
+| Terminal scope | The standalone curses dashboard is an interactive terminal application with a separate Gambit session. It uses the active profile's plugin data and provider, rather than inferring an active Hermes chat. `/chess` supplies text-board output in a Hermes CLI or TUI conversation. With `plugins.isolation: host`, Hermes skips standalone CLI registration, so use `/chess`. |
+| Third-party network requests | Username searches send the selected username to `api.chess.com` or `lichess.org` over HTTPS for public game data. Only completed public standard-chess matches are imported; publication delays and rate limits apply. Chess.com Bot and Coach games are unavailable through public username lookup. Official source links open the source platform. |
+| Model traffic and cost | Move selection and explanations use the configured Hermes provider through host model APIs. Requests can include chess positions, source-match data and engine evidence. Normal provider usage and data handling apply. The 60-second deadline covers the board reply, while separate explanations have the provider's response time. |
+| Local reads and processes | Reads the selected Stockfish executable or discovers it in plugin engine data, on `PATH` or at documented system locations. Stockfish runs directly as a UCI subprocess without a shell. Background threads/timers handle move deadlines and match review. The optional development preview is a manually started loopback web server. |
+| Stored data | Profile-local SQLite data contains games, source PGN, moves, match metadata, analysis, annotations, replay cursors, conversation bindings and queued feedback. PGN exports use the plugin's export directory. Terminal sessions are separate from conversation bindings. Desktop storage retains routing/delivery bookkeeping. |
+| Credentials and telemetry | No Chess.com/Lichess passwords, browser cookies or separate API keys are required. Provider access remains host-managed; Gambit does not read credential stores or rotate tokens. No telemetry endpoint is used. |
+| Distribution and updates | Stockfish is separately installed, not bundled or downloaded automatically. Gambit does not replace its own source or load remote executable UI code. Updates to the catalogue pin remain subject to maintainer review. |
+| Dependencies and compatibility | Hermes Agent `>=0.23.0`, Python `>=3.11` and local Stockfish are required. The standalone dashboard also needs an interactive terminal with Python curses; Desktop is optional for the graphical pane. Runtime ranges are bounded (`chess>=1.11.2,<2`, `httpx>=0.28.1,<1`). Catalogue scope is macOS. License: GPL-3.0-or-later; see [THIRD_PARTY.md](../THIRD_PARTY.md). Gambit is independent of Chess.com and Lichess, with no official or verified catalogue tier claim. |
 
-## Suggested demonstration and existing assets
+## Demonstration
 
-Show a Coach move and its exact-move explanation, switch to Normal and request a hint, then import a chosen public match. Follow one recorded move, try an alternative, and return to the unchanged source. Keep actual model wait times visible or disclose any cut.
+The verified [88-second terminal film](../demo/Gambit-Demo-Review.mp4) shows actual play, requested hints, coaching, a clean Normal turn, exact-match import and practice. It is 1080p at 30 fps, H.264/AAC, with 18 English caption cues and nine external chapter controls. Full decode, actual browser playback, chapter seeking, desktop/mobile caption fit and privacy checks passed. The [demo notes](../demo/README.md), [source provenance](../demo/source-provenance.json) and [edit timeline](../demo/edit-timeline.json) disclose capture limits and timing cuts.
 
-The screenshots are [the board](board-preview.png), [the import picker](import-preview.png), [source context during replay](replay-context-preview.png), [the compact menu](menu-preview.png) and [GG/fireworks](gg-preview.png). They show the shared board component in the browser preview. The [demo video](../demo/Gambit-Demo-Review.mp4) also includes a labelled, genuine native Hermes review excerpt.
+The main terminal capture used the supported linked local development install before the final source commit and later copies; exact in-memory bytes were not frozen. A separate clean Normal take followed the core commit/source sync. The film must not be described as an immutable recording of the final release pin.
+
+The [terminal screenshot](terminal-preview.png) and demo poster come from the actual feedback frame. Existing [board](board-preview.png), [import](import-preview.png), [replay](replay-context-preview.png), [menu](menu-preview.png) and [GG](gg-preview.png) screenshots show the graphical board component in the browser preview. Earlier Desktop-film evidence remains historical in the verification report; the current demo link opens the new terminal film.
 
 ## X post draft — not posted
 
-> Gambit for Hermes: play chess, understand a mistake, then try another move. Import public Chess.com or Lichess matches and practice alternatives without changing the original. A focused board beside your chat, with coaching when you want it. Local demo of v0.2.2. @NousResearch
+> Gambit for Hermes: play chess in your terminal, ask for a hint, then replay a public match and try another line. Normal or Coach mode, legal moves, local Stockfish and an optional Desktop board. New terminal demo of v0.3.0. @NousResearch
 
-## Remaining submission metadata
+## Remaining release and submission work
 
-- Repository: `https://github.com/itsflownium/gambit-hackathon`; maintainer: `itsflownium`.
-- The full 40-character commit SHA for the final public 0.2.2 tree, with local validation repeated against that exact pin.
-- Confirmation of the proposed macOS-only catalog scope. Other platforms need their own verification before broader compatibility claims.
-- A repository-relative `subdir` only if the eventual public repository places the plugin below its root.
-- Reviewed, public screenshot URLs pinned to that commit, and an optional public documentation/banner URL. The current draft keeps these unset.
-- Approval of the local 89-second live demo, and any event-specific form fields, team details, links or attribution requirements supplied by the organizer. Verified event instructions, deadline and destinations are in [hackathon-preparation.md](hackathon-preparation.md).
-- Separate authorization for an upstream catalog PR, social post and organizer form submission. Those actions are not performed by the implementation PR in this repository.
+- Publish the reviewed source and verified terminal film through the source repository; runtime and media acceptance are recorded in [verification.md](verification.md).
+- Select the full 40-character public release commit and repeat validation from an anonymous checkout at that pin.
+- Update the existing draft catalogue PR's version, pin, README/media links, screenshots and disclosures together; keep it draft.
+- Confirm event-specific form fields and attribution requirements using the [preparation notes](hackathon-preparation.md) before any separately authorized submission.
 
-The companion [catalog YAML draft](catalog-entry.draft.yaml) follows the current [official entry schema](https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/README.md#entry-schema), checked alongside the [catalog submission guide](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/catalog-submission) on 8 November 2026. Admission requires a public repository, an exact commit pin and maintainer review; passing local validation does not constitute catalog acceptance.
+The [source-local catalogue template](catalog-entry.draft.yaml) follows the [official schema](https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/README.md#entry-schema) and [submission guide](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/catalog-submission), rechecked 10 November 2026. Local validation does not constitute catalogue acceptance.

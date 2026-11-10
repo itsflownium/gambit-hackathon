@@ -1,115 +1,233 @@
 {
-  "duration_seconds": 89.0,
+  "status": "Narration checked against the genuine selected terminal footage",
+  "duration_seconds": 88.0,
+  "sample_rate": 48000,
+  "channels": 2,
   "voice": "af_heart",
   "voice_model": "Kokoro v1.0",
   "voice_runtime": "kokoro-onnx 0.6.1",
   "voice_model_license": "Apache-2.0",
   "voice_runtime_license": "MIT",
   "synthetic_narration": true,
+  "caption_alignment": "Original model phoneme durations",
   "clips": [
     {
       "clip": 1,
-      "text": "Your next move can teach you something. Meet Gambit.",
+      "id": "hero",
+      "text": "Meet Gambit: chess you can play and understand inside Hermes.",
       "voice": "af_heart",
-      "voice_model": "Kokoro v1.0",
       "speed": 0.95,
-      "scheduled_start": 0.6,
-      "scheduled_end": 5.8,
-      "actual_start": 0.6,
-      "actual_end": 3.683958,
-      "duration_seconds": 3.083958,
+      "scheduled_start": 0.1,
+      "scheduled_end": 4.0,
+      "actual_start": 0.1,
+      "actual_end": 3.917958,
+      "duration_seconds": 3.817958,
+      "remaining_window_seconds": 0.082042,
       "filename": "voice01.wav"
     },
     {
       "clip": 2,
-      "text": "Play a real game against Hermes. Make one move, and Hermes calculates one reply. You can see it working before the move lands.",
+      "id": "move",
+      "text": "Make your move in the terminal. A live status follows Hermes as it prepares one reply, then the board updates.",
       "voice": "af_heart",
-      "voice_model": "Kokoro v1.0",
       "speed": 0.95,
-      "scheduled_start": 7.0,
-      "scheduled_end": 18.8,
-      "actual_start": 7.0,
-      "actual_end": 15.361958,
-      "duration_seconds": 8.361958,
+      "scheduled_start": 4.6,
+      "scheduled_end": 17.2,
+      "actual_start": 4.6,
+      "actual_end": 11.724625,
+      "duration_seconds": 7.124625,
+      "remaining_window_seconds": 5.475375,
       "filename": "voice02.wav"
     },
     {
       "clip": 3,
-      "text": "Stuck? Ask for a hint. Hermes starts with a clue, then reveals more only when you ask. The answer stays in your chat.",
+      "id": "hint-one",
+      "text": "Need a nudge? Ask for a hint. Start with a clue that leaves the move yours to find.",
       "voice": "af_heart",
-      "voice_model": "Kokoro v1.0",
       "speed": 0.95,
-      "scheduled_start": 20.0,
-      "scheduled_end": 31.9,
-      "actual_start": 20.0,
-      "actual_end": 27.595958,
-      "duration_seconds": 7.595958,
+      "scheduled_start": 18.4,
+      "scheduled_end": 26.5,
+      "actual_start": 18.4,
+      "actual_end": 23.702625,
+      "duration_seconds": 5.302625,
+      "remaining_window_seconds": 2.797375,
       "filename": "voice03.wav"
     },
     {
       "clip": 4,
-      "text": "In Coach mode, Hermes explains the move you just played, using Stockfish analysis. Here is the mistake, why it matters, and a clear way to improve.",
+      "id": "hint-two",
+      "text": "Ask again for more detail. You choose when to reveal the next hint.",
       "voice": "af_heart",
-      "voice_model": "Kokoro v1.0",
       "speed": 0.95,
-      "scheduled_start": 33.0,
-      "scheduled_end": 47.0,
-      "actual_start": 33.0,
-      "actual_end": 42.547958,
-      "duration_seconds": 9.547958,
+      "scheduled_start": 27.4,
+      "scheduled_end": 33.6,
+      "actual_start": 27.4,
+      "actual_end": 31.540667,
+      "duration_seconds": 4.140667,
+      "remaining_window_seconds": 2.059333,
       "filename": "voice04.wav"
     },
     {
       "clip": 5,
-      "text": "Normal mode keeps commentary quiet. Hints and explanations are there when you ask.",
+      "id": "coach",
+      "text": "In Coach mode, Hermes reviews the move you just played. Stockfish analysis explains what changed and why it matters. Here, pushing the g-pawn exposed the king to checkmate.",
       "voice": "af_heart",
-      "voice_model": "Kokoro v1.0",
       "speed": 0.95,
-      "scheduled_start": 48.5,
-      "scheduled_end": 55.8,
-      "actual_start": 48.5,
-      "actual_end": 54.034667,
-      "duration_seconds": 5.534667,
+      "scheduled_start": 34.5,
+      "scheduled_end": 52.3,
+      "actual_start": 34.5,
+      "actual_end": 46.094625,
+      "duration_seconds": 11.594625,
+      "remaining_window_seconds": 6.205375,
       "filename": "voice05.wav"
     },
     {
       "clip": 6,
-      "text": "Bring your own games. Search Chess dot com or Lichess, choose the exact match, and replay it with your coach.",
+      "id": "normal",
+      "text": "Choose Normal mode for a quiet game, with help when you ask.",
       "voice": "af_heart",
-      "voice_model": "Kokoro v1.0",
       "speed": 0.95,
-      "scheduled_start": 57.0,
-      "scheduled_end": 66.0,
-      "actual_start": 57.0,
-      "actual_end": 64.035292,
-      "duration_seconds": 7.035292,
+      "scheduled_start": 53.4,
+      "scheduled_end": 58.7,
+      "actual_start": 53.4,
+      "actual_end": 57.015958,
+      "duration_seconds": 3.615958,
+      "remaining_window_seconds": 1.684042,
       "filename": "voice06.wav"
     },
     {
       "clip": 7,
-      "text": "Follow the original line, or try another idea. Hermes responds to your move, while the original match stays intact.",
+      "id": "import",
+      "text": "Bring your own history. Find the exact Chess dot com match and open it in replay.",
       "voice": "af_heart",
-      "voice_model": "Kokoro v1.0",
       "speed": 0.95,
-      "scheduled_start": 67.0,
-      "scheduled_end": 78.5,
-      "actual_start": 67.0,
-      "actual_end": 74.841292,
-      "duration_seconds": 7.841292,
+      "scheduled_start": 59.4,
+      "scheduled_end": 67.5,
+      "actual_start": 59.4,
+      "actual_end": 64.714,
+      "duration_seconds": 5.314,
+      "remaining_window_seconds": 2.786,
       "filename": "voice07.wav"
     },
     {
       "clip": 8,
-      "text": "Today: play, replay, and understand. Next: turn recurring mistakes into targeted practice. That is where Gambit can go.",
+      "id": "practice",
+      "text": "Follow the original line, or try another move. Practice the alternative while your imported game stays intact.",
       "voice": "af_heart",
-      "voice_model": "Kokoro v1.0",
       "speed": 0.95,
-      "scheduled_start": 80.0,
-      "scheduled_end": 88.7,
-      "actual_start": 80.0,
-      "actual_end": 88.372,
-      "duration_seconds": 8.372,
+      "scheduled_start": 68.5,
+      "scheduled_end": 80.4,
+      "actual_start": 68.5,
+      "actual_end": 75.796667,
+      "duration_seconds": 7.296667,
+      "remaining_window_seconds": 4.603333,
       "filename": "voice08.wav"
+    },
+    {
+      "clip": 9,
+      "id": "close",
+      "text": "Play a game. Understand a decision. Try another line. Gambit, built for Hermes.",
+      "voice": "af_heart",
+      "speed": 0.95,
+      "scheduled_start": 81.3,
+      "scheduled_end": 87.8,
+      "actual_start": 81.3,
+      "actual_end": 86.943958,
+      "duration_seconds": 5.643958,
+      "remaining_window_seconds": 0.856042,
+      "filename": "voice09.wav"
+    }
+  ],
+  "cues": [
+    {
+      "start": 0.214,
+      "end": 3.888,
+      "text": "Meet Gambit: chess you can play and understand inside Hermes."
+    },
+    {
+      "start": 4.689,
+      "end": 6.614,
+      "text": "Make your move in the terminal."
+    },
+    {
+      "start": 6.614,
+      "end": 10.339,
+      "text": "A live status follows Hermes as it prepares one reply,"
+    },
+    {
+      "start": 10.339,
+      "end": 11.694667,
+      "text": "then the board updates."
+    },
+    {
+      "start": 18.489,
+      "end": 20.799,
+      "text": "Need a nudge? Ask for a hint."
+    },
+    {
+      "start": 20.799,
+      "end": 23.702625,
+      "text": "Start with a clue that leaves the move yours to find."
+    },
+    {
+      "start": 27.492667,
+      "end": 29.442667,
+      "text": "Ask again for more detail."
+    },
+    {
+      "start": 29.442667,
+      "end": 31.540667,
+      "text": "You choose when to reveal the next hint."
+    },
+    {
+      "start": 34.610333,
+      "end": 38.285333,
+      "text": "In Coach mode, Hermes reviews the move you just played."
+    },
+    {
+      "start": 38.285333,
+      "end": 42.635333,
+      "text": "Stockfish analysis explains what changed and why it matters."
+    },
+    {
+      "start": 42.635333,
+      "end": 46.074667,
+      "text": "Here, pushing the g-pawn exposed the king to checkmate."
+    },
+    {
+      "start": 53.467667,
+      "end": 56.996,
+      "text": "Choose Normal mode for a quiet game, with help when you ask."
+    },
+    {
+      "start": 59.489,
+      "end": 61.064,
+      "text": "Bring your own history."
+    },
+    {
+      "start": 61.064,
+      "end": 64.714,
+      "text": "Find the exact Chess.com match and open it in replay."
+    },
+    {
+      "start": 68.610333,
+      "end": 71.885333,
+      "text": "Follow the original line, or try another move."
+    },
+    {
+      "start": 71.885333,
+      "end": 75.786667,
+      "text": "Practice the alternative while your imported game stays intact."
+    },
+    {
+      "start": 81.364,
+      "end": 83.714,
+      "text": "Play a game. Understand a decision."
+    },
+    {
+      "start": 83.809,
+      "end": 86.934,
+      "text": "Try another line. Gambit, built for Hermes."
     }
   ],
   "music": {
