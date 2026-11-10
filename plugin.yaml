@@ -1,11 +1,11 @@
 name: gambit
-version: "0.2.4"
+version: "0.3.0"
 manifest_version: 2
 api_version: 1
-description: Play chess against Hermes and replay Chess.com or Lichess games by username. A board-only desktop panel, with coaching and requested hints in your Hermes chat. Moves have a hard 60-second response deadline.
+description: Play chess against Hermes and replay Chess.com or Lichess games by username. Use a terminal board, /chess text output, or the optional Desktop pane, with coaching and requested hints. Moves have a hard 60-second response deadline.
 author: itsflownium
 license: GPL-3.0-or-later
-tags: [chess, coaching, games, desktop, learning]
+tags: [chess, coaching, games, terminal, desktop, learning]
 requires_hermes: ">=0.23.0"
 provides_tools:
   - chess_state

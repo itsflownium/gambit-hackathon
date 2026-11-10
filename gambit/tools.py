@@ -60,6 +60,18 @@ Keep ordinary feedback short and warm. Explain more when asked. Use plugin tools
 terminal commands or web browsing for any chess operation. Coaching belongs to this chat only.
 """
 
+TERMINAL_POLICY = """This is a CLI/TUI chat. Desktop does not need to be open.
+Show terminal_board verbatim as a fixed-width board after starting, moving or navigating.
+The terminal chess_move call normally returns after exactly one opponent reply. If it returns
+pending, say calculation is still in progress; never add an opponent move yourself or poll.
+If a result includes coaching_prompt, follow that exact anchored request using chess_review and
+give brief retrospective feedback before the board. Normal mode gives only the move/board,
+unless the user requested a hint or explanation. In replay, explain the user's selected recorded
+move using board.review_anchor when advancing through it; never reveal future move hints.
+Commands such as /chess hint, /chess next and /chess open 2 work in this chat. The separate
+side-by-side terminal dashboard launches from the user's shell with hermes gambit.
+"""
+
 
 def schema(name, description, properties=None, required=None):
     return {"name": name, "description": description,
@@ -177,12 +189,29 @@ def dispatch(service, sid, name, args):
 
 
 def register_tools(ctx, get_service):
+    def terminal_surface():
+        surface_getter = getattr(ctx, "session_surface", None)
+        if not callable(surface_getter):
+            return False
+        surface = surface_getter()
+        if surface:
+            return surface in {"cli", "tui"}
+        # Legacy TUI turns bind their client as SOURCE; canonical local turns
+        # use the public surface above, which must always take precedence.
+        from gateway.session_context import get_session_env
+        return get_session_env("HERMES_SESSION_SOURCE", "") in {"cli", "tui"}
+
     for spec in SCHEMAS:
         name = spec["name"]
         def handler(args, _name=name, **kwargs):
             try:
                 service = get_service()
-                result = dispatch(service, bound_session(service, session_candidates(kwargs)), _name, args)
+                sid = bound_session(service, session_candidates(kwargs))
+                result = dispatch(service, sid, _name, args)
+                if terminal_surface():
+                    from .chat_terminal import tool_result
+                    result = tool_result(service, sid, result, wait=_name in {"chess_move", "chess_start"} or
+                                         (_name == "chess_replay" and args.get("action") == "practice"))
                 return json.dumps(result, ensure_ascii=False)
             except GambitError as exc:
                 return json.dumps({"ok": False, "error": exc.code, "message": str(exc)})
@@ -220,19 +249,31 @@ def register_tools(ctx, get_service):
             sid = bound_session(service, candidates, initialize=True)
             service.emit("initialized", {"session_id":sid})
             parts = raw_args.strip().split()
+            if parts and parts[0].lower() == "help":
+                return ("/chess play [white|black] [normal|coach] [learning|balanced|strong]\n"
+                        "/chess status | move e4 | hint [1-4] | undo | resign | normal | coach\n"
+                        "/chess chess.com USERNAME | lichess USERNAME | open NUMBER\n"
+                        "/chess next | previous | first | last | practice | source | saved | resume ID | export\n"
+                        "Run hermes gambit in a terminal for the side-by-side board and Hermes coaching.")
             if parts and parts[0].lower() == "play":
                 tokens = [part.lower() for part in parts[1:]]
                 colour = next((p for p in tokens if p in {"white", "black"}), "white")
                 strength = next((p for p in tokens if p in {"learning", "balanced", "strong"}), "balanced")
                 mode = next((p for p in tokens if p in {"normal", "coach"}), "coach")
-                service.start(sid, colour, strength, mode)
-                return "Your board is ready. Open the knight button in the top bar. Make a move there or tell me your move here. Ask for a hint whenever you want one."
-            if parts and parts[0].lower() in {"chess.com", "lichess"} and len(parts) == 2:
-                return json.dumps(service.find_games(sid, parts[0].lower(), parts[1]), ensure_ascii=False)
-            if parts and parts[0].lower() == "status":
-                return json.dumps(compact(service.state(sid)), ensure_ascii=False)
+                value = service.start(sid, colour, strength, mode)
+                if terminal_surface():
+                    from .chat_terminal import board_text, settle
+                    return board_text(settle(service, sid, value)) + "\nEnter your move in chat, or /chess move e4. Ask for a hint whenever you want one."
+                return "Your board is ready. Make a move on the board or tell me your move here. Desktop has a knight button; terminals can run hermes gambit for the side-by-side dashboard. Ask for a hint whenever you want one."
             if parts:
-                return "Usage: /chess [play white|black normal|coach learning|balanced|strong | chess.com USERNAME | lichess USERNAME | status]. After /chess, ordinary chat works for all chess requests."
+                from .chat_terminal import command as text_command
+                return text_command(service, sid, parts)
+            if terminal_surface():
+                from .chat_terminal import board_text, settle
+                state = service.state(sid)
+                if not state.get("board"):
+                    state = settle(service, sid, service.start(sid, "white", "balanced", "coach"))
+                return board_text(state) + "\nEnter your move in chat, or /chess move e4. Use /chess help for controls."
             return service.initialize(sid)["message"]
         except (GambitError, ValueError, TypeError) as exc:
             if raw_args.startswith("__board__ "):
@@ -240,7 +281,7 @@ def register_tools(ctx, get_service):
             return str(exc)
 
     ctx.register_command("chess", command, description="Initialize Gambit chess coaching in this chat; then play or review a username",
-                         args_hint="[play white|black | chess.com USERNAME | lichess USERNAME]", argument_mode="text")
+                         args_hint="[play | status | move e4 | hint | chess.com USERNAME | lichess USERNAME | help]", argument_mode="text")
 
     def context_hook(session_id="", user_message="", **kwargs):
         candidates = session_candidates({**kwargs,"session_id":session_id})
@@ -251,6 +292,7 @@ def register_tools(ctx, get_service):
         s = service.store.session(sid)
         if not s["initialized"]:
             return None
-        return {"context": POLICY + "\nCurrent authoritative chess state:\n" + json.dumps(compact(service.state(sid)))}
+        return {"context": POLICY + ("\n" + TERMINAL_POLICY if terminal_surface() else "") +
+                "\nCurrent authoritative chess state:\n" + json.dumps(compact(service.state(sid)))}
     ctx.register_hook("pre_llm_call", context_hook)
     ctx.register_skill("coach", Path(__file__).resolve().parent.parent / "skills" / "coach" / "SKILL.md")

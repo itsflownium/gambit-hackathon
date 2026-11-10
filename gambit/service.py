@@ -48,6 +48,7 @@ class Service:
         with self.lock:
             for job in self.jobs.values():
                 job["timer"].cancel()
+                job["finished"].set()
                 loop, task = job.get("loop"), job.get("task")
                 if loop and task and not loop.is_closed():
                     loop.call_soon_threadsafe(task.cancel)
@@ -62,7 +63,7 @@ class Service:
         self.store.initialize(sid)
         self.emit("initialized", {"session_id": sid})
         return {"ok": True, "initialized": True, "session_id": sid,
-                "message": "Gambit is ready in this chat. Open the knight button in the top bar. Say 'Play against me as Black', or tell me 'My Chess.com username is …' / 'My Lichess username is …'. All coaching and requested hints stay here. Hermes moves have a maximum 60-second response deadline."}
+                "message": "Gambit is ready in this chat. Say 'Play against me as Black', or tell me 'My Chess.com username is …' / 'My Lichess username is …'. Use /chess status for the board, or run hermes gambit in a terminal for the side-by-side dashboard. Desktop also has a knight button. Coaching and requested hints stay in your chosen interface. Hermes moves have a maximum 60-second response deadline."}
 
     def state(self, sid: str):
         s = self.store.session(sid)
@@ -232,11 +233,53 @@ class Service:
             timer.daemon = True
             self.jobs[token] = {"timer": timer, "backup": recorded or legal[0].uci(), "engine_ready": False,
                                 "recorded": recorded, "review": None, "reply_evidence": None,
-                                "started": pending["started"]}
+                                "started": pending["started"], "finished": threading.Event(),
+                                "commit_lock": threading.RLock(), "sid": sid, "gid": gid}
             timer.start()
             worker = threading.Thread(target=lambda: context.run(self._reply_worker, gid, sid, token),
                                       name="gambit-move", daemon=True)
             worker.start()
+
+    def wait_for_reply(self, sid, game_id, token, deadline=None):
+        """Wait for one existing turn, including its feedback queue, within its original budget."""
+        with self.lock:
+            job = self.jobs.get(token)
+            finished = job.get("finished") if job else None
+            if deadline is None:
+                deadline = job["started"] + self.move_seconds if job else time.time()
+        if finished is not None:
+            finished.wait(max(0.0, min(60.5, deadline - time.time() + 0.5)))
+        state = self.state(sid)
+        board = state.get("board")
+        if board is None or board["id"] != game_id:
+            raise StalePosition("The selected game changed while Hermes was replying. Show the board again.")
+        pending, reply = board.get("pending"), board.get("last_reply")
+        if (pending and pending["token"] != token) or (not pending and (not reply or reply["token"] != token)):
+            raise StalePosition("That turn was taken back or replaced. Show the board again.")
+        return state
+
+    def take_terminal_coaching(self, sid, game_id, *, token=None, ply=None):
+        """Deliver this turn's queued request to the current terminal agent exactly once."""
+        self.require(sid)
+        claimed = []
+        def take(session):
+            if session.get("game_id") != game_id:
+                return
+            game = self.store.game(game_id)
+            if game.get("play_mode") != "coach":
+                return
+            kept = []
+            for event in session.get("coaching_queue", []):
+                review = event.get("review") or {}
+                selected = event.get("id") == token if token else (ply is not None and review.get("ply") == ply)
+                if (not claimed and selected and event.get("game_id") == game_id and event.get("kind", "auto") == "auto"
+                        and self._notification_matches(event, game)):
+                    claimed.append(event)
+                else:
+                    kept.append(event)
+            session["coaching_queue"] = kept
+        self.store.mutate_session(sid, take)
+        return claimed[0] if claimed else None
 
     def _deadline(self, gid, sid, token):
         with self.lock:
@@ -311,9 +354,15 @@ class Service:
             self._deadline(gid, sid, token)
         finally:
             with self.lock:
-                finished = self.jobs.pop(token, None)
+                finished = self.jobs.get(token)
             if finished:
-                finished["timer"].cancel()
+                # A deadline publisher may have won the move while this worker
+                # lost the revision race. Wait for its feedback to be queued.
+                with finished["commit_lock"]:
+                    with self.lock:
+                        self.jobs.pop(token, None)
+                    finished["timer"].cancel()
+                    finished["finished"].set()
 
     async def _select(self, game, candidates, timeout, job):
         schema = {"type": "object", "properties": {
@@ -340,6 +389,14 @@ class Service:
         return result.parsed
 
     def _commit_reply(self, gid, sid, token, uci, origin, note):
+        with self.lock:
+            job = self.jobs.get(token)
+        if job is None:
+            return None
+        with job["commit_lock"]:
+            return self._publish_reply(gid, sid, token, uci, origin, note)
+
+    def _publish_reply(self, gid, sid, token, uci, origin, note):
         if self.stopped.is_set():
             return None
         try:
@@ -400,6 +457,8 @@ class Service:
             self.notify_chat(sid, prompt, token=token, game_id=gid, expected_game=game,
                              review_ply=human_ply if human_ply else None)
         self.emit("board.changed", {"session_id": sid, "game_id": gid, "reply_token": token})
+        if job.get("finished"):
+            job["finished"].set()
         return game
 
     def seek(self, sid, ply, *, view_revision=None, game_id=None):
@@ -808,6 +867,19 @@ class Service:
         return {"ok": True}
 
     def emit(self, event, payload):
+        if event == "board.changed" and payload.get("session_id"):
+            sid = payload["session_id"]
+            session = self.store.session(sid)
+            game = self.store.game(session["game_id"]) if session.get("game_id") else None
+            pending = game.get("pending") if game else None
+            reply = game.get("last_reply") if game else None
+            with self.lock:
+                for token, job in self.jobs.items():
+                    invalidated = (job["gid"] != session.get("game_id") or
+                                   (pending is not None and pending["token"] != token) or
+                                   (pending is None and (not reply or reply.get("token") != token)))
+                    if job["sid"] == sid and invalidated:
+                        job["finished"].set()
         try:
             from hermes_cli.plugin_events import broadcast_plugin_event
         except ImportError:
