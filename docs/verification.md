@@ -2,6 +2,12 @@
 
 Updated 2026-11-10 (AEDT). Version 0.3.0 has automated, real terminal, production CLI tool/coaching, native TUI, fresh-install and final media checks recorded below. Anonymous public-candidate admission and catalogue security checks pass; the catalogue PR records the published pin and its final checks. Historical Desktop results retain their original dates and versions. Repository verification is separate from catalogue acceptance and hackathon submission.
 
+## CLI and native Desktop demo revision — 11 November 2026
+
+The revised 88-second film retains the verified CLI launch, terminal game, hints, feedback, Normal mode, import and practice at 0–81 seconds. Its final seven seconds now show the actual installed Hermes Desktop app: Play Hermes, human `e4`, public thinking status, and the genuine Hermes `...e6` reply (`origin=hermes`, 11.422 seconds before editing). This separate Desktop turn uses the normal default profile and its existing Nous Portal provider. No named profile, copied credentials, global model change or gameplay patch was required. TUI remains supported and documented; it is not shown in this cut.
+
+All 41 selected native-window states and the new poster passed local text recognition and identity checks. The bottom host/device status strip is cropped. The voice, audio packet stream, 18 caption cues and first eight chapter sections are retained. Full decode and actual browser playback of the Desktop chapter through the end passed. The original CLI capture-source limitation and the prior native-fullscreen verification limit remain disclosed. No runtime source changed, so the existing 175-test and 24-host-check results still apply.
+
 ## Terminal release checks — 10 November
 
 The candidate adds `hermes gambit`, a standalone curses board using a separate Gambit session, and `/chess` text-board output inside a Hermes CLI or TUI conversation. The graphical Desktop pane remains optional. The declared Hermes floor remains `>=0.23.0`, with macOS-only catalogue scope.

@@ -1,12 +1,7 @@
 {
-  "plugin_version": "0.3.0 terminal candidate",
-  "repository_revision_observed_after_capture": "389d0713ebd981f50d73765a08e6829eca13cdbd",
-  "uncommitted_changes_present_at_verification": true,
   "capture_time_code_snapshot_frozen": false,
   "capture_time_source_limitation": "Supported linked local production plugin was imported at launch before final commit and later file copies. Exact in-memory source bytes were not frozen. Current source hashes must not be described as an immutable take02 snapshot.",
   "normal_take_source_note": "Launched after final core commit and latest source sync.",
-  "post_capture_runtime_tree_manifest_sha256": "e86e1b4ee2253189b1444a7815415267ff270559dd37a2cd3e621b112bac5b81",
-  "post_capture_manifest_is_not_a_capture_time_hash": true,
   "provider": {
     "model": "gpt-6.1-sol",
     "connection": "Existing authorized Hermes OAuth connection",
@@ -56,57 +51,43 @@
     "recorded_practice": "c5 -> Nf3 (recorded)",
     "alternative_practice": "e6 -> d4 (hermes)"
   },
-  "edit": {
-    "seconds": 88,
-    "all_selected_source_spans_at_original_speed": true,
-    "source_terminal_render_fps": 12,
-    "encoded_fps": 30,
-    "cuts_shorten_waits": true,
-    "disclosure": "Actual terminal session rendered from its timestamped ANSI capture. Cuts shorten waits; responses are genuine.",
-    "selected_source_spans": 24
+  "plugin_version": "0.3.0",
+  "surfaces_shown": [
+    "classic CLI",
+    "terminal dashboard",
+    "native Desktop"
+  ],
+  "TUI_supported": true,
+  "native_TUI_footage_in_this_edit": false,
+  "previous_film_sha256": "6a42bf34ac59bfb127acba847c892d4e292d69166fe7b9713d3649b9a6f7c797",
+  "sha256": "9722890720ea11899ff83ee8dd7f6ba1d348b1481be35845be1ca22372aee4a2",
+  "retained_CLI_footage_seconds": [
+    0,
+    81
+  ],
+  "audio_and_18_caption_cues_unchanged": true,
+  "native_Desktop": {
+    "date": "2026-11-11",
+    "app": "Hermes Desktop 0.23.0, installed macOS app",
+    "runtime_source_pin": "b4564d7708d4d7f15ca41be064740fca3274598a",
+    "profile": "normal default profile; no named profile required",
+    "capture_method": "Timestamped native-window screenshots captured through the computer-use API; sampled frames are held until the next capture",
+    "raw_captured_frames": 112,
+    "selected_unique_native_frames": 41,
+    "selected_edit_seconds": 7,
+    "game": "1.e4 e6",
+    "reply_origin": "hermes",
+    "reply_elapsed_seconds": 11.422,
+    "provider": "Existing default-profile configuration, Nous Portal",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "board_actions": "Actual Play Hermes, e2 selection, e4 destination, public thinking status and completed reply",
+    "privacy": "Bottom host/device status strip cropped. Gameplay and model output are unchanged.",
+    "credentials_copied": false,
+    "global_model_or_OS_identity_changed": false,
+    "code_modified_for_recording": false,
+    "private_reasoning_included": false
   },
-  "privacy": {
-    "public_alias": "itsflownium",
-    "selected_rendered_states_scanned": 267,
-    "selected_unique_text_states": 89,
-    "identifier_matches": 0,
-    "original_film_private_name_findings": 0,
-    "ocr_claim": false
-  },
-  "identity_revision": {
-    "original_movie_sha256": "0d3818034ae52e6ef95659e36643ebb3b7ba2157959678c379a3a248b0fed522",
-    "revised_movie_sha256": "6a42bf34ac59bfb127acba847c892d4e292d69166fe7b9713d3649b9a6f7c797",
-    "public_alias": "itsflownium",
-    "shell_prompt_actually_emitted_alias": true,
-    "shell_prompt_method": "Temporary child-shell prompt only; no OS account or global preference change",
-    "presentation_replacements": "Opaque public-alias replacement only in actual profile identity and visible working-directory fields. Chess, public match data and model responses are unchanged.",
-    "original_film_private_name_findings": 0,
-    "selected_identity_and_path_field_regions": 11,
-    "middle_4_to_81_seconds_source_spans_unchanged": true,
-    "sampled_core_application_pixels_identical_before_encoding": [
-      22,
-      42.75
-    ],
-    "audio_stream_copied_unchanged": true,
-    "new_cli_command": "hermes chat --cli -t gambit",
-    "new_native_tui_command": "hermes chat --tui --native -t gambit",
-    "new_cli_game": "1.e4 c5",
-    "new_native_tui_game": "1.e4 c5",
-    "new_move_reply_origins": [
-      "hermes",
-      "hermes"
-    ],
-    "new_sources": [
-      {
-        "id": "shell-cli-take01",
-        "sha256": "69e4de1cdb63b1f514992102c23d3939fcc158ed2e815a9e445a9804a33fd345",
-        "full_seconds": 243.860283
-      },
-      {
-        "id": "native-tui-take01",
-        "sha256": "c905defee4143fe81840d1d144d3ca347b027ce009a725d590d3ae0e9a2b2a1c",
-        "full_seconds": 256.463906
-      }
-    ]
-  }
+  "public_alias": "itsflownium",
+  "sessions_across_surfaces_are_separate": true,
+  "editing": "All chosen source ranges at original speed; cuts shorten waits; original CLI source-snapshot limitation retained."
 }

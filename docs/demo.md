@@ -1,6 +1,6 @@
-# Terminal demonstration
+# CLI and native Desktop demonstration
 
-The repository includes an [88-second terminal demo](../demo/Gambit-Demo-Review.mp4), [poster](../demo/poster.png), English captions and a [nine-chapter review player](../demo/Review.html). The film opens with a real Hermes CLI launch, follows the supported `hermes gambit` dashboard through a game, requested hints, coaching, import and practice, then closes in the native Hermes Ink TUI.
+The repository includes an [88-second CLI and Desktop demo](../demo/Gambit-Demo-Review.mp4), [poster](../demo/poster.png), English captions and a [nine-chapter review player](../demo/Review.html). The film opens with a real Hermes CLI launch, follows the supported `hermes gambit` dashboard through a game, requested hints, coaching, import and practice, then closes in the actual native Hermes Desktop app.
 
 | Time | Evidence in the film |
 | --- | --- |
@@ -12,11 +12,11 @@ The repository includes an [88-second terminal demo](../demo/Gambit-Demo-Review.
 | 53–59 s | A separate, completed Normal-mode `1.e4 c5` turn with a genuine Hermes reply and no automatic coaching. |
 | 59–68 s | A public Chess.com search, specific match selection and loaded replay. |
 | 68–81 s | Recorded `...c5 → Nf3` and genuine alternative `...e6 → d4`, with the imported original preserved. |
-| 81–88 s | The native Hermes Ink TUI shows `/chess` input and the genuine `1.e4 c5` board and reply. |
+| 81–88 s | The actual installed native Hermes Desktop app shows Play Hermes, human `e4`, public move status and the genuine `...e6` reply. |
 
-The public alias `itsflownium` appears in added chrome throughout the film. The real child-shell prompt already uses that handle. Disposable profile identity and visible working-directory fields are relabelled only in the declared presentation regions; chess state, moves, public match data and model response text are unchanged. The middle 4–81 seconds retains the original 17 source spans, and the audio and 18 caption cues are unchanged.
+The public alias `itsflownium` appears in added chrome throughout the film. The real child-shell prompt already uses that handle. Disposable profile identity and visible working-directory fields are relabelled only in the declared presentation regions; chess state, moves, public match data and model response text are unchanged. The first 81 seconds retain the verified CLI source spans; the final seven seconds are a native Desktop capture. The audio and 18 caption cues are unchanged. The native bottom host/device status strip is cropped for identity privacy. TUI remains supported and is listed in the feature descriptions.
 
-The actual terminal session is rendered from its timestamped ANSI capture. Cuts shorten waits; the responses are genuine. The source-to-edit map retains the original events and waits privately. The film is an edited demonstration, not a performance benchmark. It shows public move status, with no private model reasoning or recreated product replies.
+The actual terminal session is rendered from its timestamped ANSI capture. The Desktop section uses timestamped native-window screenshots, held until the next capture. Its separate `1.e4 e6` game uses the normal default profile and its existing Nous Portal provider; no named profile or global provider change is required. Cuts shorten waits; the responses are genuine. The source-to-edit map retains the original events and waits privately. The film is an edited demonstration, not a performance benchmark. It shows public move status, with no private model reasoning or recreated product replies.
 
 The fresh provider run uses GPT-6.1 Sol, selected through Hermes before capture in an isolated demo profile using the existing authorized OAuth connection. Both opponent moves in `1.f3 e5 2.g4 Qh4#` were genuine Hermes replies. The coaching ties `2.g4` to the exposed king and forced mate. Stockfish calculates legal candidates and supplies the position evidence for hints and reviews.
 
