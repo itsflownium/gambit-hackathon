@@ -208,13 +208,50 @@ def test_bare_chess_in_a_fresh_terminal_chat_starts_and_displays_its_board(servi
     assert len(service.store.list_games()) == 1
 
 
-def test_bare_chess_in_a_fresh_desktop_chat_only_initializes_it(service, monkeypatch):
+def test_bare_chess_in_a_fresh_desktop_chat_displays_the_same_portable_board(service, monkeypatch):
     sid = "fresh-desktop"
     context = registered(service, monkeypatch, surface="desktop", session_id=sid)
     text = context.commands["chess"]("")
-    assert isinstance(text, str) and "ready" in text.lower()
-    assert service.store.session(sid)["initialized"]
-    assert service.state(sid)["board"] is None and service.store.list_games() == []
+    board = service.state(sid)["board"]
+    assert isinstance(text, str) and "GAMBIT" in text and "White to move" in text
+    assert service.store.session(sid)["initialized"] and board["human"] == "white"
+    assert board["play_mode"] == "coach" and board["ply"] == 0 and board["pending"] is None
+    original = service.store.game(board["id"])
+    repeated = context.commands["chess"]("")
+    assert "GAMBIT" in repeated and service.state(sid)["board"]["id"] == board["id"]
+    assert service.store.game(board["id"]) == original and len(service.store.list_games()) == 1
+
+
+@pytest.mark.parametrize("source", ["local", ""])
+@pytest.mark.parametrize("command", ["", "play black normal"])
+def test_canonical_off_turn_local_slash_displays_a_board_without_guessing_terminal_policy(
+        service, monkeypatch, source, command):
+    sid = "canonical-local-chat"
+    environment = {"HERMES_SESSION_ID": sid, "HERMES_SESSION_SOURCE": source, "HERMES_PLATFORM": "local"}
+    monkeypatch.setitem(sys.modules, "gateway.session_context", SimpleNamespace(
+        get_session_env=lambda name, default="": environment.get(name, default)))
+    engine = HeldReply()
+    engine.release.set()
+    service.engine = engine
+    context = HostContext("local")
+    tools.register_tools(context, lambda: service)
+
+    text = context.commands["chess"](command, platform="local")
+
+    board = service.state(sid)["board"]
+    assert isinstance(text, str) and "GAMBIT" in text and board["pending"] is None
+    assert service.store.session(sid)["initialized"] and len(service.store.list_games()) == 1
+    if command:
+        assert board["human"] == board["turn"] == "black" and board["play_mode"] == "normal"
+        assert board["ply"] == 1 and board["last_san"] == "e4" and "Black to move" in text
+    else:
+        assert board["human"] == board["turn"] == "white" and board["play_mode"] == "coach"
+        assert board["ply"] == 0 and "White to move" in text
+    policy = context.hooks["pre_llm_call"](platform="local")["context"]
+    assert "This is a CLI/TUI chat." not in policy
+    state_result = json.loads(context.tools["chess_state"]({}, platform="local"))
+    assert "terminal_board" not in state_result and "coaching_prompt" not in state_result
+    assert state_result["board"]["id"] == board["id"]
 
 
 def test_missing_canonical_host_session_does_not_create_a_synthetic_game(service, monkeypatch):

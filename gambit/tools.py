@@ -250,7 +250,8 @@ def register_tools(ctx, get_service):
             service.emit("initialized", {"session_id":sid})
             parts = raw_args.strip().split()
             if parts and parts[0].lower() == "help":
-                return ("/chess play [white|black] [normal|coach] [learning|balanced|strong]\n"
+                return ("/chess - start or show your board\n"
+                        "/chess play [white|black] [normal|coach] [learning|balanced|strong]\n"
                         "/chess status | move e4 | hint [1-4] | undo | resign | normal | coach\n"
                         "/chess chess.com USERNAME | lichess USERNAME | open NUMBER\n"
                         "/chess next | previous | first | last | practice | source | saved | resume ID | export\n"
@@ -261,26 +262,25 @@ def register_tools(ctx, get_service):
                 strength = next((p for p in tokens if p in {"learning", "balanced", "strong"}), "balanced")
                 mode = next((p for p in tokens if p in {"normal", "coach"}), "coach")
                 value = service.start(sid, colour, strength, mode)
-                if terminal_surface():
-                    from .chat_terminal import board_text, settle
-                    return board_text(settle(service, sid, value)) + "\nEnter your move in chat, or /chess move e4. Ask for a hint whenever you want one."
-                return "Your board is ready. Make a move on the board or tell me your move here. Desktop has a knight button; terminals can run hermes gambit for the side-by-side dashboard. Ask for a hint whenever you want one."
+                from .chat_terminal import board_text, settle
+                return board_text(settle(service, sid, value)) + "\nEnter your move in chat, or /chess move e4. Ask for a hint whenever you want one."
             if parts:
                 from .chat_terminal import command as text_command
                 return text_command(service, sid, parts)
-            if terminal_surface():
-                from .chat_terminal import board_text, settle
-                state = service.state(sid)
-                if not state.get("board"):
-                    state = settle(service, sid, service.start(sid, "white", "balanced", "coach"))
-                return board_text(state) + "\nEnter your move in chat, or /chess move e4. Use /chess help for controls."
-            return service.initialize(sid)["message"]
+            # Off-turn local slash commands intentionally carry no CLI/TUI/
+            # Desktop distinction. Return a portable board on every surface;
+            # the graphical __board__ transport above remains asynchronous.
+            from .chat_terminal import board_text, settle
+            state = service.state(sid)
+            if not state.get("board"):
+                state = settle(service, sid, service.start(sid, "white", "balanced", "coach"))
+            return board_text(state) + "\nEnter your move in chat, or /chess move e4. Use /chess help for controls."
         except (GambitError, ValueError, TypeError) as exc:
             if raw_args.startswith("__board__ "):
                 return json.dumps({"ok": False, "error": getattr(exc, "code", "invalid_action"), "message": str(exc)})
             return str(exc)
 
-    ctx.register_command("chess", command, description="Initialize Gambit chess coaching in this chat; then play or review a username",
+    ctx.register_command("chess", command, description="Start or show Gambit; play Hermes, request hints, or replay public games",
                          args_hint="[play | status | move e4 | hint | chess.com USERNAME | lichess USERNAME | help]", argument_mode="text")
 
     def context_hook(session_id="", user_message="", **kwargs):
