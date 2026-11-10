@@ -6,7 +6,6 @@
   "middle_4_to_81_seconds_unchanged": true,
   "full_waits_retained_privately": true,
   "public_alias": "itsflownium",
-  "identity_and_path_field_regions": 11,
   "segments": [
     {
       "start": 22.9,
@@ -234,26 +233,49 @@
       "source_recording": "provider-take02"
     },
     {
-      "start": 136.0,
-      "end": 137.25,
-      "duration": 1.25,
-      "label": "Actual native TUI identity and chess command",
-      "bookend": "tui",
-      "edit_start": 81.0,
-      "edit_end": 82.25,
-      "speed": 1.0,
-      "source_recording": "native-tui-take01"
+      "source_recording": "native-desktop-window",
+      "start": 8.0,
+      "end": 9.2,
+      "edit_start": 81,
+      "edit_end": 82.2,
+      "duration": 1.2,
+      "speed": 1,
+      "label": "Actual native Play Hermes action"
     },
     {
-      "start": 158.6,
-      "end": 164.35,
-      "duration": 5.75,
-      "label": "Actual native TUI chess board",
-      "bookend": "tui",
-      "edit_start": 82.25,
+      "source_recording": "native-desktop-window",
+      "start": 16.84,
+      "end": 17.84,
+      "edit_start": 82.2,
+      "edit_end": 83.2,
+      "duration": 1.0,
+      "speed": 1,
+      "label": "Playable Normal board"
+    },
+    {
+      "source_recording": "native-desktop-window",
+      "start": 24.92,
+      "end": 27.32,
+      "edit_start": 83.2,
+      "edit_end": 85.60000000000001,
+      "duration": 2.4,
+      "speed": 1,
+      "label": "Actual e2 to e4 selection and pending reply"
+    },
+    {
+      "source_recording": "native-desktop-window",
+      "start": 58.0,
+      "end": 60.4,
+      "edit_start": 85.6,
       "edit_end": 88.0,
-      "speed": 1.0,
-      "source_recording": "native-tui-take01"
+      "duration": 2.4,
+      "speed": 1,
+      "label": "Completed native Desktop turn"
     }
-  ]
+  ],
+  "CLI_0_to_81_seconds_preserved": true,
+  "native_Desktop_seconds": 7,
+  "native_TUI_footage_shown": false,
+  "native_capture": "112 timestamped native-window captures; 41 selected source states",
+  "native_identity_privacy": "Bottom status strip cropped; public alias in added outer chrome"
 }

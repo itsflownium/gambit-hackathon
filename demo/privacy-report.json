@@ -1,10 +1,14 @@
 {
-  "public_alias": "itsflownium",
-  "rendered_states_checked": 267,
-  "unique_text_states_checked": 89,
-  "identity_and_path_field_regions": 11,
-  "private_identifier_findings": 0,
-  "original_film_private_name_findings": 0,
+  "date": "2026-11-11",
   "passed": true,
-  "ocr_claim": false
+  "public_alias": "itsflownium",
+  "retained_CLI_review": "Previously reviewed 0\u201381 second source ranges retained; original text scan had no private identity findings",
+  "native_Desktop_selected_states": 41,
+  "native_Desktop_OCR_states": 41,
+  "poster_OCR_checked": true,
+  "OCR_method": "Local Apple Vision accurate text recognition, CPU only",
+  "native_identity_handling": "Bottom host/device status strip cropped; public alias appears in added chrome",
+  "public_text_and_video_metadata_scan": "passed",
+  "private_identifier_findings": 0,
+  "gameplay_and_model_response_text_recreated": false
 }

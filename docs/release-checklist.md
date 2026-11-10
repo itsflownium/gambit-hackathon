@@ -1,6 +1,6 @@
 # Release checklist
 
-Updated 10 November 2026 for the 0.3.0 terminal release. All 175 behavioral tests, real pseudo-terminal integration, production dashboard play/coaching, 24 host transport checks, native TUI commands, fresh default-home terminal installation/play, dependency-aware candidate validation and final 88-second film QA passed. Anonymous public-candidate admission and catalogue gates pass. The existing catalogue PR records the published release pin and remains a draft. The [verification report](verification.md) preserves the evidence boundaries and earlier Desktop results.
+Updated 11 November 2026 for the 0.3.0 release and CLI/Desktop demo revision. All 175 behavioral tests, real pseudo-terminal integration, production dashboard play/coaching, 24 host transport checks, native TUI commands, fresh default-home terminal installation/play, dependency-aware candidate validation and final 88-second film QA, native Desktop closing playback, 41 native-state privacy checks and poster checks passed. Anonymous public-candidate admission and catalogue gates pass. The existing catalogue PR records the published release pin and is ready for review. The [verification report](verification.md) preserves the evidence boundaries and earlier Desktop results.
 
 ## 0.3.0 candidate
 
@@ -29,7 +29,7 @@ Updated 10 November 2026 for the 0.3.0 terminal release. All 175 behavioral test
 - [x] Capture actual terminal operation and promote the verified 88.000-second film and review package.
 - [x] Keep model replies, local engine fallback and recorded source replies distinguishable; disclose timing cuts and the faithful ANSI capture rendering.
 - [x] Disclose that the main linked-development capture predates the final commit and its exact in-memory bytes were not frozen; the separate Normal take follows the core commit/source sync.
-- [x] Replace the earlier Desktop demo and its review-player links with the terminal film.
+- [x] Show the verified CLI footage and actual native Desktop in the 88-second film; retain TUI as a supported feature.
 - [x] Verify 18 caption cues, nine external chapter controls, the real feedback poster/screenshot, audio attribution, clean full decode, desktop/mobile player seeking and MP4 checksum.
 - [x] Review visible frames, repository text and media metadata for private information. Verify final Git author/committer metadata when publishing the source.
 
@@ -43,7 +43,7 @@ Updated 10 November 2026 for the 0.3.0 terminal release. All 175 behavioral test
 - [x] Update only `plugin-catalog/gambit.yaml` on the existing `feat/gambit-catalog-0.2.4` branch for [PR #152547](https://github.com/NousResearch/hermes-agent/pull/152547).
 - [x] Bump its pin and version together; update `docs_url`, screenshots, demo/source links and behavior disclosures to the same verified commit.
 - [x] Match the candidate's declared eight tools, one hook, empty middleware and empty environment requirements to its registrations; standalone CLI registration adds no tool or hook.
-- [x] Keep the existing upstream PR in draft and record the actual checks completed. A passing local validator does not constitute catalogue acceptance.
+- [x] Mark the existing upstream PR ready for review when requested and record the actual checks completed. A passing local validator does not constitute catalogue acceptance.
 
 The catalogue entry remains `tier: community` and macOS only. The standalone terminal board requires curses and an interactive terminal; Desktop is required only for the graphical pane. With `plugins.isolation: host`, Hermes skips standalone CLI command registration; use `/chess` in a Hermes conversation. Stockfish remains a separately installed local executable. Linux, Windows and another physical computer are unverified.
 
@@ -56,4 +56,4 @@ The catalogue entry remains `tier: community` and macOS only. The standalone ter
 
 Those checks describe earlier source and media. They are not a substitute for 0.3.0 acceptance. The [second-computer checklist](second-device-check.md) and verification on other operating systems are optional follow-ups, not blockers for this macOS-only release; those scopes remain unverified.
 
-Social posting and the organizer form require their own authorization. Neither is performed by updating the existing catalogue draft.
+Social posting and the organizer form require their own authorization. Neither is performed by updating the existing catalogue PR.

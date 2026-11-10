@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Gambit terminal demo with optional English captions and chapter controls.">
+<meta name="description" content="Gambit CLI and Desktop demo with optional English captions and chapter controls.">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNmQ5ZmZmIiBzdHJva2Utd2lkdGg9IjEuNjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTUgMjFoMTVNNyAxOGgxMS4ybC0uNS0zLjFjLS4zLTIuMS0xLjQtMy44LTMuMS01LjJsMS4yLTMuM0wxMiAzbC0xLjUgMy0zLjggMy45LjkgMy4xIDQuNS0xLjhMOC42IDE4Ii8+PHBhdGggZD0ibTEwLjUgNiAzLjEgMS40TTcgMTh2M20xMS0zdjMiLz48Y2lyY2xlIGN4PSIxMS45IiBjeT0iOC41IiByPSIuNjUiIGZpbGw9IiM2ZDlmZmYiIHN0cm9rZT0ibm9uZSIvPjwvc3ZnPgo=">
-<title>Gambit — terminal demo review</title>
+<title>Gambit — CLI and Desktop demo review</title>
 <style>
 :root{color-scheme:dark;font:16px/1.5 system-ui,-apple-system,sans-serif;color:#e6edf2;background:#071013}
 *{box-sizing:border-box}body{margin:0;padding:32px 4vw 48px;background:radial-gradient(ellipse at 80% 0,#143237 0,transparent 55%)}
@@ -25,18 +25,18 @@ button span{font-variant-numeric:tabular-nums;color:#83d5bf;margin-right:10px}bu
 </style>
 </head>
 <body><main>
-<header><div><div class="eyebrow">GAMBIT / HERMES TERMINAL DEMO</div><h1>A game. A decision. Another line.</h1></div><div class="meta">88 seconds · 1080p · English captions</div></header>
+<header><div><div class="eyebrow">GAMBIT / HERMES CLI + DESKTOP DEMO</div><h1>A game. A decision. Another line.</h1></div><div class="meta">88 seconds · 1080p · English captions</div></header>
 
-<video id="demo" poster="poster.png" controls playsinline preload="metadata" aria-label="Gambit terminal demonstration"><source src="Gambit-Demo-Review.mp4" type="video/mp4">Your browser does not support this video. <a href="Gambit-Demo-Review.mp4">Download the film.</a></video>
+<video id="demo" poster="poster.png" controls playsinline preload="metadata" aria-label="Gambit CLI and Desktop demonstration"><source src="Gambit-Demo-Review.mp4" type="video/mp4">Your browser does not support this video. <a href="Gambit-Demo-Review.mp4">Download the film.</a></video>
 <div id="caption-output" class="caption-output" hidden aria-live="off"></div>
 <div class="tools"><div class="status" id="chapter-status" aria-live="polite">CLI launch with itsflownium</div><button class="caption-toggle" type="button" id="captions" aria-pressed="false">English captions: off</button></div>
-<nav aria-label="Demo chapters"><button type="button" data-seconds="0"><span>0:00</span>CLI launch with itsflownium</button><button type="button" data-seconds="4"><span>0:04</span>One move, one reply</button><button type="button" data-seconds="18"><span>0:18</span>A clue on request</button><button type="button" data-seconds="27"><span>0:27</span>The next hint</button><button type="button" data-seconds="34"><span>0:34</span>Coach feedback</button><button type="button" data-seconds="53"><span>0:53</span>Normal mode</button><button type="button" data-seconds="59"><span>0:59</span>Import the exact match</button><button type="button" data-seconds="68"><span>1:08</span>Try another line</button><button type="button" data-seconds="81"><span>1:21</span>Native Hermes TUI</button></nav>
-<div class="notes"><p><strong>What is shown.</strong> A real itsflownium shell launch, CLI text board, native Hermes TUI, and a terminal game with one Hermes reply per move, two requested hint levels, retrospective coaching, Normal mode, exact-match import, and practice from replay.</p><p>Actual terminal session rendered from its timestamped ANSI capture. Cuts shorten waits; responses are genuine. Synthetic narration: Kokoro af_heart. Original score: Quiet Continuation.</p><p><a href="Gambit-Demo-Review.mp4" download>Save the film</a> · <a href="captions.srt" download>Download captions</a> · <a href="capture-notes.txt">Production notes</a></p></div>
+<nav aria-label="Demo chapters"><button type="button" data-seconds="0"><span>0:00</span>CLI launch with itsflownium</button><button type="button" data-seconds="4"><span>0:04</span>One move, one reply</button><button type="button" data-seconds="18"><span>0:18</span>A clue on request</button><button type="button" data-seconds="27"><span>0:27</span>The next hint</button><button type="button" data-seconds="34"><span>0:34</span>Coach feedback</button><button type="button" data-seconds="53"><span>0:53</span>Normal mode</button><button type="button" data-seconds="59"><span>0:59</span>Import the exact match</button><button type="button" data-seconds="68"><span>1:08</span>Try another line</button><button type="button" data-seconds="81"><span>1:21</span>Native Hermes Desktop</button></nav>
+<div class="notes"><p><strong>What is shown.</strong> A real itsflownium shell launch, CLI text board, native Hermes Desktop, and a terminal game with one Hermes reply per move, two requested hint levels, retrospective coaching, Normal mode, exact-match import, and practice from replay.</p><p>Genuine CLI sessions and a native Hermes Desktop recording. Cuts shorten waits; responses are genuine. TUI is also supported. Synthetic narration: Kokoro af_heart. Original score: Quiet Continuation.</p><p><a href="Gambit-Demo-Review.mp4" download>Save the film</a> · <a href="captions.srt" download>Download captions</a> · <a href="capture-notes.txt">Production notes</a></p></div>
 <footer>Play. Replay. Understand.</footer>
 </main>
 <script>
 const video = document.getElementById('demo');
-const chapters = [{"start": 0, "title": "CLI launch with itsflownium"}, {"start": 4, "title": "One move, one reply"}, {"start": 18, "title": "A clue on request"}, {"start": 27, "title": "The next hint"}, {"start": 34, "title": "Coach feedback"}, {"start": 53, "title": "Normal mode"}, {"start": 59, "title": "Import the exact match"}, {"start": 68, "title": "Try another line"}, {"start": 81, "title": "Native Hermes TUI"}];
+const chapters = [{"start": 0, "title": "CLI launch with itsflownium"}, {"start": 4, "title": "One move, one reply"}, {"start": 18, "title": "A clue on request"}, {"start": 27, "title": "The next hint"}, {"start": 34, "title": "Coach feedback"}, {"start": 53, "title": "Normal mode"}, {"start": 59, "title": "Import the exact match"}, {"start": 68, "title": "Try another line"}, {"start": 81, "title": "Native Hermes Desktop"}];
 const buttons = [...document.querySelectorAll('[data-seconds]')];
 const status = document.getElementById('chapter-status');
 buttons.forEach(button => button.addEventListener('click', () => {

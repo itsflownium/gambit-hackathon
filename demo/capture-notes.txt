@@ -1,13 +1,29 @@
-Gambit terminal demo — production notes
+Gambit — CLI and native Desktop demo
 
-88 seconds. Actual terminal sessions rendered faithfully from their timestamped ANSI captures. Cuts shorten waits; responses are genuine. Every selected source span plays at original speed. Source terminal rendering is 12 fps, repeated into a 30 fps export. Outer chrome, chapter labels and the wait-cut disclosure are presentation styling.
+The 88-second film keeps the approved genuine CLI launch, terminal game, hints,
+coaching, Normal mode, exact-match import and replay practice at 0–81 seconds.
+The final seven seconds now show the actual installed Hermes Desktop app:
+Play Hermes, select e2, play e4, wait for the real reply and see ...e6.
+The reply is stored as origin=hermes. TUI is supported and listed as a feature;
+this cut does not show native TUI footage.
 
-Fresh proof: 1.f3 e5 2.g4 Qh4#, genuine requested hint levels 1 and 2, and real Hermes feedback. Clean Normal turn: 1.e4 c5 with no automatic coaching. Public Chess.com source: 186751169392, 15 half-moves retained. Recorded c5 -> Nf3; alternative e6 -> genuine Hermes d4.
+CLI footage is rendered faithfully from timestamped ANSI capture. Desktop is
+captured directly from the native app through timestamped window screenshots.
+Frames are held until the next capture; the movie is encoded at 30 fps. Chosen
+ranges run at original speed and cuts shorten waits. The bottom native host/device
+status strip is cropped for privacy. The public alias itsflownium remains in
+added chrome. Chess moves and model response text are unchanged.
 
-The linked local Gambit 0.3.0 terminal candidate was imported before a later source refresh during the Coach take. Exact in-memory code bytes were not frozen. Post-capture repository/tree hashes are labelled accordingly, not as an immutable capture-time source pin. The clean Normal take began after final core commit and sync. See source-provenance.json and edit-timeline.json for the exact evidence and edit boundary.
+The original CLI game and explanations use GPT-6.1 Sol through the existing
+authorized Hermes OAuth connection. The separate Desktop turn uses its existing
+default-profile Nous Portal configuration. No credentials, global model settings,
+OS account names or gameplay code were changed for recording.
 
-The player has nine external chapter controls and optional English captions. Caption timing comes from the narration model's original phoneme durations. Synthetic narration: Kokoro v1.0 af_heart through kokoro-onnx 0.6.1 at speed 0.95. Original score: Quiet Continuation, local additive synthesis, no external samples or tracks. This is not a performance benchmark.
+The existing source-snapshot limitation of the main terminal take is retained in
+source-provenance.json. These are separate real sessions, not a cross-surface
+session-continuity claim. This edited demonstration is not a performance benchmark.
 
-Privacy method: exact selected terminal-state text scan and visual frame/outer-chrome review, plus narration, caption and public metadata scans. No OCR-success claim. Raw recordings and runtime/account material remain private.
-
-Identity and CLI/TUI revision: the actual temporary shell prompt emits itsflownium before the genuine Hermes launch. Actual CLI and native Ink TUI chess views replace only 0–4s and 81–88s. The middle 4–81s source spans and original audio are retained. Opaque presentation replacements relabel only profile identity and visible working-directory fields to itsflownium. No IRL name was observed in the original film. No OS account or global preference was changed; all actual chess and model output remains unchanged.
+Approved synthetic narration is unchanged: Kokoro v1.0 af_heart, speed 0.95.
+The unchanged original score is Quiet Continuation, made with local additive
+synthesis without external samples or tracks. Eighteen English caption cues
+and nine chapter controls accompany the film. No private reasoning is shown.
